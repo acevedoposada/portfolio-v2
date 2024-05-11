@@ -1,0 +1,61 @@
+.button {
+  $root: &;
+
+  @apply inline-block relative px-6 py-4 rounded-full font-medium text-lg uppercase;
+  transition: transform 0.3s;
+
+  &__border {
+    @apply block absolute inset-0 z-[3] border rounded-full border-white;
+  }
+
+  &__ripple {
+    @apply block absolute inset-0 z-[1] overflow-hidden rounded-[inherit];
+    transform: translateZ(0);
+
+    & span {
+      @apply block w-full h-full bg-white;
+      border-radius: 50% 50% 0 0;
+      transform: translateY(101%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+        border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+    }
+  }
+
+  &__title {
+    @apply relative block text-center overflow-hidden z-[2] text-white;
+
+    & span {
+      @apply block;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:after {
+        @apply block absolute top-[110%] w-full left-0 text-black text-center;
+        content: attr(data-text);
+      }
+    }
+  }
+
+  &:hover {
+    transform: scaleX(1.02);
+    transition: transform 0.6s cubic-bezier(0.34, 5.56, 0.64, 1);
+
+    #{$root}__ripple {
+      span {
+        border-radius: 0;
+        transform: translateY(0);
+        transition-duration: 0.5s, 0.9s;
+      }
+    }
+
+    #{$root}__title {
+      span {
+        transform: translateY(-110%);
+      }
+    }
+  }
+
+  &:active {
+    transform: scaleX(1);
+    transition: transform 0.6s cubic-bezier(0.34, 3.56, 0.64, 1);
+  }
+}

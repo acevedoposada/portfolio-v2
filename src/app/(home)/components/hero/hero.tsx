@@ -11,8 +11,15 @@ import { cn } from '@/utils/cn';
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
+  const isMobile =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 730px)').matches;
 
-  const transformText = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const transformText = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1, !isMobile ? 0.5 : 0.1]
+  );
 
   return (
     <div className={styles.hero}>

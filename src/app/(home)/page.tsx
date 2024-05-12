@@ -18,7 +18,7 @@ export default function Page() {
     <main>
       <div className='h-dvh relative z-[1]'>
         <motion.section
-          className='absolute w-full left-0'
+          className='lg:absolute w-full left-0'
           style={{ top: boxY }}
         >
           <Hero />

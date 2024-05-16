@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { IconHome, IconStar } from "@tabler/icons-react";
+import { IconHome, IconSparkles } from "@tabler/icons-react";
 import { useMemo } from "react";
 
 import { DotsBackground, Title } from "@/components";
@@ -40,7 +40,7 @@ export default function Page() {
         title: "Skills",
         isActive: skillsInView,
         element: skillsElement,
-        icon: <IconStar />,
+        icon: <IconSparkles />,
       },
     ];
   }, [headerElement, headerInView, skillsElement, skillsInView]);

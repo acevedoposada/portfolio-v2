@@ -1,5 +1,7 @@
-import { Variants, motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+"use client";
+
+import { Variants, motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface TitleProps {
   firstLine?: string;
@@ -30,18 +32,18 @@ export default function Title({ firstLine, secondLine }: TitleProps) {
   const isInView = useInView(ref);
 
   return (
-    <h1 ref={ref} className='text-5xl font-light'>
+    <h1 ref={ref} className="text-5xl font-light">
       {firstLine && (
         <motion.span
-          className='flex overflow-y-hidden'
-          initial='hidden'
-          animate={isInView ? 'show' : 'hidden'}
+          className="flex overflow-y-hidden"
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
           variants={containerVariants}
         >
-          {firstLine.split('').map((letter, idx) => (
+          {firstLine.split("").map((letter, idx) => (
             <motion.span
               key={idx}
-              className='block mb-2 opacity-50'
+              className="mb-2 block opacity-50"
               variants={itemVariants}
             >
               {letter}
@@ -51,13 +53,13 @@ export default function Title({ firstLine, secondLine }: TitleProps) {
       )}
       {secondLine && (
         <motion.span
-          className='flex overflow-y-hidden'
-          initial='hidden'
-          animate={isInView ? 'show' : 'hidden'}
+          className="flex overflow-y-hidden"
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
           variants={containerVariants}
         >
-          {secondLine.split('').map((letter, idx) => (
-            <motion.span key={idx} className='block' variants={itemVariants}>
+          {secondLine.split("").map((letter, idx) => (
+            <motion.span key={idx} className="block" variants={itemVariants}>
               {letter}
             </motion.span>
           ))}

@@ -62,7 +62,7 @@ export default function FloatingNavbar({
 
   const { scrollY } = useScroll();
 
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     if (typeof current === "number") {

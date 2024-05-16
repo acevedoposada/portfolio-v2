@@ -1,67 +1,67 @@
-'use client';
+"use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Lottie from 'react-lottie';
+import { motion, useScroll, useTransform } from "framer-motion";
+import Lottie from "react-lottie";
 
-import scrollAnimation from '@/components/animations/scroll-animation.json';
-import { AuroraBackground, HeroHighlight, Highlight } from '@/components';
+import scrollAnimation from "@/components/animations/scroll-animation.json";
+import { AuroraBackground, HeroHighlight, Highlight } from "@/components";
+import { cn } from "@/utils/cn";
 
-import styles from './hero.module.scss';
-import { cn } from '@/utils/cn';
+import styles from "./hero.module.scss";
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
   const isMobile =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(max-width: 730px)').matches;
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
 
   const transformText = useTransform(
     scrollYProgress,
     [0, 1],
-    [1, !isMobile ? 0.5 : 0.1]
+    [1, !isMobile ? 0.5 : 0.1],
   );
 
   return (
     <div className={styles.hero}>
-      <AuroraBackground className='bg-transparent z-30 pointer-events-none opacity-40' />
-      <HeroHighlight containerClassName='h-dvh absolute top-0 left-0'>
+      <AuroraBackground className="pointer-events-none z-30 bg-transparent opacity-40" />
+      <HeroHighlight containerClassName="h-dvh absolute top-0 left-0">
         <motion.div style={{ scale: transformText }}>
           <motion.h1 className={styles.hero__title}>
             <span
               className={cn(
-                'text-5xl md:text-6xl lg:text-[6rem]',
-                styles.hero__title__section
+                "text-5xl md:text-6xl lg:text-[6rem]",
+                styles.hero__title__section,
               )}
             >
               <motion.span
-                className='inline-block'
-                initial={{ y: '100%' }}
+                className="inline-block"
+                initial={{ y: "100%" }}
                 animate={{ y: 0 }}
               >
                 I&apos;m
-              </motion.span>{' '}
+              </motion.span>{" "}
               <motion.span
-                className={cn('inline-block', styles.hero__title__highlight)}
-                initial={{ y: '100%' }}
+                className={cn("inline-block", styles.hero__title__highlight)}
+                initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.1 }}
               >
                 David
               </motion.span>
             </span>
-            <span className={cn('lg:-mb-6', styles.hero__title__section)}>
+            <span className={cn("lg:-mb-6", styles.hero__title__section)}>
               <Highlight>
                 <motion.span
-                  className='inline-block'
-                  initial={{ y: '100%' }}
+                  className="inline-block"
+                  initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
                   Creative
-                </motion.span>{' '}
+                </motion.span>{" "}
                 <motion.span
-                  className='inline-block'
-                  initial={{ y: '100%' }}
+                  className="inline-block"
+                  initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
@@ -71,8 +71,8 @@ export default function Hero() {
             </span>
             <span className={styles.hero__title__section}>
               <motion.span
-                className='inline-block'
-                initial={{ y: '100%' }}
+                className="inline-block"
+                initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.5 }}
               >
@@ -102,12 +102,12 @@ export default function Hero() {
             autoplay: true,
             animationData: scrollAnimation,
             rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice',
+              preserveAspectRatio: "xMidYMid slice",
             },
           }}
         />
         <motion.p
-          className='whitespace-nowrap font-light'
+          className="whitespace-nowrap font-light"
           initial={{ opacity: 0, y: -25, scale: 0 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.3 }}

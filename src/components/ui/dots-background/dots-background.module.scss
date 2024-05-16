@@ -1,0 +1,17 @@
+.bg {
+  @apply h-full w-full overflow-hidden;
+  
+  &__dots {
+    @apply absolute pointer-events-none select-none blur-[10rem] top-[20%];
+  }
+
+  &__dots1 {
+    @apply h-[40%] left-[-20%] w-[30%];
+    background: conic-gradient(from 2.35rad, #C76000, rgba(7, 29, 228,.5));
+  }
+
+  &__dots2 {
+    @apply h-[20%] w-[60%] -right-1/2;
+    background: conic-gradient(#000, #0528A2);
+  }
+}

@@ -1,1 +1,2 @@
-export * from './hero';
+export * from "./floating-navbar";
+export * from "./hero";

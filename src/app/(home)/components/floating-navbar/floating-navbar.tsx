@@ -26,15 +26,15 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
   return (
     <button
       className={cn(
-        "group relative rounded-full border border-transparent px-4 py-2 text-sm font-medium text-white transition-all",
+        "group relative flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-2 text-sm font-medium text-white transition-all",
         isActive && "border-white/[0.2]",
       )}
       onClick={handleClick}
     >
       <span
         className={cn(
-          "block opacity-60 transition-all sm:hidden",
-          isActive && "opacity-100",
+          "flex h-6 w-6 items-center justify-center opacity-60 transition-all [&>svg]:h-4 [&>svg]:w-4 [&>svg]:transition-all",
+          isActive && "opacity-100 [&>svg]:h-5 [&>svg]:w-5",
         )}
       >
         {icon}

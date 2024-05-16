@@ -8,12 +8,16 @@ import { AuroraBackground, HeroHighlight, Highlight } from "@/components";
 import { cn } from "@/utils/cn";
 
 import styles from "./hero.module.scss";
+import { useMemo } from "react";
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(pointer: coarse)").matches;
+  const isMobile = useMemo(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches,
+    [],
+  );
 
   const transformText = useTransform(
     scrollYProgress,

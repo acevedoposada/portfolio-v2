@@ -7,7 +7,7 @@
     @apply relative h-dvh py-28;
 
     &__content {
-      @apply px-10 pt-0 md:pt-28 md:px-20 lg:px-28;
+      @apply px-10 pt-0 md:pt-28 md:px-20 lg:px-28 flex flex-col h-full;
     }
   }
 }

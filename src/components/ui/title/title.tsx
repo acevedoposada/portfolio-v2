@@ -32,7 +32,7 @@ export default function Title({ firstLine, secondLine }: TitleProps) {
   const isInView = useInView(ref);
 
   return (
-    <h1 ref={ref} className="text-5xl font-light">
+    <h1 ref={ref} className="text-4xl font-light md:text-6xl">
       {firstLine && (
         <motion.span
           className="flex overflow-y-hidden"

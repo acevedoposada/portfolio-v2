@@ -1,8 +1,7 @@
 "use client";
 
-import { cn } from "@/utils/cn";
-import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { cn } from "@/utils/cn";
 
 export interface InfiniteMovingCardItem {
   image: string;
@@ -114,7 +113,7 @@ export default function InfiniteMovingCards({
         {items.map((item, idx) => (
           <li
             key={`${Math.random().toString(16)}_${item.title.replace(" ", "_")}`}
-            className="relative h-[250px] w-[350px] flex-shrink-0 rounded-2xl border border-b-0 border-slate-700 px-8 py-6 md:w-[250px]"
+            className="relative h-[150px] w-[150px] flex-shrink-0 rounded-2xl border border-b-0 border-slate-700 px-8 py-6 md:h-[250px] md:w-[250px]"
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",

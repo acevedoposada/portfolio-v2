@@ -66,7 +66,7 @@ export default function SkillsSection() {
         <AnimatePresence>
           {hoveredEl && (
             <motion.span
-              className="absolute w-full flex h-3 justify-center text-center text-[6rem] font-extrabold leading-3 text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:1px]"
+              className="absolute w-full flex h-3 justify-center text-center text-6xl md:text-[6rem] font-extrabold leading-3 text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:1px]"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}

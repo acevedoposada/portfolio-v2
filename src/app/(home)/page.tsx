@@ -8,7 +8,7 @@ import { DotsBackground, Title } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
-import { Hero, FloatingNavbar } from "./components";
+import { Hero, FloatingNavbar, SkillsSection } from "./components";
 import styles from "./styles.module.scss";
 
 export default function Page() {
@@ -59,6 +59,7 @@ export default function Page() {
         <DotsBackground className="absolute top-0" />
         <div className={styles.home__skillset__content}>
           <Title firstLine="My" secondLine="Skillset" />
+          <SkillsSection />
         </div>
       </section>
       <FloatingNavbar navItems={navLinks} />

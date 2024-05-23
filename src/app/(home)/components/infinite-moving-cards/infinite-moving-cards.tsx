@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/cn";
+import Image from "next/image";
 
 export interface InfiniteMovingCardItem {
   image: string;
@@ -125,7 +126,7 @@ export default function InfiniteMovingCards({
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               />
-              <img src={item.image} alt={item.title} width={200} height={200} />
+              <Image src={item.image} alt={item.title} width={200} height={200} />
             </section>
           </li>
         ))}

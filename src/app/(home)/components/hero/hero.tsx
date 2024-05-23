@@ -95,30 +95,6 @@ export default function Hero() {
           </motion.p>
         </motion.div>
       </HeroHighlight>
-      <motion.div
-        className={styles.hero__scroll}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-      >
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: scrollAnimation,
-            rendererSettings: {
-              preserveAspectRatio: "xMidYMid slice",
-            },
-          }}
-        />
-        <motion.p
-          className="whitespace-nowrap font-light"
-          initial={{ opacity: 0, y: -25, scale: 0 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Scroll down
-        </motion.p>
-      </motion.div>
     </div>
   );
 }

@@ -1,0 +1,90 @@
+.footer {
+  @apply relative pt-40 md:pt-60 p-20 border-t border-[hsla(0,0%,100%,.1)];
+
+  &__content {
+    @apply grid;
+    grid-template-areas: 'connect nav' 'bottom bottom';
+    grid-template-columns: 1fr 2fr;
+
+    &__connect {
+      @apply grid gap-4;
+      grid-area: connect;
+
+      & > div {
+        @apply  py-2 mb-7 overflow-x-hidden;
+
+        & > a {
+          @apply relative origin-right font-light text-gray-400 md:text-2xl;
+          transition: color .3s ease-in-out;
+
+          &:after {
+            content: " ";
+            @apply absolute -bottom-1 left-0 origin-right scale-x-0 h-px md:h-[2px] w-full bg-gradient-to-r from-indigo-500 to-purple-500;
+            transition: transform .3s ease-in-out;
+          }
+  
+          &:hover {
+            @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent;
+            
+            &:after {
+              @apply origin-left scale-x-100;
+            }
+          }
+        }
+      }
+
+      &__social {
+        @apply flex gap-4;
+      }
+    }
+
+    &__nav {
+      grid-area: nav;
+
+      &__elements {
+        @apply grid gap-10 grid-cols-3 mt-8 xl:mt-0;
+
+        & li p {
+          @apply text-base md:text-sm xl:text-lg;
+
+          &:first-child {
+            @apply mb-2;
+          }
+
+          &:last-child {
+            @apply text-gray-400 font-light;
+          }
+        }
+
+        @media screen and (min-width: 1200px) {
+          & li:first-child, & li:nth-child(2) {
+            grid-column: 2 / 3;
+          }
+        }
+
+        @media screen and (max-width: 1199px) {
+          grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr))
+        }
+
+        @media (max-width: 767px) {
+          @apply gap-4;
+          grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
+
+          & li p:nth-child(2) {
+            @apply hidden;
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      @apply text-center pb-20 pt-0 md:pt-40;
+      grid-area: bottom;
+    }
+
+    @media screen and (max-width: 1199px) {
+      @apply grid-cols-1 gap-8;
+      grid-template-areas: 'connect' 'nav' 'bottom';
+    }
+  }
+}

@@ -56,7 +56,7 @@ export default function SkillsSection() {
 
   return (
     <section className="relative mx-auto flex h-full w-[80vw] flex-1 flex-col justify-center">
-      <InfiniteMovingCards
+      {/* <InfiniteMovingCards
         speed="slow"
         items={skills}
         onHoverElement={handleHoverElement}
@@ -83,7 +83,7 @@ export default function SkillsSection() {
         items={skills}
         onHoverElement={handleHoverElement}
         onLeaveElement={handleHoverElement}
-      />
+      /> */}
     </section>
   );
 }

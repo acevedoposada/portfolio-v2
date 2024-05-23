@@ -1,13 +1,27 @@
+@mixin section-basics {
+  @apply relative h-dvh;
+}
+
 .home {
   &__header {
-    @apply relative z-[1] h-dvh overflow-hidden;
+    @apply z-[1] overflow-hidden;
+    @include section-basics;
   }
 
   &__skillset {
-    @apply relative h-dvh py-28;
+    @apply py-28;
+    @include section-basics;
 
     &__content {
       @apply px-10 pt-0 md:pt-28 md:px-20 lg:px-28 flex flex-col h-full;
+    }
+  }
+
+  &__experience {
+    @include section-basics;
+
+    &__content {
+      @apply h-full flex flex-col;
     }
   }
 }

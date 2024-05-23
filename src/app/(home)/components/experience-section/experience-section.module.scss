@@ -2,7 +2,7 @@
   @apply flex-1 flex flex-col justify-center;
 
   &__title {
-    @apply px-10 md:px-20 lg:px-28 pb-10 md:pb-28;
+    @apply px-10 md:px-20 lg:px-28 pb-10 md:pb-28 pt-10 lg:pt-4;
   }
 
   &__content {
@@ -13,7 +13,7 @@
 
 .item {
   $root: &;
-  @apply w-full py-10 border-b flex flex-col md:flex-row md:items-center px-10 md:px-16 lg:px-[6.5rem];
+  @apply w-full py-6 md:py-10 border-b flex flex-col md:flex-row md:items-center px-10 md:px-16 lg:px-[6.5rem];
   border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4) 25%, rgba(255, 255, 255, 0.4) 75%, transparent) 20;
 
   &:first-child {
@@ -34,7 +34,7 @@
     }
 
     &__title {
-      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-3xl md:text-4xl lg:text-5xl font-light;
+      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-2xl md:text-4xl lg:text-5xl font-light;
 
       & span {
         @apply block;

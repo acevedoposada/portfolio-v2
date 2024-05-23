@@ -1,5 +1,5 @@
 .footer {
-  @apply relative pt-40 md:pt-60 p-20 border-t border-[hsla(0,0%,100%,.1)];
+  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t border-[hsla(0,0%,100%,.1)] w-screen;
 
   &__content {
     @apply grid;
@@ -45,7 +45,7 @@
         @apply grid gap-10 grid-cols-3 mt-8 xl:mt-0;
 
         & li p {
-          @apply text-base md:text-sm xl:text-lg;
+          @apply text-sm md:text-sm xl:text-lg;
 
           &:first-child {
             @apply mb-2;
@@ -78,7 +78,7 @@
     }
 
     &__bottom {
-      @apply text-center pb-20 pt-0 md:pt-40;
+      @apply text-center pb-20 pt-0 md:pt-40 text-gray-400 font-light;
       grid-area: bottom;
     }
 

@@ -13,6 +13,9 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      secondary: ["var(--playfair-font)"],
+    },
     extend: {
       colors: {
         alt: "#0C0C0F",

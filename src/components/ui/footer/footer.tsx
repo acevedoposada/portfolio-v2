@@ -79,8 +79,8 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
       </div>
       <DotsBackground
         hiddenDots="left"
-        className="absolute top-0"
-        speed={{ right: 10 }}
+        className="absolute left-0 top-0"
+        speed={{ right: 0 }}
       />
       <BackgroundBeams className="pointer-events-none select-none" />
     </footer>

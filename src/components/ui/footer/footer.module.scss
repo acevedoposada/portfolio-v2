@@ -1,3 +1,5 @@
+@import '../../../styles/reverse.scss';
+
 .footer {
   @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t border-[hsla(0,0%,100%,.1)] w-screen;
 
@@ -14,7 +16,7 @@
         @apply  py-2 mb-7 overflow-x-hidden;
 
         & > a {
-          @apply relative origin-right font-light text-gray-400 md:text-2xl;
+          @apply relative origin-right font-light font-lora text-gray-400 md:text-2xl;
           transition: color .3s ease-in-out;
 
           &:after {
@@ -44,15 +46,26 @@
       &__elements {
         @apply grid gap-10 grid-cols-3 mt-8 xl:mt-0;
 
-        & li p {
-          @apply text-sm md:text-sm xl:text-lg;
+        & li {
+          @apply text-gray-400 font-light text-sm md:text-sm xl:text-lg cursor-pointer;
 
-          &:first-child {
+          h5 {
+            @include reverse;
             @apply mb-2;
+
+            span {
+              @apply font-normal font-lora;
+
+              &:after {
+                @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent font-normal;
+              }
+            }
           }
 
-          &:last-child {
-            @apply text-gray-400 font-light;
+          &:hover h5 {
+            span {
+              transform: translateY(-110%);
+            }
           }
         }
 

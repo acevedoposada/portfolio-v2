@@ -1,4 +1,4 @@
-import { Ubuntu, Playfair_Display } from "next/font/google";
+import { Ubuntu, Lora } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/utils/cn";
@@ -8,10 +8,10 @@ const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
 });
 
-const playfair = Playfair_Display({
+const lora = Lora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--playfair-font",
+  weight: ["400", "500", "600", "700"],
+  variable: "--lora-font",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#262626" />
       </head>
-      <body className={cn(ubuntu.className, playfair.variable, "bg-alt")}>
+      <body className={cn(ubuntu.className, lora.variable, "bg-alt")}>
         {children}
         {modals}
       </body>

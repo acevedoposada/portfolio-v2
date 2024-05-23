@@ -40,33 +40,41 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
         <section className={styles.footer__content__nav}>
           <nav>
             <ul className={styles.footer__content__nav__elements}>
-              <li>
-                <p>Skills</p>
+              <li className="group">
+                <h5>
+                  <span data-text="Skills">Skills</span>
+                </h5>
                 <p>
                   Check out the things I{"'"}m good at, from building websites
                   to design and more.
                 </p>
               </li>
-              <li>
-                <p>Experience</p>
+              <li className="group">
+                <h5>
+                  <span data-text="Experience">Experience</span>
+                </h5>
                 <p>
                   Check out the things I{"'"}m good at, from building websites
                   to design and more.
                 </p>
               </li>
-              <li>
-                <p>Resume</p>
+              <li className="group">
+                <h5>
+                  <span data-text="Resume">Resume</span>
+                </h5>
                 <p>
                   See my work history and what I{"'"}ve achieved in a quick and
                   easy resume.
                 </p>
               </li>
-              <li>
+              <li className="group">
                 <a
                   href="https://www.instagram.com/davidchacevedo_"
                   target="_blank"
                 >
-                  <p>Instagram</p>
+                  <h5>
+                    <span data-text="Instagram">Instagram</span>
+                  </h5>
                   <p>Good memories, best times. My photo journal.</p>
                 </a>
               </li>

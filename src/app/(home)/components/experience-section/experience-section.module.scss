@@ -34,7 +34,7 @@
     }
 
     &__title {
-      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-2xl md:text-4xl lg:text-5xl font-light;
+      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-2xl md:text-4xl lg:text-5xl font-light font-lora;
 
       & span {
         @apply block;

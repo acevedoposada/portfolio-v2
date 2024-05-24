@@ -1,23 +1,36 @@
 "use client";
 
+import {
+  IconHome,
+  IconSparkles,
+  IconBriefcase,
+  IconHandClick,
+} from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { IconHome, IconSparkles } from "@tabler/icons-react";
 import { useMemo } from "react";
 
-import { DotsBackground, Title } from "@/components";
+import { DotsBackground, Footer, Title } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
-import { Hero, FloatingNavbar, SkillsSection } from "./components";
+import {
+  Hero,
+  FloatingNavbar,
+  SkillsSection,
+  ExperienceSection,
+} from "./components";
 import styles from "./styles.module.scss";
 
 export default function Page() {
   const innerHeight = typeof window !== "undefined" && window.innerHeight;
 
-  const [headerRef, headerInView, headerElement] = useInView({
+  const [skillsRef, skillsInView, skillsElement] = useInView({
     threshold: 0.5,
   });
-  const [skillsRef, skillsInView, skillsElement] = useInView({
+  const [experienceRef, experienceInView, experienceElement] = useInView({
+    threshold: 0.5,
+  });
+  const [contactRef, contactInView, contactElement] = useInView({
     threshold: 0.5,
   });
 
@@ -31,23 +44,36 @@ export default function Page() {
   const navLinks = useMemo<NavItem[]>(() => {
     return [
       {
-        title: "Home",
-        isActive: headerInView,
-        element: headerElement,
-        icon: <IconHome />,
-      },
-      {
         title: "Skills",
         isActive: skillsInView,
         element: skillsElement,
         icon: <IconSparkles />,
       },
+      {
+        title: "Experience",
+        isActive: experienceInView,
+        element: experienceElement,
+        icon: <IconBriefcase />,
+      },
+      {
+        title: "Contact",
+        isActive: contactInView,
+        element: contactElement,
+        icon: <IconHandClick />,
+      },
     ];
-  }, [headerElement, headerInView, skillsElement, skillsInView]);
+  }, [
+    skillsElement,
+    skillsInView,
+    experienceElement,
+    experienceInView,
+    contactInView,
+    contactElement,
+  ]);
 
   return (
     <main>
-      <header ref={headerRef} className={styles.home__header}>
+      <header className={styles.home__header}>
         <motion.section
           className="left-0 w-full lg:absolute"
           style={{ top: boxY }}
@@ -62,6 +88,13 @@ export default function Page() {
           <SkillsSection />
         </div>
       </section>
+      <section ref={experienceRef} className={styles.home__experience}>
+        <DotsBackground className="absolute top-0" speed={{ left: 50 }} />
+        <div className={styles.home__experience__content}>
+          <ExperienceSection />
+        </div>
+      </section>
+      <Footer ref={contactRef} />
       <FloatingNavbar navItems={navLinks} />
     </main>
   );

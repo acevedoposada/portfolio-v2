@@ -1,0 +1,62 @@
+.experience {
+  @apply flex-1 flex flex-col justify-center;
+
+  &__title {
+    @apply px-10 md:px-20 lg:px-28 pb-10 md:pb-28 pt-10 lg:pt-4;
+  }
+
+  &__content {
+    @apply md:px-4 lg:px-6;
+    mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  }
+}
+
+.item {
+  $root: &;
+  @apply w-full py-6 md:py-10 border-b flex flex-col md:flex-row md:items-center px-10 md:px-16 lg:px-[6.5rem];
+  border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4) 25%, rgba(255, 255, 255, 0.4) 75%, transparent) 20;
+
+  &:first-child {
+    @apply border-t;
+  }
+
+  &__section {
+    $section-root: &;
+
+    @apply flex-auto flex flex-col text-gray-400;
+
+    &--left {
+      @apply gap-2 md:gap-6;
+    }
+
+    &--right {
+      @apply md:text-right text-lg md:text-xl font-light;
+    }
+
+    &__title {
+      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-2xl md:text-4xl lg:text-5xl font-light font-lora;
+
+      & span {
+        @apply block;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  
+        &:after {
+          @apply block absolute top-[110%] w-full left-0 text-white;
+          content: attr(data-text);
+        }
+      }
+    }
+
+    &__company {
+      @apply text-lg md:text-xl font-light;
+    }
+  }
+
+  &:hover {
+    #{$root}__section__title {
+      span {
+        transform: translateY(-110%);
+      }
+    }
+  }
+}

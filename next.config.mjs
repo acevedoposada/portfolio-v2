@@ -6,7 +6,16 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn4.iconfinder.com",
         port: "",
-        pathname: "/*",
+      },
+      {
+        protocol: "https",
+        hostname: "static-00.iconduck.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        port: "",
       },
     ],
   },

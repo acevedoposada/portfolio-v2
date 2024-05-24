@@ -13,6 +13,9 @@ const config: Config = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      lora: ["var(--lora-font)"],
+    },
     extend: {
       colors: {
         alt: "#0C0C0F",

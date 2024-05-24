@@ -35,7 +35,7 @@ export default function Title({ firstLine, secondLine }: TitleProps) {
     <h1 ref={ref} className="text-4xl font-light md:text-6xl">
       {firstLine && (
         <motion.span
-          className="flex overflow-y-hidden"
+          className="font-lora flex overflow-y-hidden"
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
           variants={containerVariants}

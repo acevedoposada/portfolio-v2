@@ -11,6 +11,7 @@
   "dependencies": {
     "@tabler/icons-react": "^3.4.0",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
     "framer-motion": "^11.1.9",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.3",

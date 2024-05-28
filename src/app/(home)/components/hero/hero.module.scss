@@ -14,7 +14,7 @@
   }
 
   &__description {
-    @apply text-center font-light text-sm md:text-lg lg:text-2xl max-w-[20rem] md:max-w-[30rem] lg:max-w-[40rem] mx-auto;
+    @apply text-center font-light text-sm md:text-lg lg:text-2xl max-w-[20rem] md:max-w-[30rem] lg:max-w-[40rem] mx-auto font-lora;
   }
 
   &__scroll {

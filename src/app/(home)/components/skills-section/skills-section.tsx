@@ -56,17 +56,18 @@ export default function SkillsSection() {
 
   return (
     <section className="relative mx-auto flex h-full w-[80vw] flex-1 flex-col justify-center">
-      {/* <InfiniteMovingCards
+      <InfiniteMovingCards
         speed="slow"
         items={skills}
         onHoverElement={handleHoverElement}
         onLeaveElement={handleHoverElement}
       />
-      <div className="pointer-events-none z-20 h-3 w-full select-none relative">
-        <AnimatePresence>
+      <div className="pointer-events-none relative z-20 h-3 w-full select-none">
+        <AnimatePresence mode="wait">
           {hoveredEl && (
             <motion.span
-              className="absolute w-full flex h-3 justify-center text-center text-6xl md:text-[6rem] font-extrabold leading-3 text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:1px]"
+              key={`${Math.random().toString(16)}__${hoveredEl.title}`}
+              className="absolute flex h-3 w-full justify-center text-center text-6xl font-extrabold leading-3 text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:1px] md:text-[6rem]"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
@@ -83,7 +84,7 @@ export default function SkillsSection() {
         items={skills}
         onHoverElement={handleHoverElement}
         onLeaveElement={handleHoverElement}
-      /> */}
+      />
     </section>
   );
 }

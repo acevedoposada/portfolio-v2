@@ -16,13 +16,16 @@ const config: Config = {
     fontFamily: {
       lora: ["var(--lora-font)"],
     },
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         alt: "#0C0C0F",
       },
       animation: {
         aurora: "aurora 60s linear infinite",
-        "infinite-scroll": "infinite-scroll 10s linear infinite",
+        "infinite-scroll": "infinite-scroll 32s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
@@ -41,8 +44,11 @@ const config: Config = {
           },
         },
         "infinite-scroll": {
+          from: {
+            transform: "translateX(0)",
+          },
           to: {
-            translate: "calc(-5 * 15rem)",
+            transform: "translateX(-100%)",
           },
         },
       },

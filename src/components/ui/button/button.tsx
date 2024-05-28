@@ -1,9 +1,14 @@
-import clsx from 'clsx';
+"use client";
 
-import { ButtonProps } from './button.entity';
-import styles from './button.module.scss';
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
-const Button = ({
+import { ButtonProps, WobbleButtonProps } from "./button.entity";
+import styles from "./button.module.scss";
+import { useRef, useState } from "react";
+import { cn } from "@/utils/cn";
+
+export const FluidButton = ({
   children,
   hoverText,
   className,
@@ -22,4 +27,38 @@ const Button = ({
   );
 };
 
-export default Button;
+export const WobbleButton = ({ children, className }: WobbleButtonProps) => {
+  const ref = useRef<HTMLButtonElement>(null);
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouse = (e: React.MouseEvent<HTMLElement>) => {
+    if (ref.current) {
+      const { clientX, clientY } = e;
+      const { height, width, left, top } = ref.current.getBoundingClientRect();
+      const middleX = clientX - (left + width / 1.7);
+      const middleY = clientY - (top + height / 1.7);
+      setPosition({ x: middleX, y: middleY });
+    }
+  };
+
+  const reset = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const { x, y } = position;
+
+  return (
+    <motion.button
+      style={{ position: "relative" }}
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x, y }}
+      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      className={className}
+    >
+      {children}
+    </motion.button>
+  );
+};

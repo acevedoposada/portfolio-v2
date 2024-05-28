@@ -10,6 +10,7 @@ import { DotsBackground } from "../dots-background";
 import { BackgroundBeams } from "../background-beams";
 import dayjs from "dayjs";
 import { forwardRef } from "react";
+import { WobbleButton } from "../button";
 
 export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
   return (
@@ -22,20 +23,20 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
               acevedochristian90@gmail.com
             </a>
           </div>
-          <ul className={styles.footer__content__connect__social}>
-            <li>
+          <div className={styles.footer__content__connect__social}>
+            <WobbleButton>
               <IconBrandGithub className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </li>
-            <li>
+            </WobbleButton>
+            <WobbleButton>
               <IconBrandLinkedin className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </li>
-            <li>
+            </WobbleButton>
+            <WobbleButton>
               <IconBrandInstagram className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </li>
-            <li>
+            </WobbleButton>
+            <WobbleButton>
               <IconBrandCodesandbox className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </li>
-          </ul>
+            </WobbleButton>
+          </div>
         </section>
         <section className={styles.footer__content__nav}>
           <nav>
@@ -82,7 +83,7 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
           </nav>
         </section>
         <section className={styles.footer__content__bottom}>
-          {dayjs().year()} © David Acevedo
+          {dayjs().year()} - Developed with 💜 by David Acevedo
         </section>
       </div>
       <DotsBackground

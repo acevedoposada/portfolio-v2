@@ -1,9 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Lottie from "react-lottie";
 
-import scrollAnimation from "@/components/animations/scroll-animation.json";
 import { AuroraBackground, HeroHighlight, Highlight } from "@/components";
 import { cn } from "@/utils/cn";
 
@@ -56,7 +54,7 @@ export default function Hero() {
             <span className={cn("lg:-mb-6", styles.hero__title__section)}>
               <Highlight>
                 <motion.span
-                  className="inline-block"
+                  className="font-lora inline-block"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.3 }}
@@ -64,7 +62,7 @@ export default function Hero() {
                   Creative
                 </motion.span>{" "}
                 <motion.span
-                  className="inline-block"
+                  className="font-lora inline-block"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.4 }}

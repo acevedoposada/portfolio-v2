@@ -91,7 +91,7 @@
     }
 
     &__bottom {
-      @apply text-center pb-20 pt-0 md:pt-40 text-gray-400 font-light;
+      @apply text-center pb-20 pt-0 md:pt-40 text-gray-400 font-light text-xs md:text-base;
       grid-area: bottom;
     }
 

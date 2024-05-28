@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  IconHome,
   IconSparkles,
   IconBriefcase,
   IconHandClick,
@@ -9,7 +8,7 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
-import { DotsBackground, Footer, Title } from "@/components";
+import { DotsBackground, Footer, InfiniteSlider, Title } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
@@ -44,16 +43,16 @@ export default function Page() {
   const navLinks = useMemo<NavItem[]>(() => {
     return [
       {
-        title: "Skills",
-        isActive: skillsInView,
-        element: skillsElement,
-        icon: <IconSparkles />,
-      },
-      {
         title: "Experience",
         isActive: experienceInView,
         element: experienceElement,
         icon: <IconBriefcase />,
+      },
+      {
+        title: "Skills",
+        isActive: skillsInView,
+        element: skillsElement,
+        icon: <IconSparkles />,
       },
       {
         title: "Contact",
@@ -72,7 +71,7 @@ export default function Page() {
   ]);
 
   return (
-    <main>
+    <main className="relative">
       <header className={styles.home__header}>
         <motion.section
           className="left-0 w-full lg:absolute"
@@ -81,17 +80,27 @@ export default function Page() {
           <Hero />
         </motion.section>
       </header>
+      <section ref={experienceRef} className={styles.home__experience}>
+        <DotsBackground className="absolute top-0" speed={{ left: 50 }} />
+        <div className={styles.home__experience__content}>
+          <ExperienceSection />
+        </div>
+      </section>
+      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:py-0">
+        <InfiniteSlider
+          items={[
+            "accessibility",
+            "responsiveness",
+            "interactive",
+            "performance",
+          ]}
+        />
+      </section>
       <section ref={skillsRef} className={styles.home__skillset}>
         <DotsBackground className="absolute top-0" />
         <div className={styles.home__skillset__content}>
           <Title firstLine="My" secondLine="Skillset" />
           <SkillsSection />
-        </div>
-      </section>
-      <section ref={experienceRef} className={styles.home__experience}>
-        <DotsBackground className="absolute top-0" speed={{ left: 50 }} />
-        <div className={styles.home__experience__content}>
-          <ExperienceSection />
         </div>
       </section>
       <Footer ref={contactRef} />

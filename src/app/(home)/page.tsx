@@ -8,19 +8,25 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
-import { DotsBackground, Footer, InfiniteSlider, Title } from "@/components";
+import {
+  DotsBackground,
+  Footer,
+  InfiniteSlider,
+  Title,
+  WeatherText,
+} from "@/components";
 import { useInView } from "@/utils/inView";
 
-import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
 import {
   Hero,
   FloatingNavbar,
   SkillsSection,
   ExperienceSection,
 } from "./components";
+import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
 import styles from "./styles.module.scss";
 
-export default function Page() {
+export default function Home() {
   const innerHeight = typeof window !== "undefined" && window.innerHeight;
 
   const [skillsRef, skillsInView, skillsElement] = useInView({
@@ -73,6 +79,18 @@ export default function Page() {
   return (
     <main className="relative">
       <header className={styles.home__header}>
+        <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-32 pt-32">
+          <div className="flex items-center gap-6 font-light uppercase text-white">
+            <WeatherText className="text-sm" />
+            <div className="flex items-center gap-1 rounded-full border-[0.5px] border-white py-1.5 pl-2 pr-2 text-xs">
+              <span className="relative flex h-3 w-3 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+              </span>
+              open to work
+            </div>
+          </div>
+        </nav>
         <motion.section
           className="left-0 w-full lg:absolute"
           style={{ top: boxY }}

@@ -1,3 +1,5 @@
+"use client";
+
 import { LegacyRef, useCallback, useRef } from "react";
 import {
   useInView as useInViewLibrary,

@@ -11,6 +11,7 @@ import { BackgroundBeams } from "../background-beams";
 import dayjs from "dayjs";
 import { forwardRef } from "react";
 import { WobbleButton } from "../button";
+import { WeatherText } from "../weather-text";
 
 export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
   return (
@@ -83,7 +84,8 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
           </nav>
         </section>
         <section className={styles.footer__content__bottom}>
-          {dayjs().year()} - Developed with 💜 by David Acevedo
+          <p>Developed with 💜 by David Acevedo - {dayjs().year()}</p>
+          <WeatherText showTemperature />
         </section>
       </div>
       <DotsBackground

@@ -1,4 +1,4 @@
-import TextTransition, { presets } from "react-text-transition";
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 

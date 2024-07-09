@@ -5,6 +5,7 @@ import {
   IconBriefcase,
   IconHandClick,
   IconMapPin,
+  IconScript,
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -24,6 +25,7 @@ import {
   SkillsSection,
   ExperienceSection,
   ScrollTitle,
+  ResumeSection,
 } from "./components";
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
 import styles from "./styles.module.scss";
@@ -35,6 +37,9 @@ export default function Home() {
     threshold: 0.5,
   });
   const [experienceRef, experienceInView, experienceElement] = useInView({
+    threshold: 0.5,
+  });
+  const [resumeRef, resumeInView, resumeElement] = useInView({
     threshold: 0.5,
   });
   const [contactRef, contactInView, contactElement] = useInView({
@@ -63,6 +68,12 @@ export default function Home() {
         icon: <IconSparkles />,
       },
       {
+        title: "Resume",
+        isActive: resumeInView,
+        element: resumeElement,
+        icon: <IconScript />,
+      },
+      {
         title: "Contact",
         isActive: contactInView,
         element: contactElement,
@@ -76,10 +87,12 @@ export default function Home() {
     experienceInView,
     contactInView,
     contactElement,
+    resumeInView,
+    resumeElement,
   ]);
 
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <header className={styles.home__header}>
         <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-32 lg:pt-32">
           <div className="flex items-center gap-2 font-light uppercase text-white md:gap-6">
@@ -107,7 +120,7 @@ export default function Home() {
           <ExperienceSection />
         </div>
       </section>
-      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:py-0">
+      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:pb-16 md:pt-0">
         <InfiniteSlider
           items={[
             "accessibility",
@@ -125,6 +138,9 @@ export default function Home() {
         </div>
       </section>
       <ScrollTitle />
+      <section ref={resumeRef} className={styles.home__resume}>
+        <ResumeSection />
+      </section>
       <Footer ref={contactRef} />
       <FloatingNavbar navItems={navLinks} />
     </main>

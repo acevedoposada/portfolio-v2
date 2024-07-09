@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import clsx from "clsx";
 
 import { ButtonProps, WobbleButtonProps } from "./button.entity";
 import styles from "./button.module.scss";
@@ -12,11 +11,12 @@ export const FluidButton = ({
   children,
   hoverText,
   className,
+  disableBorder,
   ...buttonProps
 }: ButtonProps) => {
   return (
-    <button className={clsx(styles.button, className)} {...buttonProps}>
-      <span className={styles.button__border} />
+    <button className={cn(styles.button, className)} {...buttonProps}>
+      {!disableBorder && <span className={styles.button__border} />}
       <span className={styles.button__ripple}>
         <span />
       </span>

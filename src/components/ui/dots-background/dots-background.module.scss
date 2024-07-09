@@ -1,5 +1,5 @@
 .bg {
-  @apply h-full w-full overflow-hidden pointer-events-none select-none;
+  @apply h-full w-full max-w-[100vw] pointer-events-none select-none;
   
   &__dots {
     @apply absolute pointer-events-none select-none blur-[10rem] top-[20%];

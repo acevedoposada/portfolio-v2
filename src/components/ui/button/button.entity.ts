@@ -8,6 +8,7 @@ export interface ButtonProps
   children: React.ReactNode | string;
   /** Alternative text that appears when user hover button, recommended use only one word */
   hoverText?: string;
+  disableBorder?: boolean;
 }
 
 export interface WobbleButtonProps {

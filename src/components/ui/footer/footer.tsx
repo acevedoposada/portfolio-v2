@@ -70,10 +70,7 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
                 </p>
               </li>
               <li className="group">
-                <a
-                  href="https://www.instagram.com/davidchacevedo_"
-                  target="_blank"
-                >
+                <a href={process.env.INSTAGRAM_URL} target="_blank">
                   <h5>
                     <span data-text="Instagram">Instagram</span>
                   </h5>

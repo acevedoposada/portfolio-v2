@@ -33,7 +33,9 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
       >
         {icon}
       </span>
-      <span className="hidden text-sm sm:block">{children}</span>
+      <span className="inset-0 hidden overflow-x-hidden text-sm sm:block">
+        {children}
+      </span>
       <span
         className={cn(
           "absolute inset-x-0 -bottom-px mx-auto h-px w-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent transition-all group-hover:w-2/3",
@@ -58,7 +60,7 @@ export default function FloatingNavbar({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "fixed inset-x-0 bottom-10 z-[5000] mx-auto flex max-w-fit items-center justify-center space-x-2 rounded-full border border-white/[0.2] bg-black px-2 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
+          "fixed inset-x-0 bottom-10 z-[5000] mx-auto flex max-w-fit items-center justify-between space-x-2 rounded-full border border-white/[0.2] bg-black px-2 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           className,
         )}
       >

@@ -1,10 +1,11 @@
 "use client";
 
-import { weatherApiInstance } from "@/helpers/instances";
-import { WeatherData, WeatherTextProps } from "./weather-text.entity";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { cn } from "@/utils/cn";
+
+import { weatherApiInstance } from "@/helpers/instances";
+
+import { WeatherData, WeatherTextProps } from "./weather-text.entity";
 
 async function getData() {
   try {
@@ -14,7 +15,6 @@ async function getData() {
     if (response.status !== 200) {
       throw new Error("Failed to fetch data");
     }
-    console.log(response.data);
     return response.data;
   } catch (error) {
     throw new Error("Failed to fetch data");

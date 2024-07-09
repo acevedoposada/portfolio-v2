@@ -9,20 +9,24 @@
   }
 
   &__skillset {
-    @apply py-28;
-    @include section-basics;
+    @apply py-28 h-full lg:h-dvh relative;
 
     &__content {
-      @apply px-10 pt-0 md:pt-28 md:px-20 lg:px-28 flex flex-col h-full;
+      @apply px-10 pt-0 md:px-20 lg:px-28 flex flex-col h-full;
     }
   }
 
   &__experience {
     @include section-basics;
-    @apply h-auto min-h-dvh md:h-dvh;
+    @apply h-auto min-h-dvh;
 
     &__content {
       @apply h-full flex flex-col;
     }
+  }
+
+  &__resume {
+    @include section-basics;
+    @apply px-10 md:px-20 lg:px-28;
   }
 }

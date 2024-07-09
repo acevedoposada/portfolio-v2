@@ -1,0 +1,24 @@
+.scroll-title {
+  @apply p-12 lg:p-24 relative flex flex-col gap-24 overflow-x-hidden;
+
+  &__title {
+    @apply break-words text-center text-4xl lg:text-[10rem] font-bold leading-none md:leading-[0.8];
+
+    & > span {
+      @apply block;
+
+      &:first-child, &:last-child {
+        @apply font-lora;
+      }
+    }
+  }
+
+  & > p {
+    @apply max-w-96 text-lg lg:text-xl text-slate-400 font-light font-lora;
+  }
+
+  &__blobs {
+    @apply absolute w-[30%] h-[30%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl select-none pointer-events-none;
+    background: conic-gradient(#000, hsla(0, 0%, 100%, .1));
+  }
+}

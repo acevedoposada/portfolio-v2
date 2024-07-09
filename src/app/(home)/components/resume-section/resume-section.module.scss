@@ -1,0 +1,64 @@
+.resume {
+  $root: &;
+  @apply flex flex-col h-full w-full place-content-center py-36;
+
+  &__content {
+    @apply h-full flex flex-col items-center justify-center;
+    
+    &__cards {
+      @apply mb-[calc(5.6rem_*_1.5)] relative z-[1] w-[23rem] h-[30rem];
+      transition: all .2s ease-out;
+
+      &__blobs {
+        background: url('/static/images/gradient-blob.svg') top no-repeat;
+        @apply absolute -top-1/2 -left-1/2 z-0 w-[200%] h-[300%] bg-contain select-none pointer-events-none;
+      }
+
+      &:hover {
+        #{$root}__card {
+          &:first-child {
+            transform: translate3d(0px, -1rem, 0px) rotate(-4deg) scale(1, 1);
+          }
+
+          &:nth-child(2) {
+            transform: translate3d(15%, 0px, 0px) rotate(3deg) scale(0.96, 0.96);
+          }
+        }
+      }
+    }
+
+    &__links {
+      @apply flex gap-6 my-6;
+
+      & a {
+        @apply text-xl;
+      }
+    }
+  }
+
+  &__card {
+    @apply w-full h-full bg-black bg-opacity-20 backdrop-blur-2xl rounded-xl p-5 absolute top-0 z-10;
+    transition: all .2s ease-out;
+    aspect-ratio: 3/4;
+
+    &__content {
+      @apply w-full h-full bg-white rounded-xl;
+    }
+
+    &:first-child {
+      @apply z-20 top-[-10%];
+      transform: translate3d(0px, 0px, 0px) rotate(-5.2193deg) scale(1.0435, 1.0435);
+      transform-origin: top right;
+    }
+    
+    &:nth-child(2) {
+      @apply bottom-[-10%] top-auto left-[35%] w-[90%];
+      transform: translate3d(4.3494%, 0px, 0px) rotate(5.2193deg) scale(1.0435, 1.0435);
+      transform-origin: bottom left;
+    }
+
+    &:nth-child(2) > &__content {
+      @apply bg-slate-800;
+    }
+  }
+}

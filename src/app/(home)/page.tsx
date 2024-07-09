@@ -4,6 +4,8 @@ import {
   IconSparkles,
   IconBriefcase,
   IconHandClick,
+  IconMapPin,
+  IconScript,
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -22,6 +24,8 @@ import {
   FloatingNavbar,
   SkillsSection,
   ExperienceSection,
+  ScrollTitle,
+  ResumeSection,
 } from "./components";
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
 import styles from "./styles.module.scss";
@@ -33,6 +37,9 @@ export default function Home() {
     threshold: 0.5,
   });
   const [experienceRef, experienceInView, experienceElement] = useInView({
+    threshold: 0.5,
+  });
+  const [resumeRef, resumeInView, resumeElement] = useInView({
     threshold: 0.5,
   });
   const [contactRef, contactInView, contactElement] = useInView({
@@ -61,6 +68,12 @@ export default function Home() {
         icon: <IconSparkles />,
       },
       {
+        title: "Resume",
+        isActive: resumeInView,
+        element: resumeElement,
+        icon: <IconScript />,
+      },
+      {
         title: "Contact",
         isActive: contactInView,
         element: contactElement,
@@ -74,21 +87,24 @@ export default function Home() {
     experienceInView,
     contactInView,
     contactElement,
+    resumeInView,
+    resumeElement,
   ]);
 
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <header className={styles.home__header}>
-        <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-32 pt-32">
-          <div className="flex items-center gap-6 font-light uppercase text-white">
-            <WeatherText className="text-sm" />
-            <div className="flex items-center gap-1 rounded-full border-[0.5px] border-white py-1.5 pl-2 pr-2 text-xs">
+        <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-32 lg:pt-32">
+          <div className="flex items-center gap-2 font-light uppercase text-white md:gap-6">
+            <WeatherText className="text-xs md:text-sm" />
+            <div className="hidden items-center gap-1 rounded-full border-[0.5px] border-white py-1.5 pl-2 pr-2 text-xs md:flex">
               <span className="relative flex h-3 w-3 items-center justify-center">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
               </span>
               open to work
             </div>
+            <IconMapPin className="block h-4 w-4 md:hidden" />
           </div>
         </nav>
         <motion.section
@@ -104,7 +120,7 @@ export default function Home() {
           <ExperienceSection />
         </div>
       </section>
-      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:py-0">
+      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:pb-16 md:pt-0">
         <InfiniteSlider
           items={[
             "accessibility",
@@ -120,6 +136,10 @@ export default function Home() {
           <Title firstLine="My" secondLine="Skillset" />
           <SkillsSection />
         </div>
+      </section>
+      <ScrollTitle />
+      <section ref={resumeRef} className={styles.home__resume}>
+        <ResumeSection />
       </section>
       <Footer ref={contactRef} />
       <FloatingNavbar navItems={navLinks} />

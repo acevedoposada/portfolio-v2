@@ -9,7 +9,7 @@
   }
 
   &__skillset {
-    @apply py-28 h-full lg:h-dvh;
+    @apply py-28 h-full lg:h-dvh relative;
 
     &__content {
       @apply px-10 pt-0 md:px-20 lg:px-28 flex flex-col h-full;

@@ -25,7 +25,7 @@ export default function InfiniteSlider({
           {items.map((item, idx) => (
             <li
               key={idx}
-              className="flex items-center gap-16 whitespace-nowrap text-7xl leading-none text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:0.5px] md:text-[7rem]"
+              className="flex items-center gap-16 whitespace-nowrap text-5xl leading-none text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:1px] md:text-[7rem] 2xl:text-7xl"
             >
               {item}{" "}
               {idx % 2 === 0 ? (

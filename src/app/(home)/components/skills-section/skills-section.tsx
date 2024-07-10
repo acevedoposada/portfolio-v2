@@ -88,7 +88,7 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section className="relative flex h-full flex-1 flex-col pt-24">
+    <section className="relative flex h-full flex-1 items-start justify-center pt-24">
       <div className={styles.skills}>
         {skills.map((skill, idx) => (
           <Card

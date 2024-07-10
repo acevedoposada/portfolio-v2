@@ -52,12 +52,12 @@ export const Card = ({
             classes?.icon,
           )}
         >
-          <span className="relative z-20 h-full [&>img]:h-full [&>img]:object-contain">
+          <span className="relative z-20 flex h-full [&>img]:mx-auto [&>img]:h-full [&>img]:w-8/12 [&>img]:object-contain">
             {icon}
           </span>
           <span
             className={cn(
-              "absolute z-10 h-full w-full opacity-40 blur-lg [&>img]:h-full [&>img]:object-contain",
+              "absolute z-10 h-full w-full opacity-40 blur-lg [&>img]:mx-auto [&>img]:h-full [&>img]:w-8/12 [&>img]:object-contain",
               classes?.overlay,
             )}
           >
@@ -72,7 +72,7 @@ export const Card = ({
         </div>
         <h2
           className={cn(
-            "absolute left-1/2 top-1/2 z-10 mt-4 -translate-x-1/2 -translate-y-1/2 text-xl font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white",
+            "absolute left-1/2 top-1/2 z-10 mt-4 -translate-x-1/2 -translate-y-1/2 text-center text-xl font-bold text-black opacity-0 transition duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:text-white group-hover/canvas-card:opacity-100 dark:text-white",
             classes?.title,
           )}
         >

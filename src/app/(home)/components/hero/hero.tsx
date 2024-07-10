@@ -31,7 +31,7 @@ export default function Hero() {
           <motion.h1 className={styles.hero__title}>
             <span
               className={cn(
-                "text-5xl md:text-6xl lg:text-[6rem]",
+                "text-5xl md:text-6xl 2xl:text-[6rem]",
                 styles.hero__title__section,
               )}
             >
@@ -71,7 +71,9 @@ export default function Hero() {
                 </motion.span>
               </Highlight>
             </span>
-            <span className={styles.hero__title__section}>
+            <span
+              className={cn(styles.hero__title__section, "lg:mt-4 2xl:mt-0")}
+            >
               <motion.span
                 className="inline-block"
                 initial={{ y: "100%" }}

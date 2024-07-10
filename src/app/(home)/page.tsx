@@ -94,7 +94,7 @@ export default function Home() {
   return (
     <main className="relative overflow-x-hidden">
       <header className={styles.home__header}>
-        <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-32 lg:pt-32">
+        <nav className="pointer-events-none absolute left-0 top-0 z-20 flex w-full justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-16 lg:pt-16 2xl:px-32 2xl:pt-32">
           <div className="flex items-center gap-2 font-light uppercase text-white md:gap-6">
             <WeatherText className="text-xs md:text-sm" />
             <div className="hidden items-center gap-1 rounded-full border-[0.5px] border-white py-1.5 pl-2 pr-2 text-xs md:flex">

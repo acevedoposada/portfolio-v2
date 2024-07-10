@@ -1,8 +1,8 @@
 .scroll-title {
-  @apply p-12 lg:p-24 relative flex flex-col gap-24 overflow-x-hidden;
+  @apply p-12 2xl:mt-36 lg:p-24 relative flex flex-col gap-24 overflow-x-hidden;
 
   &__title {
-    @apply break-words text-center text-4xl lg:text-[10rem] font-bold leading-none md:leading-[0.8];
+    @apply break-words text-center text-4xl md:text-[7rem] 2xl:text-[10rem] font-bold leading-none md:leading-[0.8];
 
     & > span {
       @apply block;

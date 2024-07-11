@@ -1,7 +1,7 @@
 @import '../../../styles/reverse.scss';
 
 .footer {
-  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t border-[hsla(0,0%,100%,.1)] w-screen;
+  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen;
 
   &__content {
     @apply grid;

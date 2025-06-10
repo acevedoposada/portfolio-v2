@@ -25,7 +25,7 @@ export default function SkillsSection() {
               }
               classes={{
                 title: cn(
-                  "-mt-4 text-xl xl:text-3xl 2xl:text-5xl text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:0.5px] leading-none group-hover/canvas-card:text-transparent bg-gradient-to-tr from-white to-transparent bg-clip-text text-transparent pb-1",
+                  "-mt-4 text-xl xl:text-3xl text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:0.5px] leading-none group-hover/canvas-card:text-transparent bg-gradient-to-tr from-white to-transparent bg-clip-text text-transparent pb-1",
                   skill.classes?.title,
                 ),
                 overlay: skill.classes?.overlay,

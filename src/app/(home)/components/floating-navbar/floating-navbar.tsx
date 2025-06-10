@@ -11,8 +11,6 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-        block: "end",
-        inline: "nearest",
       });
     }
   }
@@ -20,15 +18,15 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
   return (
     <button
       className={cn(
-        "group relative flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-2 text-sm font-medium text-white transition-all",
+        "group relative flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-2 text-sm font-medium text-white transition-all w-full md:w-auto",
         isActive && "border-white/[0.2]",
       )}
       onClick={handleClick}
     >
       <span
         className={cn(
-          "flex h-6 w-6 items-center justify-center opacity-60 transition-all [&>svg]:h-4 [&>svg]:w-4 [&>svg]:transition-all",
-          isActive && "opacity-100 [&>svg]:h-5 [&>svg]:w-5",
+          "flex h-6 w-6 items-center justify-center opacity-60 transition-all [&>svg]:h-5 [&>svg]:w-5 md:[&>svg]:h-4 md:[&>svg]:w-4 [&>svg]:transition-all",
+          isActive && "opacity-100 [&>svg]:h-6 [&>svg]:w-6 md:[&>svg]:h-5 md:[&>svg]:w-5",
         )}
       >
         {icon}
@@ -60,7 +58,7 @@ export default function FloatingNavbar({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "fixed inset-x-0 bottom-10 z-[5000] mx-auto flex max-w-fit items-center justify-between space-x-2 rounded-full border border-white/[0.2] bg-black px-2 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
+          "fixed inset-x-0 bottom-5 md:bottom-10 z-[5000] mx-auto flex md:max-w-fit w-[calc(100%_-_4rem)] items-center justify-between md:space-x-2 rounded-full border border-white/[0.2] bg-black px-2 py-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
           className,
         )}
       >

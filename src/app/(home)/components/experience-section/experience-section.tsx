@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 
 import styles from "./experience-section.module.scss";
 import { cn } from "@/utils/cn";
@@ -9,7 +9,7 @@ const experiences = [
     id: 1,
     title: "Senior Frontend Developer",
     company: "ADL",
-    startDate: new Date(),
+    startDate: dayjs('2022-10-24'),
     dueDate: null,
     workType: "Remote",
   },
@@ -17,33 +17,41 @@ const experiences = [
     id: 2,
     title: "Semi Senior Frontend Developer",
     company: "Serempre",
-    startDate: new Date(),
-    dueDate: new Date(),
+    startDate: dayjs('2021-09-15'),
+    dueDate: dayjs('2022-10-23'),
     workType: "Remote",
   },
   {
     id: 3,
     title: "Frontend Teach Lead",
     company: "Mercadeo Virtual S.A",
-    startDate: new Date(),
-    dueDate: new Date(),
+    startDate: dayjs('2020-06-15'),
+    dueDate: dayjs('2021-09-15'),
     workType: "On-site",
   },
   {
     id: 4,
     title: "Consultant and Frontend Developer",
     company: "IATECH S.A.S",
-    startDate: new Date(),
-    dueDate: new Date(),
+    startDate: dayjs('2021-02-15'),
+    dueDate: dayjs('2022-03-15'),
     workType: "Remote",
   },
+  {
+    id: 5,
+    title: "Frontend Developer",
+    company: "Integ.ro",
+    startDate: dayjs('2020-02-15'),
+    dueDate: dayjs('2020-06-15'),
+    workType: "Remote",
+  }
 ];
 
 interface ExperienceItemProps {
   title: string;
   company: string;
-  startDate: Date;
-  dueDate: Date | null;
+  startDate: Date | string | Dayjs;
+  dueDate: Date  | string | Dayjs | null;
   workType: string;
 }
 

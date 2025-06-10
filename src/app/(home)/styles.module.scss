@@ -17,8 +17,7 @@
   }
 
   &__experience {
-    @include section-basics;
-    @apply h-auto min-h-dvh;
+    @apply relative h-auto min-h-dvh pt-4 md:pt-12 lg:pt-24;
 
     &__content {
       @apply h-full flex flex-col;

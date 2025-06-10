@@ -1,7 +1,7 @@
 export const skills = [
   {
     image:
-      "https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png",
+      "/static/images/react.webp",
     title: "ReactJS",
     link: "https://react.dev/",
     colors: [
@@ -11,7 +11,7 @@ export const skills = [
   },
   {
     image:
-      "https://static-00.iconduck.com/assets.00/nextjs-icon-512x512-y563b8iq.png",
+      "/static/images/next.png",
     title: "NextJS",
     link: "https://nextjs.org/",
     colors: [
@@ -24,7 +24,7 @@ export const skills = [
   },
   {
     image:
-      "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-512.png",
+      "/static/images/angular.png",
     title: "Angular",
     link: "https://angular.dev/",
     colors: [
@@ -34,14 +34,14 @@ export const skills = [
   },
   {
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png",
+      "/static/images/tailwindcss.png",
     title: "TailwindCSS",
     link: "https://tailwindcss.com/",
     colors: [[52, 188, 251]],
   },
   {
     image:
-      "https://cdn.iconscout.com/icon/free/png-256/free-firebase-11796860-9632965.png",
+      "/static/images/firebase.webp",
     title: "Firebase",
     link: "https://firebase.google.com/",
     colors: [
@@ -50,16 +50,18 @@ export const skills = [
     ],
   },
   {
-    image: "https://cdn.worldvectorlogo.com/logos/strapi-2.svg",
-    title: "Strapi",
-    link: "https://strapi.io/",
+    image: "/static/images/astrojs.webp",
+    title: "Astro",
+    link: "https://astro.build/",
     colors: [
-      [140, 116, 252],
-      [164, 147, 252],
+      [253, 89, 3],
     ],
+    classes: {
+      overlay: "invert",
+    },
   },
   {
-    image: "https://cdn.worldvectorlogo.com/logos/lit-1.svg",
+    image: "/static/images/lit-element.svg",
     title: "LitElement",
     link: "https://lit.dev/",
     colors: [
@@ -69,7 +71,7 @@ export const skills = [
   },
   {
     image:
-      "https://seeklogo.com/images/F/framer-motion-logo-DA1E33CAA1-seeklogo.com.png",
+      "/static/images/framer-motion.svg",
     title: "Framer Motion",
     link: "https://www.framer.com/motion/",
     colors: [
@@ -82,7 +84,7 @@ export const skills = [
   },
   {
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png",
+      "/static/images/typescript.png",
     title: "Typescript",
     link: "https://www.typescriptlang.org/",
     colors: [[51, 123, 196]],

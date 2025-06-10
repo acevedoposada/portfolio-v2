@@ -56,24 +56,28 @@ export default function Home() {
   const navLinks = useMemo<NavItem[]>(() => {
     return [
       {
+        id: 'exp',
         title: "Experience",
         isActive: experienceInView,
         element: experienceElement,
         icon: <IconBriefcase />,
       },
       {
+        id: 'skills',
         title: "Skills",
         isActive: skillsInView,
         element: skillsElement,
         icon: <IconSparkles />,
       },
       {
+        id: 'resume',
         title: "Resume",
         isActive: resumeInView,
         element: resumeElement,
         icon: <IconScript />,
       },
       {
+        id: 'contact',
         title: "Contact",
         isActive: contactInView,
         element: contactElement,
@@ -114,9 +118,9 @@ export default function Home() {
           <Hero />
         </motion.section>
       </header>
-      <section ref={experienceRef} className={styles.home__experience}>
+      <section className={styles.home__experience}>
         <DotsBackground className="absolute top-0" speed={{ left: 50 }} />
-        <div className={styles.home__experience__content}>
+        <div ref={experienceRef} className={styles.home__experience__content}>
           <ExperienceSection />
         </div>
       </section>
@@ -141,7 +145,7 @@ export default function Home() {
       <section ref={resumeRef} className={styles.home__resume}>
         <ResumeSection />
       </section>
-      <Footer ref={contactRef} />
+      <Footer ref={contactRef} navLinks={navLinks} />
       <FloatingNavbar navItems={navLinks} />
     </main>
   );

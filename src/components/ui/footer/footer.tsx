@@ -1,48 +1,60 @@
-import {
-  IconBrandCodesandbox,
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
-import { Title } from "../title";
-import styles from "./footer.module.scss";
-import { DotsBackground } from "../dots-background";
-import { BackgroundBeams } from "../background-beams";
-import dayjs from "dayjs";
+"use client";
 import { forwardRef } from "react";
-import { WobbleButton } from "../button";
-import { WeatherText } from "../weather-text";
+import dayjs from "dayjs";
+import _ from 'lodash'
 
-export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
+import { NavItem } from "@/app/(home)/components/floating-navbar/floating-navbar.entity";
+
+import { BackgroundBeams } from "../background-beams";
+import { DotsBackground } from "../dots-background";
+import { WeatherText } from "../weather-text";
+import { WobbleButton } from "../button";
+import { Title } from "../title";
+
+import styles from "./footer.module.scss";
+import { contactLinks } from "@/constants/contact-links";
+
+export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function Footer({ navLinks }, ref) {
+  const goToAppLink = (sectionId: 'skills' | 'exp' | 'resume') => () => {
+    const navItem = navLinks.find(link => link.id === sectionId)
+    if (navItem && navItem.element) {
+      navItem.element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  }
+
+  const goToExternalLink = (link: string) => () => {
+    const anchor = document.createElement('a')
+    anchor.href = link;
+    anchor.target = '_blank'
+    anchor.click()
+    anchor.remove()
+  }
+
   return (
     <footer ref={ref} className={styles.footer}>
       <div className={styles.footer__content}>
         <section className={styles.footer__content__connect}>
           <Title firstLine="Let's" secondLine="Connect." />
           <div>
-            <a href="mailto:acevedochristian90@gmail.com">
+            <a href="mailto:acevedochristian90@gmail.com" target="_blank">
               acevedochristian90@gmail.com
             </a>
           </div>
           <div className={styles.footer__content__connect__social}>
-            <WobbleButton>
-              <IconBrandGithub className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </WobbleButton>
-            <WobbleButton>
-              <IconBrandLinkedin className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </WobbleButton>
-            <WobbleButton>
-              <IconBrandInstagram className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </WobbleButton>
-            <WobbleButton>
-              <IconBrandCodesandbox className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
-            </WobbleButton>
+            {_.map(contactLinks, ({ link, Icon }, key) => (
+              <WobbleButton key={key} onClick={goToExternalLink(link)}>
+                <Icon className="md:h-7 md:w-7 lg:h-8 lg:w-8" />
+              </WobbleButton>
+            ))}
           </div>
         </section>
         <section className={styles.footer__content__nav}>
           <nav>
             <ul className={styles.footer__content__nav__elements}>
-              <li className="group">
+              <li className="group" onClick={goToAppLink('skills')}>
                 <h5>
                   <span data-text="Skills">Skills</span>
                 </h5>
@@ -51,7 +63,7 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
                   to design and more.
                 </p>
               </li>
-              <li className="group">
+              <li className="group" onClick={goToAppLink('exp')}>
                 <h5>
                   <span data-text="Experience">Experience</span>
                 </h5>
@@ -60,7 +72,7 @@ export const Footer = forwardRef<HTMLElement>(function Footer({}, ref) {
                   to design and more.
                 </p>
               </li>
-              <li className="group">
+              <li className="group" onClick={goToAppLink('resume')}>
                 <h5>
                   <span data-text="Resume">Resume</span>
                 </h5>

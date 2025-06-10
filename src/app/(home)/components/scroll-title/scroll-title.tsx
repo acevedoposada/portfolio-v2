@@ -17,22 +17,13 @@ type SizeValues = [[string, string], [string, string]];
 export default function ScrollTitle() {
   const ref = useRef(null);
 
-  const isMobile = useMemo(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 1022px)").matches,
-    [],
-  );
-
   const outputRange = useMemo<SizeValues>(() => {
     const defaultValue: SizeValues = [
       ["-50%", "-200%"],
       ["50%", "200%"],
     ];
 
-    if (!(typeof window === "object")) {
-      return defaultValue;
-    }
+    if (!(typeof window === "object")) return defaultValue;
 
     const sizes = new Map<boolean, SizeValues>([
       [

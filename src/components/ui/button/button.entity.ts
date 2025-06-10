@@ -14,4 +14,5 @@ export interface ButtonProps
 export interface WobbleButtonProps {
   children?: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }

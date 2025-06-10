@@ -6,14 +6,14 @@ import {
   IntersectionOptions,
 } from "react-intersection-observer";
 
-type UseInViewHook = [(node: HTMLElement) => void, boolean, HTMLElement];
+type UseInViewHook = [(node: HTMLElement | null) => void, boolean, HTMLElement];
 
 export const useInView = (options?: IntersectionOptions): UseInViewHook => {
   const elementRef = useRef<LegacyRef<HTMLElement> | undefined>(null);
   const [inViewRef, inView] = useInViewLibrary(options);
 
   const ref = useCallback(
-    (node: HTMLElement) => {
+    (node: HTMLElement | null) => {
       elementRef.current = node as unknown as LegacyRef<HTMLElement>;
       inViewRef(node);
     },

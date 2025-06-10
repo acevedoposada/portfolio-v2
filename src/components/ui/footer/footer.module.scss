@@ -1,7 +1,7 @@
 @import '../../../styles/reverse.scss';
 
 .footer {
-  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t border-[hsla(0,0%,100%,.1)] w-screen;
+  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen;
 
   &__content {
     @apply grid;
@@ -13,7 +13,7 @@
       grid-area: connect;
 
       & > div {
-        @apply  py-2 mb-7 overflow-x-hidden;
+        @apply py-2 mb-7 overflow-x-hidden;
 
         & > a {
           @apply relative origin-right font-light font-lora text-gray-400 md:text-2xl;
@@ -24,10 +24,10 @@
             @apply absolute -bottom-1 left-0 origin-right scale-x-0 h-px md:h-[2px] w-full bg-gradient-to-r from-indigo-500 to-purple-500;
             transition: transform .3s ease-in-out;
           }
-  
+
           &:hover {
             @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent;
-            
+
             &:after {
               @apply origin-left scale-x-100;
             }
@@ -70,7 +70,9 @@
         }
 
         @media screen and (min-width: 1200px) {
-          & li:first-child, & li:nth-child(2) {
+
+          & li:first-child,
+          & li:nth-child(2) {
             grid-column: 2 / 3;
           }
         }

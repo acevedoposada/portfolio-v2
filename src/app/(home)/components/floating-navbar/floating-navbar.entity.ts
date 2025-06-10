@@ -1,6 +1,7 @@
 import { HTMLMotionProps } from "framer-motion";
 
 export interface NavItem {
+  id?: string;
   title: string;
   isActive: boolean;
   element?: HTMLElement;

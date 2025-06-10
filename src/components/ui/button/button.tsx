@@ -27,7 +27,7 @@ export const FluidButton = ({
   );
 };
 
-export const WobbleButton = ({ children, className }: WobbleButtonProps) => {
+export const WobbleButton = ({ children, className, onClick }: WobbleButtonProps) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -56,7 +56,8 @@ export const WobbleButton = ({ children, className }: WobbleButtonProps) => {
       onMouseLeave={reset}
       animate={{ x, y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className={className}
+      className={cn('cursor-pointer', className)}
+      onClick={onClick}
     >
       {children}
     </motion.button>

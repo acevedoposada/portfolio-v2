@@ -16,6 +16,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "framer-motion": "^11.1.9",
+    "lodash": "^4.17.21",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.3",
     "react": "^18",
@@ -28,6 +29,7 @@
     "three": "^0.164.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.17",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

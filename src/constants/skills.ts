@@ -50,7 +50,7 @@ export const skills = [
     ],
   },
   {
-    image: "/static/images/astrojs.webp",
+    image: "/static/images/astro.webp",
     title: "Astro",
     link: "https://astro.build/",
     colors: [

@@ -1,12 +1,13 @@
 .resume {
   $root: &;
-  @apply flex flex-col h-full w-full place-content-center py-36;
+  @apply relative flex flex-col h-full min-h-screen md:min-h-[auto] w-full place-content-center pt-48 pb-36 md:py-36;
 
   &__content {
     @apply h-full flex flex-col items-center justify-center;
 
     &__cards {
-      @apply mb-[calc(5.6rem_*_1.5)] relative z-[1] w-[23rem] h-[30rem] min-w-[23rem] min-h-[30rem];
+      @apply mb-[calc(5.6rem_*_1.5)] relative z-[1] w-[19rem] h-[25rem] min-w-[19rem] min-h-[25rem];
+      @apply md:w-[23rem] md:h-[30rem] md:min-w-[23rem] md:min-h-[30rem];
       transition: all .2s ease-out;
 
       &__blobs {
@@ -42,7 +43,7 @@
     aspect-ratio: 3/4;
 
     &__content {
-      @apply w-full h-full bg-white rounded-xl;
+      @apply w-full h-full bg-white rounded-xl text-black relative;
     }
 
     &:first-child {

@@ -4,16 +4,18 @@ import { ReactNode } from 'react';
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   children?: ReactNode;
   showRadialGradient?: boolean;
+  containerClassName?: string;
 }
 
 export default function AuroraBackground({
   className,
   children,
   showRadialGradient = true,
+  containerClassName,
   ...props
 }: AuroraBackgroundProps) {
   return (
-    <main>
+    <main className={containerClassName}>
       <div
         className={cn(
           'relative flex flex-col h-dvh items-center justify-center bg-zinc-900 text-slate-950 transition-[background]',
@@ -40,7 +42,7 @@ export default function AuroraBackground({
                 pointer-events-none
                 absolute -inset-[10px] opacity-50 will-change-transform`,
               showRadialGradient &&
-                '[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]'
+              '[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]'
             )}
           />
         </div>

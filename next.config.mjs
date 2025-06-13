@@ -34,6 +34,7 @@ const nextConfig = {
     INSTAGRAM_URL: "https://www.instagram.com/davidchacevedo_",
     LINKEDIN_URL: "https://www.linkedin.com/in/cristian-david-acevedo-posada/",
     GITHUB_URL: "https://github.com/acevedoposada",
+    RESUME_FILE_ID: process.env.RESUME_FILE_ID
   },
 };
 

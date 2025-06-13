@@ -1,10 +1,10 @@
 @import '../../../styles/reverse.scss';
 
 .footer {
-  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen;
+  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen h-[90vh] md:h-[80vh];
 
   &__content {
-    @apply grid;
+    @apply grid z-10;
     grid-template-areas: 'connect nav' 'bottom bottom';
     grid-template-columns: 1fr 2fr;
 
@@ -12,10 +12,10 @@
       @apply grid gap-4;
       grid-area: connect;
 
-      & > div {
+      &>div {
         @apply py-2 mb-7 overflow-x-hidden;
 
-        & > a {
+        &>a {
           @apply relative origin-right font-light font-lora text-gray-400 md:text-2xl;
           transition: color .3s ease-in-out;
 

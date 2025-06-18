@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Ubuntu, Lora } from "next/font/google";
 import type { Metadata } from "next";
 import { cn } from "@/utils/cn";
@@ -47,6 +48,7 @@ export default function RootLayout({
       </head>
       <body className={cn(ubuntu.className, lora.variable, "bg-alt")}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );

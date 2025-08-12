@@ -1,0 +1,23 @@
+.pixel-card {
+  @apply  relative overflow-hidden grid place-items-center border border-white/20 rounded-3xl isolate select-none aspect-square;
+  transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
+
+  &::before {
+    content: "";
+    @apply absolute inset-[0] m-auto aspect-[1] bg-[radial-gradient(circle,_#09090b,_transparent_85%)] opacity-0;
+    transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  &:hover::before,
+  &:hover:focus-within::before {
+    @apply opacity-100;
+  }
+
+  &__content {
+    @apply absolute w-full h-full top-0 left-0 grid place-content-center;
+  }
+
+  &__canvas {
+    @apply w-full h-full block;
+  }
+}

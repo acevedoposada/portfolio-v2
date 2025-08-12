@@ -1,0 +1,1 @@
+export { default as PixelCard } from './pixel-card'

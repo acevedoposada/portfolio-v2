@@ -19,7 +19,7 @@ export default function SkillsSection() {
             <PixelCard className="group mx-auto" colors={getColors(skill.colors)}>
               <div className="opacity-0 group-hover:opacity-100 absolute top-0 left-0 h-full w-full grid place-content-center transition-opacity duration-300">
                 <h3
-                  className="text-5xl xl:text-3xl text-center text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:0.5px] leading-none group-hover/canvas-card:text-transparent bg-gradient-to-tr from-white to-transparent bg-clip-text pb-1"
+                  className="text-lg md:text-5xl xl:text-3xl text-center text-transparent [-webkit-text-stroke-color:white] [-webkit-text-stroke-width:0.5px] leading-none group-hover/canvas-card:text-transparent bg-gradient-to-tr from-white to-transparent bg-clip-text pb-1"
                 >
                   {skill.title}
                 </h3>

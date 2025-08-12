@@ -5,8 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 import { NavButtonProps, FloatingNavbarProps } from "./floating-navbar.entity";
+import Link from "next/link";
 
-function NavButton({ isActive, children, element, icon }: NavButtonProps) {
+function NavButton({ isActive, children, element, icon, link }: NavButtonProps) {
   function handleClick() {
     if (element) {
       element.scrollIntoView({
@@ -15,8 +16,12 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
     }
   }
 
+  const Component = link
+    ? ({ ...props }) => <Link href={link} {...props} />
+    : ({ ...props }) => <button {...props} />
+
   return (
-    <button
+    <Component
       className={cn(
         "group relative flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-2 text-sm font-medium text-white transition-all w-full md:w-auto",
         isActive && "border-white/[0.2]",
@@ -38,10 +43,10 @@ function NavButton({ isActive, children, element, icon }: NavButtonProps) {
         className={cn(
           "absolute inset-x-0 -bottom-px mx-auto h-px w-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent transition-all group-hover:w-2/3",
           isActive &&
-            "w-1/2 bg-gradient-to-r from-transparent via-blue-500 to-transparent",
+          "w-1/2 bg-gradient-to-r from-transparent via-blue-500 to-transparent",
         )}
       />
-    </button>
+    </Component>
   );
 }
 

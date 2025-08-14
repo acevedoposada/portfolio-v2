@@ -1,5 +1,5 @@
 .pixel-card {
-  @apply  relative overflow-hidden grid place-items-center rounded-3xl isolate select-none aspect-square border border-white/[0.1] bg-white/[0.01] shadow-[0_8px_16px_rgb(0_0_0/0.4)] backdrop-blur-md;
+  @apply relative overflow-hidden grid place-items-center rounded-3xl isolate select-none aspect-square border border-white/[0.1] bg-white/[0.01] hover:border-white/[0.3] shadow-[0_8px_16px_rgb(0_0_0/0.4)] backdrop-blur-md transition-all;
   transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
 
   &::before {

@@ -26,6 +26,7 @@ export default function Hero() {
   return (
     <div className={styles.hero}>
       <AuroraBackground className="pointer-events-none z-30 bg-transparent opacity-40" />
+
       <HeroHighlight containerClassName="h-dvh absolute top-0 left-0">
         <motion.div style={{ scale: transformText }}>
           <motion.h1 className={styles.hero__title}>

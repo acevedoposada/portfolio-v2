@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { FluidButton, LinkButton } from "@/components";
+import { EspecularButton, LinkButton } from "@/components";
 import { experiences } from "@/constants/experience";
 import { cn } from "@/utils/cn";
 
@@ -55,13 +55,12 @@ export default function ResumeSection() {
           </div>
           <div className={styles.resume__content__cards__blobs} />
         </div>
-        <FluidButton
-          className="mb-8 border-transparent bg-gradient-to-r from-indigo-500 to-purple-500"
-          disableBorder
+        <EspecularButton
+          className="mb-8 [&>span]:text-lg"
           onClick={handleDownloadCV}
         >
           Download Resume
-        </FluidButton>
+        </EspecularButton>
         <ul className={styles.resume__content__links}>
           <li>
             <LinkButton

@@ -56,9 +56,6 @@ export const skills = [
     colors: [
       [253, 89, 3],
     ],
-    classes: {
-      logo: 'w-28'
-    }
   },
   {
     image: "/static/images/lit-element.svg",

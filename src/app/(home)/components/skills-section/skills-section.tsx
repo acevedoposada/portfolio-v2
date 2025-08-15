@@ -27,7 +27,7 @@ export default function SkillsSection() {
               <div className="group-hover:-translate-y-4 md:group-hover:-translate-y-6 absolute top-0 left-0 w-full h-full grid place-content-center transition-transform duration-300">
                 <div className="relative z-20 mx-auto flex h-6/12 w-6/12 md:w-9/12 md:h-9/12 2xl:w-full 2xl:h-full items-center justify-center text-center transition duration-200">
                   <Image
-                    className={cn("relative z-20", skill.classes?.logo)}
+                    className="relative z-20"
                     src={skill.image}
                     alt={`${skill.title} logo`}
                     width={140}

@@ -17,4 +17,5 @@ export interface NavButtonProps {
   element?: HTMLElement;
   children: React.ReactNode;
   icon?: JSX.Element;
+  link?: string
 }

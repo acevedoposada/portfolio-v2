@@ -6,6 +6,7 @@ import {
   IconHandClick,
   IconMapPin,
   IconScript,
+  IconBlockquote
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
@@ -83,6 +84,13 @@ export default function Home() {
         element: contactElement,
         icon: <IconHandClick />,
       },
+      // {
+      //   id: 'blog',
+      //   title: 'Blog',
+      //   isActive: false,
+      //   link: '/my/blog',
+      //   icon: <IconBlockquote /> 
+      // }
     ];
   }, [
     skillsElement,

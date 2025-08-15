@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { ButtonProps, WobbleButtonProps } from "./button.entity";
+import { ButtonProps, EspecularButtonProps, WobbleButtonProps } from "./button.entity";
 import styles from "./button.module.scss";
 import { useRef, useState } from "react";
 import { cn } from "@/utils/cn";
@@ -63,3 +63,13 @@ export const WobbleButton = ({ children, className, onClick }: WobbleButtonProps
     </motion.button>
   );
 };
+
+export const EspecularButton = ({ children, className, ...props }: EspecularButtonProps): JSX.Element => {
+  return (
+    <button className={cn(styles['especular-btn'], className)} {...props}>
+      <span>
+        {children}
+      </span>
+    </button>
+  )
+}

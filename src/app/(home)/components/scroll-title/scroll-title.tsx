@@ -5,17 +5,18 @@ import {
   useSpring,
   Variants,
 } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
+import { DotsBackground } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import styles from "./scroll-title.module.scss";
-import { DotsBackground } from "@/components";
 
 type SizeValues = [[string, string], [string, string]];
 
 export default function ScrollTitle() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [randomValue, setRandomValue] = useState(0)
 
   const outputRange = useMemo<SizeValues>(() => {
     const defaultValue: SizeValues = [
@@ -47,7 +48,7 @@ export default function ScrollTitle() {
         ["50%", "200%"],
       ]
     );
-  }, []);
+  }, [randomValue]);
 
   const [leftRef, leftInView] = useInView({ threshold: 1 });
   const [rightRef, rightInView] = useInView({ threshold: 1 });
@@ -80,6 +81,14 @@ export default function ScrollTitle() {
       opacity: 1,
     },
   };
+
+  useEffect(() => {
+    const observer = new ResizeObserver(() => {
+      setRandomValue(Math.random() * 100)
+    });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [])
 
   return (
     <section ref={ref} className={styles["scroll-title"]}>

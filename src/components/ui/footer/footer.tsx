@@ -4,15 +4,14 @@ import dayjs from "dayjs";
 import _ from 'lodash'
 
 import { NavItem } from "@/app/(home)/components/floating-navbar/floating-navbar.entity";
+import { contactLinks } from "@/constants/contact-links";
 
-import { BackgroundBeams } from "../background-beams";
 import { DotsBackground } from "../dots-background";
 import { WeatherText } from "../weather-text";
 import { WobbleButton } from "../button";
 import { Title } from "../title";
 
 import styles from "./footer.module.scss";
-import { contactLinks } from "@/constants/contact-links";
 
 export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function Footer({ navLinks }, ref) {
   const goToAppLink = (sectionId: 'skills' | 'exp' | 'resume') => () => {
@@ -98,11 +97,9 @@ export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function 
         </section>
       </div>
       <DotsBackground
-        hiddenDots="left"
         className="absolute left-0 top-0"
         speed={{ right: 0 }}
       />
-      <BackgroundBeams className="pointer-events-none select-none" />
     </footer>
   );
 });

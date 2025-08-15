@@ -50,15 +50,12 @@ export const skills = [
     ],
   },
   {
-    image: "/static/images/astro.webp",
+    image: "/static/images/astro.png",
     title: "Astro",
     link: "https://astro.build/",
     colors: [
       [253, 89, 3],
     ],
-    classes: {
-      overlay: "invert",
-    },
   },
   {
     image: "/static/images/lit-element.svg",

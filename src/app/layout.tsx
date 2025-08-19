@@ -7,6 +7,7 @@ import "./globals.css";
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
+  variable: '--ubuntu-font'
 });
 
 const lora = Lora({

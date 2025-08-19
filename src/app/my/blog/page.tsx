@@ -1,14 +1,13 @@
-import { EspecularButton } from "@/components/ui/button";
 import Link from "next/link";
+import { BlogCard } from "./components/card";
 
 export default function Blog() {
   return (
-    <div className="container">
+    <div className="container px-6 py-12">
       <Link href="/">Go home</Link>
-      <h1>This is the blog</h1>
-      <EspecularButton>
-        This is my button
-      </EspecularButton>
+      <div className="py-14">
+        <BlogCard variant='featured' />
+      </div>
     </div>
   )
 }

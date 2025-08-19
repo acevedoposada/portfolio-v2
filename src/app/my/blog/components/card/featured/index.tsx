@@ -8,9 +8,10 @@ import { cn } from "@/utils/cn";
 import { CardProps } from "../card.entity";
 
 import styles from './featured.module.scss';
+import dayjs from "dayjs";
 
 const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
-  (({ className, ...props}, ref): JSX.Element => {
+  (({ className, image, ...props}, ref): JSX.Element => {
   return (
     <article
       ref={ref}
@@ -19,7 +20,7 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
         className
       )}
       style={{
-        ['--bg-image' as any]: `url(${"https://images.unsplash.com/photo-1754901350480-c0fdd1a427b4?q=80&w=2235&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})`
+        ['--bg-image' as any]: `url(${image})`
       }}
       {...props}
     >
@@ -51,7 +52,7 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
                 <IconCalendar />
               </Avatar>
               <h5>
-                Jun 25, 2025
+                {dayjs().format('MMM DD, YYYY')}
               </h5>
             </div>
           </div>
@@ -72,5 +73,7 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
     </article>
   )
 })
+
+FeaturedCard.displayName = 'FeaturedCard';
 
 export default FeaturedCard;

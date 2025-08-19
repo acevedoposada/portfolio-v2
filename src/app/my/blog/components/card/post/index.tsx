@@ -10,4 +10,6 @@ const PostCard = forwardRef<HTMLDivElement, CardProps>
   )
 })
 
+PostCard.displayName = 'PostCard';
+
 export default PostCard

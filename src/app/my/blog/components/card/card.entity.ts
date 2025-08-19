@@ -10,6 +10,7 @@ export interface CardProps extends
     HTMLAttributes<HTMLDivElement>, HTMLDivElement
   > {
   ref?: Ref<HTMLDivElement>;
+  image: string;
 }
 
 export interface BlogCardProps extends CardProps {

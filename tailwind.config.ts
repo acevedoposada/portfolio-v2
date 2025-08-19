@@ -23,6 +23,9 @@ const config: Config = {
       colors: {
         alt: "#0C0C0F",
       },
+      borderRadius: {
+        '4xl': '32px'
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
         "infinite-scroll": "infinite-scroll 32s linear infinite",

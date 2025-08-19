@@ -4,27 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn4.iconfinder.com",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "static-00.iconduck.com",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "upload.wikimedia.org",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "seeklogo.com",
-        port: "",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.iconscout.com",
+        hostname: "images.unsplash.com",
         port: "",
       },
     ],

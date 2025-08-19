@@ -1,0 +1,23 @@
+.avatar {
+  @apply rounded-full w-8 h-8 aspect-square grid place-content-center leading-none border
+    lg:h-10 lg:w-10;
+
+  & > svg {
+    @apply w-5 h-5;
+  }
+
+  &__img {
+    @apply rounded-full;
+  }
+
+  &--no-border {
+    @apply border-none border-transparent relative hover:before:scale-110;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+
+    &::before {
+      content: "";
+      @apply absolute top-0 left-0 w-full h-full z-[-1] rounded-full opacity-50 transition-transform duration-300
+        bg-gradient-to-r from-indigo-500 to-purple-500 blur-md;
+    }
+  }
+}

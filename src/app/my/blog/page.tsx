@@ -1,14 +1,17 @@
-import Link from "next/link";
+import { DotsBackground } from "@/components";
 import { BlogCard } from "./components/card";
+import BlogHeader from "./components/header";
 
 export default function Blog() {
   return (
-    <div className="container px-6 py-12">
-      <Link href="/">Go home</Link>
-      <div className="py-14 flex flex-col gap-12">
+    <div className="pb-12">
+      <DotsBackground speed={{ left: 55, right: 65 }} />
+      <BlogHeader />
+
+      <div className="container px-6 py-14 flex flex-col gap-12">
         <BlogCard
           variant='featured'
-          image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=4076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           title="Design In The Age Of AI: How to adapt lazily."
           description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
           avatar={{
@@ -22,7 +25,7 @@ export default function Blog() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
           <BlogCard
             variant='post'
-            image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=4076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             title="Design In The Age Of AI: How to adapt lazily."
             description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
             avatar={{

@@ -52,7 +52,9 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
             <h3 className={styles.featured__content__title}>
               {title}
             </h3>
-            <p>{description}</p>
+            <p className={styles.featured__content__description}>
+              {description}
+            </p>
           </div>
           <span className={styles.featured__content__header__icon}>
             <IconArrowUpRight size={32} />
@@ -60,7 +62,7 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
         </aside>
         <aside className={styles.featured__content__info}>
           <div className="flex gap-4">
-            <div className={styles.featured__content__info__tag}>
+            <div className={styles.featured__content__info__element}>
               {
                 avatar.img ? (
                   <Avatar
@@ -77,7 +79,7 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
                 {avatar.name}
               </h5>
             </div>
-            <div className={styles.featured__content__info__tag}>
+            <div className={styles.featured__content__info__element}>
               <Avatar>
                 <IconCalendar />
               </Avatar>

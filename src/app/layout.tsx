@@ -48,7 +48,13 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#262626" />
       </head>
-      <body className={cn(ubuntu.className, lora.variable, "bg-alt")}>
+      <body
+        className={cn(
+          ubuntu.className,
+          lora.variable,
+          ubuntu.variable,
+          "bg-alt w-screen overflow-x-hidden"
+        )}>
         {children}
         <SpeedInsights />
       </body>

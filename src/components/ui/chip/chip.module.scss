@@ -37,7 +37,7 @@ $chip-colors: (
 );
 
 .chip {
-  @apply block rounded-full px-3 py-1 border w-fit h-fit font-semibold text-sm;
+  @apply block rounded-full px-3 py-1 border w-fit h-fit font-semibold text-sm whitespace-nowrap line-clamp-1;
 
   &__filled {
     @each $name, $variants in $chip-colors {

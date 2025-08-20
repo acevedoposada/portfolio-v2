@@ -5,10 +5,61 @@ export default function Blog() {
   return (
     <div className="container px-6 py-12">
       <Link href="/">Go home</Link>
-      <div className="py-14 flex flex-col gap-10">
-        <BlogCard variant='featured' image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        <BlogCard variant='featured' image="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        <BlogCard variant='featured' image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=4076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <div className="py-14 flex flex-col gap-12">
+        <BlogCard
+          variant='featured'
+          image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Design In The Age Of AI: How to adapt lazily."
+          description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
+          avatar={{
+            name: "David Acevedo",
+            img: '/static/images/david-acevedo.webp'
+          }}
+          date={new Date()}
+          tags={['UI/UX', 'Design System', 'Sleep & Care']}
+        />
+
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+          <BlogCard
+            variant='post'
+            image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=4076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            title="Design In The Age Of AI: How to adapt lazily."
+            description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
+            avatar={{
+              name: "David Acevedo",
+              img: '/static/images/david-acevedo.webp'
+            }}
+            date={new Date()}
+            tags={['UI/UX', 'Design System', 'Sleep & Care']}
+            readTime={6}
+          />
+          <BlogCard
+            variant='post'
+            image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=3882&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            title="Design In The Age Of AI: How to adapt lazily."
+            description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
+            avatar={{
+              name: "David Acevedo",
+              img: '/static/images/david-acevedo.webp'
+            }}
+            date={new Date()}
+            tags={['UI/UX', 'Design System', 'Sleep & Care']}
+            readTime={6}
+          />
+          <BlogCard
+            variant='post'
+            image="https://images.unsplash.com/photo-1755306064502-6df8d7ee33f7?q=80&w=4469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            title="Design In The Age Of AI: How to adapt lazily."
+            description="With slothUI, you can unleash your inner Gen Z and just stop caring about anything else."
+            avatar={{
+              name: "David Acevedo",
+              img: '/static/images/david-acevedo.webp'
+            }}
+            date={new Date()}
+            tags={['UI/UX', 'Design System', 'Sleep & Care']}
+            readTime={6}
+          />
+        </div>
       </div>
     </div>
   )

@@ -7,6 +7,7 @@ export default function Chip({
   children,
   variant = 'outlined',
   color = 'white',
+  size = 'default',
   className,
   ...props
 }: ChipProps): JSX.Element {
@@ -16,6 +17,7 @@ export default function Chip({
         styles.chip,
         styles[`chip__${variant}`],
         styles[`chip__${variant}--${color}`],
+        styles[`chip--${size}`],
         className
       )}
       {...props}

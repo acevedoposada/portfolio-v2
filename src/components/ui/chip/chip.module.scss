@@ -2,7 +2,7 @@ $chip-colors: (
   default: (
     filled: "text-white bg-indigo-500 border-indigo-500",
     outlined: "text-indigo-500 border-indigo-500",
-    tonal: "text-indigo-900 bg-indigo-400/50 border-indigo-500/0"
+    tonal: "text-indigo-300 bg-indigo-900/50 border-indigo-500/0"
   ),
   white: (
     filled: "text-black bg-white border-white",
@@ -64,5 +64,13 @@ $chip-colors: (
         @apply #{map-get($variants, tonal)};
       }
     }
+  }
+
+  &--sm {
+    @apply text-xs py-0.5 px-1.5;
+  }
+
+  &--lg {
+    @apply text-lg;
   }
 }

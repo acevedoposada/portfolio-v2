@@ -5,7 +5,9 @@ import BlogHeader from "./components/header";
 export default function Blog() {
   return (
     <div className="pb-12">
-      <DotsBackground speed={{ left: 55, right: 65 }} />
+      <div className="absolute w-screen h-full overflow-x-hidden">
+        <DotsBackground speed={{ left: 55, right: 65 }} />
+      </div>
       <BlogHeader />
 
       <div className="container px-6 py-14 flex flex-col gap-12">

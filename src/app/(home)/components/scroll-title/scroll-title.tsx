@@ -48,6 +48,7 @@ export default function ScrollTitle() {
         ["50%", "200%"],
       ]
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [randomValue]);
 
   const [leftRef, leftInView] = useInView({ threshold: 1 });

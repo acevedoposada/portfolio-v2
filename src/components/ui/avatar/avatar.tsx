@@ -27,7 +27,7 @@ export default function Avatar({
       )
     }
     return children;
-  }, [src, children])
+  }, [src, children, alt])
 
   return (
     <span

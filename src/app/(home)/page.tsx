@@ -84,13 +84,13 @@ export default function Home() {
         element: contactElement,
         icon: <IconHandClick />,
       },
-      // {
-      //   id: 'blog',
-      //   title: 'Blog',
-      //   isActive: false,
-      //   link: '/my/blog',
-      //   icon: <IconBlockquote /> 
-      // }
+      {
+        id: 'blog',
+        title: 'Blog',
+        isActive: false,
+        link: '/my/blog',
+        icon: <IconBlockquote /> 
+      }
     ];
   }, [
     skillsElement,

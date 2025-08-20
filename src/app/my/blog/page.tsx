@@ -5,7 +5,7 @@ import BlogHeader from "./components/header";
 export default function Blog() {
   return (
     <div className="pb-12">
-      <div className="absolute w-screen h-full overflow-x-hidden">
+      <div className="absolute w-screen h-full overflow-x-hidden pointer-events-none select-none">
         <DotsBackground speed={{ left: 55, right: 65 }} />
       </div>
       <BlogHeader />

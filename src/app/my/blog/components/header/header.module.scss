@@ -1,0 +1,7 @@
+.header {
+  @apply container px-6 flex flex-col gap-6;
+
+  &__fixed {
+    @apply fixed w-full -top-10 pt-10 left-0 z-10 bg-indigo-900/40 backdrop-blur-xl shadow-lg shadow-indigo-800/15;
+  }
+}

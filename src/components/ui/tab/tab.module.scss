@@ -1,7 +1,7 @@
 .tab {
   @apply bg-transparent inline-flex items-center justify-center relative box-border  select-none align-middle
     outline-0 border-0 m-0 rounded-none p-0 cursor-pointer text-white/60 max-w-[22.5rem] min-w-[5.625rem] min-h-12 
-      shrink-0 px-3 py-4 overflow-hidden whitespace-normal text-center leading-[1.25] gap-2;
+      shrink-0 px-3 py-4 overflow-hidden whitespace-normal text-center leading-[1.25] gap-2 tracking-wide;
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
 
@@ -14,7 +14,8 @@
   }
 
   &--selected {
-    @apply text-indigo-500 text-opacity-100;
+    @apply text-opacity-100 font-bold
+      bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent tracking-normal;
   }
 
   @media print {

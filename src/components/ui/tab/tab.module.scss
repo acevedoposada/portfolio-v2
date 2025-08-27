@@ -1,0 +1,23 @@
+.tab {
+  @apply bg-transparent inline-flex items-center justify-center relative box-border  select-none align-middle
+    outline-0 border-0 m-0 rounded-none p-0 cursor-pointer text-white/60 max-w-[22.5rem] min-w-[5.625rem] min-h-12 
+      shrink-0 px-3 py-4 overflow-hidden whitespace-normal text-center leading-[1.25] gap-2;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+
+  &::-moz-focus-inner {
+    @apply border-none;
+  }
+
+  &--disabled {
+    @apply pointer-events-none cursor-default;
+  }
+
+  &--selected {
+    @apply text-indigo-500 text-opacity-100;
+  }
+
+  @media print {
+    print-color-adjust: exact;
+  }
+}

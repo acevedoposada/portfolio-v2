@@ -1,15 +1,21 @@
+"use client";
 import { DotsBackground } from "@/components";
 import { BlogCard } from "./components/card";
 import BlogHeader from "./components/header";
+import Tabs from "@/components/ui/tabs";
+import Tab from "@/components/ui/tab";
+import { SyntheticEvent, useState } from "react";
 
 export default function Blog() {
+  const [value, setValue] = useState<number | string>(0);
+
+  const handleChangeTab = (_event: SyntheticEvent, value: number | string) => {
+    setValue(value);
+  }
+
   return (
     <div className="pb-12">
-      <div className="absolute w-screen h-full overflow-x-hidden pointer-events-none select-none">
-        <DotsBackground speed={{ left: 55, right: 65 }} />
-      </div>
       <BlogHeader />
-
       <div className="container px-6 pb-14 pt-10 md:pt-14 flex flex-col gap-12">
         <BlogCard
           variant='featured'
@@ -23,6 +29,14 @@ export default function Blog() {
           date={new Date()}
           tags={['UI/UX', 'Design System', 'Sleep & Care']}
         />
+
+        <Tabs value={value} onChange={handleChangeTab}>
+          <Tab label="All" />
+          <Tab label="Design" />
+          <Tab label="Gen Z Stuff" />
+          <Tab label="User Interface" badge={12} />
+          <Tab label="User Experience" />
+        </Tabs>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
           <BlogCard
@@ -65,6 +79,9 @@ export default function Blog() {
             readTime={6}
           />
         </div>
+      </div>
+      <div className="absolute w-screen h-full overflow-x-hidden pointer-events-none select-none top-0">
+        <DotsBackground speed={{ left: 55, right: 65 }} />
       </div>
     </div>
   )

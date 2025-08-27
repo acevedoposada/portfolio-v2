@@ -1,0 +1,17 @@
+.tabs {
+  @apply min-h-12 flex overflow-hidden;
+
+  &__scroller {
+    @apply relative flex flex-auto whitespace-nowrap w-full overflow-x-hidden;
+  }
+
+  &__list {
+    @apply flex border-b border-zinc-500/20;
+  }
+
+  &__indicator {
+    @apply block absolute h-[2px] bottom-0 w-full transition-all duration-500
+      bg-gradient-to-r from-transparent via-blue-300 to-transparent;
+    transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+  }
+}

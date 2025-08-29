@@ -1,0 +1,43 @@
+@use "mixins/border" as b;
+
+.form-field {
+  @include b.border(all);
+  @apply flex h-12 rounded-full;
+
+  &__prefix, &__suffix, &__btn {
+    @apply px-4 leading-none grid place-items-center bg-indigo-900/40 backdrop-blur-xl shadow-lg shadow-indigo-800/15;
+  }
+
+  &__suffix, &__btn {
+    @include b.border(left);
+    @apply rounded-r-full;
+
+    &:has(~ *) {
+      @apply rounded-none;
+    }
+  }
+
+  &__prefix {
+    @include b.border(right);
+    @apply rounded-l-full pl-5;
+  }
+
+  &__btn {
+    @apply relative pr-6 hover:bg-transparent transition-all duration-300 ease-in-out overflow-hidden
+      hover:after:opacity-100;
+
+    &::after {
+      content: "";
+      @apply opacity-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 absolute w-full h-full z-[-1]
+        transition-all duration-300 ease-in-out;
+    }
+  }
+
+  &__input {
+    @apply flex-1 bg-transparent rounded-[inherit] px-4;
+
+    &:focus {
+      @apply outline-none;
+    }
+  }
+}

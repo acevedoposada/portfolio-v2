@@ -1,11 +1,12 @@
 "use client";
+import { SyntheticEvent, useMemo } from 'react';
 
 import { cn } from '@/utils/cn';
-import styles from './tab.module.scss';
-import { SyntheticEvent, useMemo } from 'react';
-import { Chip } from '../chip';
 
-interface TabProps {
+import { Chip } from '../chip';
+import styles from './tab.module.scss';
+
+export interface TabProps {
   label: string;
   value?: string | number;
   disabled?: boolean;

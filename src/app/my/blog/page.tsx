@@ -5,6 +5,7 @@ import BlogHeader from "./components/header";
 import Tabs from "@/components/ui/tabs";
 import Tab from "@/components/ui/tab";
 import { SyntheticEvent, useState } from "react";
+import FormField from "@/components/ui/form-field";
 
 export default function Blog() {
   const [value, setValue] = useState<number | string>(0);
@@ -29,14 +30,21 @@ export default function Blog() {
           date={new Date()}
           tags={['UI/UX', 'Design System', 'Sleep & Care']}
         />
-
-        <Tabs value={value} onChange={handleChangeTab}>
-          <Tab label="All" />
-          <Tab label="Design" />
-          <Tab label="Gen Z Stuff" />
-          <Tab label="User Interface" badge={12} />
-          <Tab label="User Experience" />
-        </Tabs>
+        <div className="flex flex-col md:flex-row gap-4 whitespace-nowrap">
+          <Tabs value={value} onChange={handleChangeTab}>
+            <Tab label="All" />
+            <Tab label="Design" />
+            <Tab label="Gen Z Stuff" />
+            <Tab label="User Interface" badge={12} />
+            <Tab label="User Experience" />
+          </Tabs>
+          <FormField
+            value="This is my portfolio"
+            prefix="$"
+            suffix="USD"
+            button="Copy"
+          />
+        </div>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
           <BlogCard

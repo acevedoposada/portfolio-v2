@@ -1,4 +1,4 @@
-@import '../../../styles/reverse.scss';
+@import 'mixins/reverse.scss';
 
 .footer {
   @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen;

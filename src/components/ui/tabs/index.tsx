@@ -5,6 +5,7 @@ import {
   CSSProperties,
   forwardRef,
   isValidElement,
+  ReactElement,
   ReactNode,
   SyntheticEvent,
   useEffect,
@@ -17,6 +18,7 @@ import ownerWindow from "@/utils/owner-window";
 import debounce from "@/utils/debounce";
 
 import styles from './tabs.module.scss';
+import { TabProps } from "../tab";
 
 interface TabsProps {
   children?: ReactNode;
@@ -175,11 +177,14 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
     const selected = childValue === value;
 
     childIndex += 1;
-    return cloneElement(child, {
-      selected,
-      value: childValue,
-      onChange: handleChange
-    })
+    return cloneElement(
+      child as ReactElement<TabProps>,
+      {
+        selected,
+        value: childValue,
+        onChange: handleChange
+      }
+    )
   });
 
   return (

@@ -10,8 +10,8 @@
   }
 
   &__indicator {
-    @apply block absolute h-[2px] bottom-0 w-full transition-all duration-500
-      bg-gradient-to-r from-transparent via-blue-300 to-transparent;
+    @apply block absolute h-1.5 bottom-0 w-full transition-all duration-500;
     transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55);
+    background: radial-gradient(60% 100% at 50% 100%, #93c5fa99 0%, #FFFFFF00 71%);
   }
 }

@@ -4,11 +4,14 @@
   @include b.border(all);
   @apply flex h-12 rounded-full;
 
-  &__prefix, &__suffix, &__btn {
+  &__prefix,
+  &__suffix,
+  &__btn {
     @apply px-4 leading-none grid place-items-center bg-indigo-900/40 backdrop-blur-xl shadow-lg shadow-indigo-800/15;
   }
 
-  &__suffix, &__btn {
+  &__suffix,
+  &__btn {
     @include b.border(left);
     @apply rounded-r-full;
 
@@ -23,13 +26,23 @@
   }
 
   &__btn {
-    @apply relative pr-6 hover:bg-transparent transition-all duration-300 ease-in-out overflow-hidden
-      hover:after:opacity-100;
+    @apply relative pr-6 hover:bg-transparent transition-all duration-300 ease-in-out overflow-hidden hover:after:opacity-100 active:[&>span]:scale-95;
+
+    &>span {
+      @apply flex gap-2 whitespace-nowrap items-center leading-none transition-transform duration-150 ease-in-out;
+    }
+
+    &:has(svg) {
+      @apply pr-4;
+    }
 
     &::after {
       content: "";
-      @apply opacity-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 absolute w-full h-full z-[-1]
-        transition-all duration-300 ease-in-out;
+      @apply opacity-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 absolute w-full h-full top-0 left-0 z-[-1] transition-all duration-300 ease-in-out;
+    }
+
+    &__icon {
+      @apply opacity-80;
     }
   }
 

@@ -1,7 +1,19 @@
+import { isValidElement, useMemo } from 'react';
 import { FormFieldProps } from './form-field.model';
 import styles from './form-field.module.scss';
 
-function FormField({ prefix, suffix, button, ...inputProps }: FormFieldProps): JSX.Element {
+function FormField({ prefix, suffix, button, buttonIcon: ButtonIcon, ...inputProps }: FormFieldProps): JSX.Element {
+
+  const icon = useMemo(() => {
+    if (!ButtonIcon) return null;
+    if (typeof ButtonIcon === 'string') {
+      return <i className={`ti ti-${ButtonIcon}`} aria-hidden="true" />;
+    }
+    return isValidElement(<ButtonIcon />)
+      ? <ButtonIcon size={20} className={styles['form-field__btn__icon']} />
+      : null;
+  }, [ButtonIcon]);
+
   return (
     <div className={styles['form-field']}>
       {prefix && (
@@ -20,8 +32,10 @@ function FormField({ prefix, suffix, button, ...inputProps }: FormFieldProps): J
       )}
       {button && (
         <button className={styles['form-field__btn']}>
-          {button}
-          <i className="ti ti-brand-tabler"></i>
+          <span>
+            {button}
+            {icon}
+          </span>
         </button>
       )}
     </div>

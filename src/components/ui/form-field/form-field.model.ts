@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { IconName } from "@/constants/icons";
+import { Icon, IconProps } from "@tabler/icons-react";
+import { ButtonHTMLAttributes, ComponentType, DetailedHTMLProps, ReactNode } from "react";
 
 type BaseFormFieldProps<T = HTMLInputElement> = DetailedHTMLProps<
   ButtonHTMLAttributes<T>,
@@ -10,5 +12,5 @@ export interface FormFieldProps
     suffix?: string;
     prefix?: string;
     button?: string | ReactNode;
-    buttonIcon?: string;
+    buttonIcon?: IconName | Icon;
 }

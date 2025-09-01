@@ -1,5 +1,5 @@
 "use client";
-import { SyntheticEvent, useState } from "react";
+import { ChangeEventHandler, SyntheticEvent, useState } from "react";
 
 import FormField from "@/components/ui/form-field";
 import { DotsBackground } from "@/components";
@@ -8,13 +8,17 @@ import Tab from "@/components/ui/tab";
 
 import { BlogCard } from "./components/card";
 import BlogHeader from "./components/header";
-import { IconCopy } from "@tabler/icons-react";
 
 export default function Blog() {
   const [value, setValue] = useState<number | string>(0);
+  const [search, setSearch] = useState<string>("");
 
   const handleChangeTab = (_event: SyntheticEvent, value: number | string) => {
     setValue(value);
+  }
+
+  const handleChangeSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setSearch(event.target.value);
   }
 
   return (
@@ -42,13 +46,18 @@ export default function Blog() {
             <Tab label="User Experience" />
           </Tabs>
           <FormField
-            value="This is my portfolio"
-            onChange={console.log}
+            value={search}
+            onChange={handleChangeSearch}
             name="search"
-            prefix="$"
+            icon="search"
             suffix="USD"
+            prefix="$"
+            iconPosition="right"
+            placeholder="Search..."
             button="Copy"
-            buttonIcon={IconCopy}
+            buttonIcon="copy"
+            helpText="Type and hit enter to search"
+            disabled
           />
         </div>
 

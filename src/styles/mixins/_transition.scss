@@ -1,0 +1,17 @@
+$transition-props: (
+  none: none,
+  all: all,
+  colors: colors,
+  opacity: opacity,
+  transform: transform,
+  shadow: shadow
+);
+
+@mixin transition($prop: all, $time: 300ms, $ease: ease-in-out) {
+  @if not(map-get($transition-props, $prop)) {
+    @error "❌ Invalid transition property: #{$prop}. Use: #{map-keys($transition-props)}";
+  }
+
+  @apply transition-#{$prop} duration-[#{$time}];
+  animation-timing-function: $ease;
+}

@@ -76,6 +76,7 @@ function FormField({
         <button
           className={cn(styles['form-field__btn'], classes.button)}
           onClick={onButtonClick}
+          disabled={disabled}
         >
           <span>
             {button}

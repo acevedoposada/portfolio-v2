@@ -1,15 +1,24 @@
 "use client";
 import { ChangeEventHandler, SyntheticEvent, useState } from "react";
 
+import { DotsBackground } from "@/components/ui/dots-background";
 import FormField from "@/components/ui/form-field";
-import { DotsBackground } from "@/components";
 import Tabs from "@/components/ui/tabs";
 import Tab from "@/components/ui/tab";
 
 import { BlogCard } from "./components/card";
 import BlogHeader from "./components/header";
+import { useQuery } from "@tanstack/react-query";
+import { getBlogPosts } from "@/services/blog/get";
 
 export default function Blog() {
+  const { data: blogs } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getBlogPosts
+  })
+
+  console.log(blogs)
+
   const [value, setValue] = useState<number | string>(0);
   const [search, setSearch] = useState<string>("");
 
@@ -56,7 +65,6 @@ export default function Blog() {
             placeholder="Search..."
             button="Copy"
             buttonIcon="copy"
-            helpText="Type and hit enter to search"
             disabled
           />
         </div>

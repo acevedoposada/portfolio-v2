@@ -57,7 +57,7 @@
   }
 
   &__btn {
-    @apply relative pr-6 hover:bg-transparent overflow-hidden hover:after:opacity-100 active:[&>span]:scale-95;
+    @apply relative pr-6 hover:bg-transparent overflow-hidden [&:not([disabled])]:hover:after:opacity-100 [&:not([disabled])]:active:[&>span]:scale-95;
     @include t.transition(all);
 
     &>span {
@@ -69,7 +69,7 @@
       @apply pr-4;
     }
 
-    &::after {
+    &:not([disabled])::after {
       content: "";
       @apply opacity-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 absolute w-full h-full top-0 left-0 z-[-1];
       @include t.transition(all);

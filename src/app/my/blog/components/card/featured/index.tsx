@@ -1,5 +1,6 @@
 import { IconArrowUpRight, IconCalendar } from "@tabler/icons-react";
-import { forwardRef } from "react";
+import { forwardRef, useCallback, useMemo } from "react";
+import dayjs from "dayjs";
 
 import { Avatar } from "@/components/ui/avatar";
 import { Chip } from "@/components/ui/chip";
@@ -8,10 +9,31 @@ import { cn } from "@/utils/cn";
 import { CardProps } from "../card.entity";
 
 import styles from './featured.module.scss';
-import dayjs from "dayjs";
 
 const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
-  (({ className, image, ...props}, ref): JSX.Element => {
+  (({
+    className,
+    image,
+    title,
+    description,
+    avatar,
+    date,
+    tags,
+    ...props
+  }, ref): JSX.Element => {
+
+  const formattedDate = useMemo(() => 
+    dayjs(date || new Date()).format("MMM DD, YYYY"), 
+    [date]
+  );
+
+  const getInitials = useCallback((name: string) => 
+    name.split(' ')
+      .slice(0, 2)
+      .map(word => word[0])
+      .join(''),
+    [])
+
   return (
     <article
       ref={ref}
@@ -28,9 +50,11 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
         <aside className={styles.featured__content__header}>
           <div>
             <h3 className={styles.featured__content__title}>
-              Desgin In The Age Of AI: How to adapt lazily.
+              {title}
             </h3>
-            <p>With slothUI, you can unleash your inner Gen Z and just stop caring about anything else.</p>
+            <p className={styles.featured__content__description}>
+              {description}
+            </p>
           </div>
           <span className={styles.featured__content__header__icon}>
             <IconArrowUpRight size={32} />
@@ -38,36 +62,44 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>
         </aside>
         <aside className={styles.featured__content__info}>
           <div className="flex gap-4">
-            <div className={styles.featured__content__info__tag}>
-              <Avatar
-                alt="User Avatar"
-                src="/static/images/david-acevedo.webp"
-              />
+            <div className={styles.featured__content__info__element}>
+              {
+                avatar.img ? (
+                  <Avatar
+                    alt={`${avatar.name} Avatar`}
+                    src={avatar.img}
+                  />
+                ) : (
+                  <Avatar>
+                    {getInitials(avatar.name)}
+                  </Avatar>
+                )
+              }
               <h5>
-                David Acevedo
+                {avatar.name}
               </h5>
             </div>
-            <div className={styles.featured__content__info__tag}>
+            <div className={styles.featured__content__info__element}>
               <Avatar>
                 <IconCalendar />
               </Avatar>
               <h5>
-                {dayjs().format('MMM DD, YYYY')}
+                {formattedDate}
               </h5>
             </div>
           </div>
-
-          <div className="flex gap-3">
-            <Chip>
-              UI/UX
-            </Chip>
-            <Chip>
-              Design System
-            </Chip>
-            <Chip>
-              Sleep & Care
-            </Chip>
-          </div>
+          
+          {
+            tags && (
+              <div className="flex gap-3">
+                {
+                  tags?.map((tag) => (
+                    <Chip key={tag}>{tag}</Chip>
+                  ))
+                }
+              </div>
+            )
+          }
         </aside>
       </section>
     </article>

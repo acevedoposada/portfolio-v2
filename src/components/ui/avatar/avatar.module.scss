@@ -20,4 +20,8 @@
         bg-gradient-to-r from-indigo-500 to-purple-500 blur-md;
     }
   }
+
+  &--disable-glow {
+    @apply before:hidden;
+  }
 }

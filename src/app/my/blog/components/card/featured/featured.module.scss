@@ -1,6 +1,6 @@
 .featured {
   $imageUrl: var(--bg-image);
-  @apply w-full aspect-[9_/_16] bg-white/50 rounded-4xl bg-center bg-cover relative shadow-md grid grid-rows-2 max-h-[36rem] cursor-pointer
+  @apply w-full aspect-[10_/_16] bg-white/50 rounded-4xl bg-cover bg-no-repeat bg-center relative shadow-md grid grid-rows-2 max-h-[32rem] cursor-pointer
     lg:grid-rows-3 md:aspect-video
     hover:before:scale-[1.02] before:transition-transform before:duration-500;
   background-image: $imageUrl;
@@ -48,26 +48,28 @@
     }
 
     &__title {
-      @apply text-2xl leading-8 font-extrabold font-lora mb-2
-        lg:mb-3;
+      @apply text-xl font-extrabold font-lora mb-2 line-clamp-2
+        lg:mb-3 md:text-2xl md:leading-8;
       letter-spacing: -1.2%;
     }
 
     &__description {
-      @apply text-base tracking-normal;
+      @apply text-sm tracking-normal leading-none line-clamp-2
+        md:text-base;
       line-height: 160%;
     }
 
     &__info {
-      @apply flex flex-col justify-start items-start gap-5
-        md:flex-row md:justify-between md:items-center;
+      @apply flex flex-col justify-start items-start gap-4
+        md:flex-row md:justify-between md:items-center md:gap-5;
 
-        &__tag {
+        &__element {
           @apply flex flex-col gap-1 items-start
             sm:flex-row sm:items-center sm:gap-2;
 
           & h5 {
-            @apply font-extrabold;
+            @apply font-medium text-sm
+              md:font-extrabold md:text-base;
           }
         }
     }

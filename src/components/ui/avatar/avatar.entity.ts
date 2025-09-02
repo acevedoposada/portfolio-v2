@@ -9,11 +9,13 @@ export type AvatarProps =
   | (BaseProps & {
     src: string;
     alt: string;
+    disableGlow?: boolean;
     children?: never;
   })
   | (BaseProps & {
     src?: undefined;
     alt?: undefined;
+    disableGlow?: undefined;
     children: ReactNode;
   })
 

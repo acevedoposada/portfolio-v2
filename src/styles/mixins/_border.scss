@@ -1,0 +1,18 @@
+$border-map: (
+  top: t,
+  bottom: b,
+  right: r,
+  left: l
+);
+
+@mixin border($positions...) {
+  @apply border-white/20;
+  @each $pos in $positions {
+    @if ($pos == all) {
+      @apply border;
+    } @else if map-has-key($border-map, $pos) {
+      $short: map-get($border-map, $pos);
+      @apply border-#{$short};
+    }
+  }
+}

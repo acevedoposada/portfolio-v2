@@ -16,6 +16,12 @@ export enum ChipColors {
   info = 'info'
 }
 
+export enum ChipSizes {
+  default = 'default',
+  lg = 'lg',
+  sm = 'sm'
+}
+
 export interface ChipProps 
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLSpanElement>,
@@ -24,4 +30,5 @@ export interface ChipProps
   children: ReactNode | string;
   variant?: `${ChipVariants}`;
   color?: `${ChipColors}`;
+  size?: `${ChipSizes}`
 }

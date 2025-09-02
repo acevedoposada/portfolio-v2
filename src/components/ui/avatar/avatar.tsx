@@ -11,6 +11,7 @@ export default function Avatar({
   className,
   src,
   alt,
+  disableGlow,
   ...props
 }: AvatarProps): JSX.Element {
   const content = useMemo(() => {
@@ -26,14 +27,15 @@ export default function Avatar({
       )
     }
     return children;
-  }, [src, children])
+  }, [src, children, alt])
 
   return (
     <span
       className={cn(
         styles.avatar,
         {
-          [styles['avatar--no-border']]: !!src
+          [styles['avatar--no-border']]: !!src,
+          [styles['avatar--disable-glow']]: disableGlow
         },
         className
       )}

@@ -7,7 +7,7 @@ export function BlogCard({ variant, ...props }: BlogCardProps): JSX.Element {
   >(() => ({
     [CardVariant.featured]: lazy(() => import('./featured')),
     [CardVariant.post]: lazy(() => import('./post'))
-  }), [variant])
+  }), [])
 
   const Card = cardTypes[variant || CardVariant.post];
 

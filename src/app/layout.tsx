@@ -3,6 +3,7 @@ import { Ubuntu, Lora } from "next/font/google";
 import type { Metadata } from "next";
 import { cn } from "@/utils/cn";
 import "./globals.css";
+import { Providers } from './providers';
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -48,9 +49,17 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#262626" />
       </head>
-      <body className={cn(ubuntu.className, lora.variable, "bg-alt")}>
-        {children}
-        <SpeedInsights />
+      <body
+        className={cn(
+          ubuntu.className,
+          lora.variable,
+          ubuntu.variable,
+          "bg-alt w-screen overflow-x-hidden"
+        )}>
+        <Providers>
+          {children}
+          <SpeedInsights />
+        </Providers>
       </body>
     </html>
   );

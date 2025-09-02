@@ -1,41 +1,35 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import dayjs from "dayjs";
+dayjs.extend(timezone);
+dayjs.extend(utc);
 
-import { weatherApiInstance } from "@/helpers/instances";
+import { getWeatherData } from "@/services/weather/get";
 
-import { WeatherData, WeatherTextProps } from "./weather-text.entity";
-
-async function getData() {
-  try {
-    const response = await weatherApiInstance.get<WeatherData>(
-      "/forecast?latitude=6.2518&longitude=-75.5636&current=temperature_2m,is_day,precipitation,rain,showers,snowfall&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto&forecast_days=1",
-    );
-    if (response.status !== 200) {
-      throw new Error("Failed to fetch data");
-    }
-    return response.data;
-  } catch (error) {
-    throw new Error("Failed to fetch data");
-  }
-}
+import { WeatherTextProps } from "./weather-text.entity";
 
 export default function WeatherText({
   showTemperature,
   ...props
 }: WeatherTextProps) {
-  const [weather, setWeather] = useState<WeatherData>();
+  const { data: weather, isLoading } = useQuery({
+    queryKey: ["weather"],
+    queryFn: getWeatherData,
+    refetchOnMount: false
+  })
 
-  useEffect(() => {
-    (async function () {
-      setWeather(await getData());
-    })();
-  }, []);
+  if (isLoading) {
+    return (
+      <p>
+        Loading time...
+      </p>
+    )
+  }
 
   return (
     <p {...props}>
-      Medellin, Col {dayjs(weather?.current.time).format("HH:MM A")}
+      Medellin, Col {dayjs(weather?.current.time).tz(weather?.timezone).format("HH:mm A")}
       {showTemperature && (
         <>
           {" "}

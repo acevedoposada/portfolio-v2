@@ -1,20 +1,23 @@
 "use client";
 import { ChangeEventHandler, SyntheticEvent, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import { DotsBackground } from "@/components/ui/dots-background";
+import { getBlogPosts } from "@/services/blog/get";
 import FormField from "@/components/ui/form-field";
 import Tabs from "@/components/ui/tabs";
 import Tab from "@/components/ui/tab";
 
 import { BlogCard } from "./components/card";
 import BlogHeader from "./components/header";
-import { useQuery } from "@tanstack/react-query";
-import { getBlogPosts } from "@/services/blog/get";
+
+import styles from './blog.module.scss';
 
 export default function Blog() {
   const { data: blogs } = useQuery({
     queryKey: ["posts"],
-    queryFn: getBlogPosts
+    queryFn: getBlogPosts,
+    refetchOnMount: false
   })
 
   console.log(blogs)
@@ -31,9 +34,9 @@ export default function Blog() {
   }
 
   return (
-    <div className="pb-12">
+    <div className={styles.blog}>
       <BlogHeader />
-      <div className="container px-6 pb-14 pt-10 md:pt-14 flex flex-col gap-12">
+      <div className={styles.blog__content}>
         <BlogCard
           variant='featured'
           image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=4076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -46,30 +49,28 @@ export default function Blog() {
           date={new Date()}
           tags={['UI/UX', 'Design System', 'Sleep & Care']}
         />
-        <div className="flex flex-col md:flex-row gap-4 whitespace-nowrap">
-          <Tabs value={value} onChange={handleChangeTab}>
-            <Tab label="All" />
-            <Tab label="Design" />
-            <Tab label="Gen Z Stuff" />
-            <Tab label="User Interface" badge={12} />
-            <Tab label="User Experience" />
-          </Tabs>
+        <div className={styles.blog__filters}>
+          <div className="lg:col-span-9">
+            <Tabs value={value} onChange={handleChangeTab}>
+              <Tab label="All" />
+              <Tab label="Design" />
+              <Tab label="Gen Z Stuff" />
+              <Tab label="User Interface" badge={12} />
+              <Tab label="User Experience" />
+            </Tabs>
+          </div>
           <FormField
             value={search}
             onChange={handleChangeSearch}
             name="search"
             icon="search"
-            suffix="USD"
-            prefix="$"
             iconPosition="right"
             placeholder="Search..."
-            button="Copy"
-            buttonIcon="copy"
-            disabled
+            className="lg:col-span-3"
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+        <div className={styles.blog__posts}>
           <BlogCard
             variant='post'
             image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=4470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -111,7 +112,7 @@ export default function Blog() {
           />
         </div>
       </div>
-      <div className="absolute w-screen h-full overflow-x-hidden pointer-events-none select-none top-0">
+      <div className={styles.blog__background}>
         <DotsBackground speed={{ left: 55, right: 65 }} />
       </div>
     </div>

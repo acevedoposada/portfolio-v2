@@ -18,6 +18,7 @@ function FormField({
   placeholder,
   disabled,
   classes = {},
+  className,
   onButtonClick,
   ...inputProps
 }: FormFieldProps): JSX.Element {
@@ -36,7 +37,14 @@ function FormField({
   const buttonIconValidated = useMemo(() => validateIcon(buttonIcon), [buttonIcon]);
 
   const formField = (
-    <div className={cn(styles['form-field'], error && styles['form-field--error'], classes.root)}>
+    <div className={cn(
+      styles['form-field'],
+      classes.root,
+      {
+        [styles['form-field--error']]: error
+      },
+      className
+    )}>
       {prefix && (
         <span className={cn(styles['form-field__prefix'], classes.prefix)}>
           {prefix}

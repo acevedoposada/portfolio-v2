@@ -86,10 +86,12 @@
 
   &:has(input[disabled]) {
 
+    @apply bg-zinc-400/5;
+
     .form-field__prefix,
     .form-field__suffix,
     .form-field__btn {
-      @apply bg-zinc-800/30 select-none;
+      @apply bg-zinc-800/30 select-none shadow-none text-white/50;
     }
   }
 

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://www.david-acevedo.tech/my/blog",
     images: [
       {
-        url: "/static/images/david-acevedo.webp",
+        url: "/static/images/blog-cover.webp",
         width: 1200,
         height: 630,
         alt: "David Acevedo's Frontend Development Blog",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "David Acevedo - Frontend Development Blog",
     description:
       "Explore articles and guides on frontend development, web performance, animations, accessibility, and creative coding.",
-    images: ["/static/images/david-acevedo.webp"],
+    images: ["/static/images/blog-cover.webp"],
     creator: "@AcevedoChris90",
   },
 };

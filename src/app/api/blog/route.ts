@@ -1,12 +1,13 @@
 import {
   collection,
-  getCountFromServer,
+  doc,
   getDoc,
   getDocs,
   limit,
   orderBy,
   query,
   QueryConstraint,
+  startAfter,
   where,
 } from "firebase/firestore";
 import { NextResponse } from "next/server";
@@ -21,48 +22,50 @@ type BlogPost = {
   [key: string]: any;
 };
 
-async function fetchBlogPosts(page: number): Promise<{ posts: BlogPost[]; count: number }> {
-  const blogRef = collection(db, "blog");
-  const constraints: QueryConstraint[] = [
-    where("state", "==", PostStatus.PUBLISHED),
-    orderBy("published_date", "desc"),
-    limit(PAGE_SIZE),
-  ];
-  const countQuery = query(blogRef, where("state", "==", PostStatus.PUBLISHED));
-  const paginatedQuery = query(blogRef, ...constraints);
-
-  const [querySnapshot, countSnapshot] = await Promise.all([
-    getDocs(paginatedQuery),
-    getCountFromServer(countQuery),
-  ]);
-
-  const posts: BlogPost[] = await Promise.all(
-    querySnapshot.docs.map(async (doc) => {
-      const postData = doc.data();
-      const contentSnap = await getDoc(postData.content);
-      return {
-        id: doc.id,
-        ...postData,
-        published_date: postData.published_date?.toDate(),
-        content: contentSnap.data(),
-      };
-    })
-  );
-
-  return {
-    posts,
-    count: countSnapshot.data().count,
-  };
-}
-
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
-    const page = Number(searchParams.get("page") || "1");
+    const lastId = searchParams.get("lastId") || undefined;
 
-    const { posts, count } = await fetchBlogPosts(page);
+    const blogRef = collection(db, "blog");
+    const whereClause = where("state", "==", PostStatus.PUBLISHED);
+    const orderByClause = orderBy("published_date", "desc");
 
-    return NextResponse.json({ posts, count, page });
+    const queryConstraints: QueryConstraint[] = [orderByClause, whereClause, limit(PAGE_SIZE)];
+
+    if (lastId) {
+      const lastDocument = await getDoc(doc(db, "blog", lastId));
+      if (!lastDocument.exists()) {
+        return NextResponse.json(
+          { message: "Error searching the last document id sent" },
+          { status: 404 }
+        );
+      }
+      queryConstraints.push(startAfter(lastDocument));
+    }
+
+    const q = query(blogRef, ...queryConstraints);
+    const querySnapshot = await getDocs(q);
+    const countSnapshot = await getDoc(doc(db, "blog_metadata", "counts"));
+    const data = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    let count: number = 0;
+
+    if (countSnapshot.exists()) {
+      count = countSnapshot.data().value;
+    }
+
+    const newLastDocId =
+      querySnapshot.size > 0 ? querySnapshot.docs[querySnapshot.size - 1].id : null;
+
+    return NextResponse.json({
+      posts: data,
+      lastDocId: newLastDocId,
+      count,
+      hasMore: querySnapshot.size === PAGE_SIZE,
+    });
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(

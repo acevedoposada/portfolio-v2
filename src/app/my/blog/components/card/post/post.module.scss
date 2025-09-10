@@ -1,46 +1,46 @@
 .post {
-  @apply rounded-3xl cursor-pointer relative
-    hover:before:opacity-30 hover:after:opacity-40 hover:after:scale-105;
+  @apply relative cursor-pointer rounded-3xl
+    hover:before:opacity-30 hover:after:scale-105 hover:after:opacity-40;
 
   &::after {
     content: "";
-    @apply absolute w-full h-full z-[-1] rounded-4xl border border-white/20 top-0 left-0 opacity-0 transition-all duration-500;
+    @apply absolute left-0 top-0 z-[-1] h-full w-full rounded-4xl border border-white/20 opacity-0 transition-all duration-500;
     background: radial-gradient(
       circle,
-      rgba(2, 0, 36, 0.5) 0%, 
-      rgba(9, 9, 121, 0.5) 35%, 
+      rgba(2, 0, 36, 0.5) 0%,
+      rgba(9, 9, 121, 0.5) 35%,
       rgba(2, 0, 36, 0.5) 100%
     );
   }
 
   &::before {
     content: "";
-    @apply absolute w-full h-full z-[-2] rounded-3xl blur-2xl opacity-0 transition-all duration-500 overflow-hidden;
+    @apply absolute z-[-2] h-full w-full overflow-hidden rounded-3xl opacity-0 blur-2xl transition-all duration-500;
     background: conic-gradient(
-        var(--alt) 80deg,
-        var(--indigo-500),
-        var(--purple-500),
-        var(--indigo-500),
-        var(--alt) 280deg
-      );
+      var(--alt) 80deg,
+      var(--indigo-500),
+      var(--purple-500),
+      var(--indigo-500),
+      var(--alt) 280deg
+    );
   }
 
   &__img {
-    @apply rounded-3xl aspect-video w-full object-cover object-center;
+    @apply aspect-video w-full rounded-3xl object-cover object-center;
   }
 
   &__title {
-    @apply text-2xl line-clamp-1 my-2 font-lora font-semibold;
+    @apply my-2 line-clamp-1 font-lora text-2xl font-semibold;
     line-height: 2rem;
     letter-spacing: -1.2%;
   }
 
   &__description {
-    @apply tracking-normal line-clamp-2 opacity-70;
+    @apply line-clamp-2 tracking-normal opacity-70;
     line-height: 160%;
   }
 
   &__info {
-    @apply flex items-center justify-between mt-4 transition-transform duration-500;
+    @apply mt-4 flex items-center justify-between transition-transform duration-500;
   }
 }

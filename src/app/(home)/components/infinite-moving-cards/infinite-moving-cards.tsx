@@ -37,15 +37,9 @@ export default function InfiniteMovingCards({
   const getDirection = useCallback(() => {
     if (containerRef.current) {
       if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards",
-        );
+        containerRef.current.style.setProperty("--animation-direction", "forwards");
       } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse",
-        );
+        containerRef.current.style.setProperty("--animation-direction", "reverse");
       }
     }
   }, [direction]);
@@ -64,9 +58,7 @@ export default function InfiniteMovingCards({
 
   const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(
-        scrollerRef.current.children,
-      ) as Array<HTMLLIElement>;
+      const scrollerContent = Array.from(scrollerRef.current.children) as Array<HTMLLIElement>;
 
       scrollerContent.forEach((item: HTMLLIElement) => {
         const elementId = item.dataset!.element as unknown as number;
@@ -100,7 +92,7 @@ export default function InfiniteMovingCards({
       ref={containerRef}
       className={cn(
         "scroller max-w-screen relative z-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
-        className,
+        className
       )}
     >
       <ul
@@ -108,7 +100,7 @@ export default function InfiniteMovingCards({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map((item, idx) => (
@@ -116,8 +108,7 @@ export default function InfiniteMovingCards({
             key={`${Math.random().toString(16)}_${item.title.replace(" ", "_")}`}
             className="relative h-[150px] w-[150px] flex-shrink-0 rounded-2xl border border-b-0 border-slate-700 px-8 py-6 md:h-[250px] md:w-[250px]"
             style={{
-              background:
-                "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
+              background: "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
             }}
             data-element={idx}
           >

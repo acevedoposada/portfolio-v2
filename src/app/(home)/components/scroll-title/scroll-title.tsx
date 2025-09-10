@@ -1,10 +1,4 @@
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useSpring,
-  Variants,
-} from "framer-motion";
+import { useScroll, useTransform, motion, useSpring, Variants } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { DotsBackground } from "@/components";
@@ -16,7 +10,7 @@ type SizeValues = [[string, string], [string, string]];
 
 export default function ScrollTitle() {
   const ref = useRef<HTMLDivElement>(null);
-  const [randomValue, setRandomValue] = useState(0)
+  const [randomValue, setRandomValue] = useState(0);
 
   const outputRange = useMemo<SizeValues>(() => {
     const defaultValue: SizeValues = [
@@ -85,11 +79,11 @@ export default function ScrollTitle() {
 
   useEffect(() => {
     const observer = new ResizeObserver(() => {
-      setRandomValue(Math.random() * 100)
+      setRandomValue(Math.random() * 100);
     });
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [])
+  }, []);
 
   return (
     <section ref={ref} className={styles["scroll-title"]}>
@@ -100,22 +94,15 @@ export default function ScrollTitle() {
         initial="hidden"
         variants={paragraphVariants}
       >
-        I&apos;ve worked in front-end development, so I can understand designs
-        well and builds effective communication between team members.
+        I&apos;ve worked in front-end development, so I can understand designs well and builds
+        effective communication between team members.
       </motion.p>
       <motion.h2 className={styles["scroll-title__title"]}>
-        <motion.span style={{ x: creativeSpring, opacity: textOpacity }}>
-          Creative
-        </motion.span>
-        <motion.span
-          style={{ scale: frontendScale }}
-          transition={{ type: "tween" }}
-        >
+        <motion.span style={{ x: creativeSpring, opacity: textOpacity }}>Creative</motion.span>
+        <motion.span style={{ scale: frontendScale }} transition={{ type: "tween" }}>
           Frontend
         </motion.span>
-        <motion.span style={{ x: developerSpring, opacity: textOpacity }}>
-          Developer
-        </motion.span>
+        <motion.span style={{ x: developerSpring, opacity: textOpacity }}>Developer</motion.span>
       </motion.h2>
       <motion.p
         className="ml-auto"
@@ -124,9 +111,8 @@ export default function ScrollTitle() {
         initial="hidden"
         variants={paragraphVariants}
       >
-        Currently, I live in Medellin, Colombia. In my personal life, I love to
-        travel with my backpack, watch documentaries about nature, and love
-        techno music.
+        Currently, I live in Medellin, Colombia. In my personal life, I love to travel with my
+        backpack, watch documentaries about nature, and love techno music.
       </motion.p>
       <div className={styles["scroll-title__blobs"]} />
     </section>

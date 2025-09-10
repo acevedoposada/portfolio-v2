@@ -56,7 +56,7 @@ export const WobbleButton = ({ children, className, onClick }: WobbleButtonProps
       onMouseLeave={reset}
       animate={{ x, y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className={cn('cursor-pointer', className)}
+      className={cn("cursor-pointer", className)}
       onClick={onClick}
     >
       {children}
@@ -64,12 +64,14 @@ export const WobbleButton = ({ children, className, onClick }: WobbleButtonProps
   );
 };
 
-export const EspecularButton = ({ children, className, ...props }: EspecularButtonProps): JSX.Element => {
+export const EspecularButton = ({
+  children,
+  className,
+  ...props
+}: EspecularButtonProps): JSX.Element => {
   return (
-    <button className={cn(styles['especular-btn'], className)} {...props}>
-      <span>
-        {children}
-      </span>
+    <button className={cn(styles["especular-btn"], className)} {...props}>
+      <span>{children}</span>
     </button>
-  )
-}
+  );
+};

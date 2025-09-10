@@ -1,35 +1,36 @@
 .button {
   $root: &;
 
-  @apply inline-block relative px-6 py-4 rounded-full font-medium text-lg uppercase;
+  @apply relative inline-block rounded-full px-6 py-4 text-lg font-medium uppercase;
   transition: transform 0.3s;
 
   &__border {
-    @apply block absolute inset-0 z-[3] border rounded-full border-white;
+    @apply absolute inset-0 z-[3] block rounded-full border border-white;
   }
 
   &__ripple {
-    @apply block absolute inset-0 z-[1] overflow-hidden rounded-[inherit];
+    @apply absolute inset-0 z-[1] block overflow-hidden rounded-[inherit];
     transform: translateZ(0);
 
     & span {
-      @apply block w-full h-full bg-white;
+      @apply block h-full w-full bg-white;
       border-radius: 50% 50% 0 0;
       transform: translateY(101%);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+      transition:
+        transform 0.5s cubic-bezier(0.4, 0, 0, 1),
         border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
     }
   }
 
   &__title {
-    @apply relative block text-center overflow-hidden z-[2] text-white;
+    @apply relative z-[2] block overflow-hidden text-center text-white;
 
     & span {
       @apply block;
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
       &:after {
-        @apply block absolute top-[110%] w-full left-0 text-black text-center;
+        @apply absolute left-0 top-[110%] block w-full text-center text-black;
         content: attr(data-text);
       }
     }
@@ -61,8 +62,8 @@
 }
 
 .especular-btn {
-  @apply flex items-center gap-1 text-base leading-none cursor-pointer relative text-white transition-all duration-300 ease-in
-    bg-gradient-to-l from-indigo-500 via-purple-500 to-indigo-500 px-7 py-4 rounded-full;
+  @apply relative flex cursor-pointer items-center gap-1 rounded-full bg-gradient-to-l from-indigo-500 via-purple-500 to-indigo-500 px-7
+    py-4 text-base leading-none text-white transition-all duration-300 ease-in;
   border: none;
   box-shadow:
     inset 0px 0px 5px #a5b4fca9,
@@ -71,7 +72,7 @@
 
   &::before {
     content: "";
-    @apply absolute inset-[0] m-auto rounded-full z-[-1] shadow-none;
+    @apply absolute inset-[0] z-[-1] m-auto rounded-full shadow-none;
     filter: blur(0px);
     background: conic-gradient(
       var(--alt) 80deg,
@@ -84,7 +85,7 @@
   }
 
   & span {
-    @apply leading-none font-medium;
+    @apply font-medium leading-none;
     text-shadow: 1px 1px 2px #000;
   }
 

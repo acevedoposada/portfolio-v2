@@ -1,23 +1,23 @@
 .hero {
-  @apply h-dvh relative;
+  @apply relative h-dvh;
 
   &__title {
-    @apply mb-4 md:mb-2 lg:mb-0 text-4xl px-4 md:text-6xl 2xl:text-[6rem] font-bold text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto flex flex-col;
+    @apply mx-auto mb-4 flex max-w-4xl flex-col px-4 text-center text-4xl font-bold leading-relaxed text-white md:mb-2 md:text-6xl lg:mb-0 lg:leading-snug 2xl:text-[6rem];
 
     &__section {
       @apply inline-block overflow-hidden;
     }
 
     &__highlight {
-      @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent font-lora;
+      @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text font-lora text-transparent;
     }
   }
 
   &__description {
-    @apply text-center font-light text-sm md:text-lg 2xl:text-2xl max-w-[20rem] md:max-w-[30rem] lg:max-w-[40rem] mx-auto font-lora;
+    @apply mx-auto max-w-[20rem] text-center font-lora text-sm font-light md:max-w-[30rem] md:text-lg lg:max-w-[40rem] 2xl:text-2xl;
   }
 
   &__scroll {
-    @apply absolute z-40 bottom-5 left-[calc(50%-1.25rem)] w-10 flex flex-col items-center;
+    @apply absolute bottom-5 left-[calc(50%-1.25rem)] z-40 flex w-10 flex-col items-center;
   }
 }

@@ -14,7 +14,7 @@ export default function InfiniteSlider({
     <div
       className={clsx(
         "inline-flex w-full flex-nowrap py-4 [mask-image:_linear-gradient(to_right,transparent_0,_black_20%,_black_80%,transparent_100%)]",
-        className,
+        className
       )}
     >
       {[1, 2].map((repetition) => (
@@ -34,10 +34,7 @@ export default function InfiniteSlider({
                   strokeWidth={1.5}
                 />
               ) : (
-                <IconCode
-                  className={clsx("text-purple-500", iconClassName)}
-                  strokeWidth={1.5}
-                />
+                <IconCode className={clsx("text-purple-500", iconClassName)} strokeWidth={1.5} />
               )}
             </li>
           ))}

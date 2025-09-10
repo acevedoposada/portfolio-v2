@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef } from "react";
 import dayjs from "dayjs";
-import _ from 'lodash'
+import _ from "lodash";
 
 import { NavItem } from "@/app/(home)/components/floating-navbar/floating-navbar.entity";
 import { contactLinks } from "@/constants/contact-links";
@@ -13,24 +13,27 @@ import { Title } from "../title";
 
 import styles from "./footer.module.scss";
 
-export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function Footer({ navLinks }, ref) {
-  const goToAppLink = (sectionId: 'skills' | 'exp' | 'resume') => () => {
-    const navItem = navLinks.find(link => link.id === sectionId)
+export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function Footer(
+  { navLinks },
+  ref
+) {
+  const goToAppLink = (sectionId: "skills" | "exp" | "resume") => () => {
+    const navItem = navLinks.find((link) => link.id === sectionId);
     if (navItem && navItem.element) {
       navItem.element.scrollIntoView({
         behavior: "smooth",
         block: "start",
-      })
+      });
     }
-  }
+  };
 
   const goToExternalLink = (link: string) => () => {
-    const anchor = document.createElement('a')
+    const anchor = document.createElement("a");
     anchor.href = link;
-    anchor.target = '_blank'
-    anchor.click()
-    anchor.remove()
-  }
+    anchor.target = "_blank";
+    anchor.click();
+    anchor.remove();
+  };
 
   return (
     <footer ref={ref} className={styles.footer}>
@@ -53,32 +56,27 @@ export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function 
         <section className={styles.footer__content__nav}>
           <nav>
             <ul className={styles.footer__content__nav__elements}>
-              <li className="group" onClick={goToAppLink('skills')}>
+              <li className="group" onClick={goToAppLink("skills")}>
                 <h5>
                   <span data-text="Skills">Skills</span>
                 </h5>
                 <p>
-                  Check out the things I{"'"}m good at, from building websites
-                  to design and more.
+                  Check out the things I{"'"}m good at, from building websites to design and more.
                 </p>
               </li>
-              <li className="group" onClick={goToAppLink('exp')}>
+              <li className="group" onClick={goToAppLink("exp")}>
                 <h5>
                   <span data-text="Experience">Experience</span>
                 </h5>
                 <p>
-                  Check out the things I{"'"}m good at, from building websites
-                  to design and more.
+                  Check out the things I{"'"}m good at, from building websites to design and more.
                 </p>
               </li>
-              <li className="group" onClick={goToAppLink('resume')}>
+              <li className="group" onClick={goToAppLink("resume")}>
                 <h5>
                   <span data-text="Resume">Resume</span>
                 </h5>
-                <p>
-                  See my work history and what I{"'"}ve achieved in a quick and
-                  easy resume.
-                </p>
+                <p>See my work history and what I{"'"}ve achieved in a quick and easy resume.</p>
               </li>
               <li className="group">
                 <a href={process.env.INSTAGRAM_URL} target="_blank">
@@ -96,10 +94,7 @@ export const Footer = forwardRef<HTMLElement, { navLinks: NavItem[] }>(function 
           <WeatherText showTemperature />
         </section>
       </div>
-      <DotsBackground
-        className="absolute left-0 top-0"
-        speed={{ right: 0 }}
-      />
+      <DotsBackground className="absolute left-0 top-0" speed={{ right: 0 }} />
     </footer>
   );
 });

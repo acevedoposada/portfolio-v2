@@ -11,17 +11,11 @@ import styles from "./hero.module.scss";
 export default function Hero() {
   const { scrollYProgress } = useScroll();
   const isMobile = useMemo(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(pointer: coarse)").matches,
-    [],
+    () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches,
+    []
   );
 
-  const transformText = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, !isMobile ? 0.5 : 0.1],
-  );
+  const transformText = useTransform(scrollYProgress, [0, 1], [1, !isMobile ? 0.5 : 0.1]);
 
   return (
     <div className={styles.hero}>
@@ -31,16 +25,9 @@ export default function Hero() {
         <motion.div style={{ scale: transformText }}>
           <motion.h1 className={styles.hero__title}>
             <span
-              className={cn(
-                "text-5xl md:text-6xl 2xl:text-[6rem]",
-                styles.hero__title__section,
-              )}
+              className={cn("text-5xl md:text-6xl 2xl:text-[6rem]", styles.hero__title__section)}
             >
-              <motion.span
-                className="inline-block"
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-              >
+              <motion.span className="inline-block" initial={{ y: "100%" }} animate={{ y: 0 }}>
                 I&apos;m
               </motion.span>{" "}
               <motion.span
@@ -72,9 +59,7 @@ export default function Hero() {
                 </motion.span>
               </Highlight>
             </span>
-            <span
-              className={cn(styles.hero__title__section, "lg:mt-4 2xl:mt-0")}
-            >
+            <span className={cn(styles.hero__title__section, "lg:mt-4 2xl:mt-0")}>
               <motion.span
                 className="inline-block"
                 initial={{ y: "100%" }}
@@ -91,8 +76,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            I develop accessible, responsive, interactive, and animated websites
-            and applications with a strong focus on performance.
+            I develop accessible, responsive, interactive, and animated websites and applications
+            with a strong focus on performance.
           </motion.p>
         </motion.div>
       </HeroHighlight>

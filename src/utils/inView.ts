@@ -1,10 +1,7 @@
 "use client";
 
 import { LegacyRef, useCallback, useRef } from "react";
-import {
-  useInView as useInViewLibrary,
-  IntersectionOptions,
-} from "react-intersection-observer";
+import { useInView as useInViewLibrary, IntersectionOptions } from "react-intersection-observer";
 
 type UseInViewHook = [(node: HTMLElement | null) => void, boolean, HTMLElement];
 
@@ -17,7 +14,7 @@ export const useInView = (options?: IntersectionOptions): UseInViewHook => {
       elementRef.current = node as unknown as LegacyRef<HTMLElement>;
       inViewRef(node);
     },
-    [inViewRef],
+    [inViewRef]
   );
 
   return [ref, inView, elementRef.current as unknown as HTMLElement];

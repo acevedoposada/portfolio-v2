@@ -2,7 +2,7 @@ $border-map: (
   top: t,
   bottom: b,
   right: r,
-  left: l
+  left: l,
 );
 
 @mixin border($positions...) {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import timezone from 'dayjs/plugin/timezone';
-import utc from 'dayjs/plugin/utc';
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 import dayjs from "dayjs";
 dayjs.extend(timezone);
 dayjs.extend(utc);
@@ -9,22 +9,15 @@ import { getWeatherData } from "@/services/weather/get";
 
 import { WeatherTextProps } from "./weather-text.entity";
 
-export default function WeatherText({
-  showTemperature,
-  ...props
-}: WeatherTextProps) {
+export default function WeatherText({ showTemperature, ...props }: WeatherTextProps) {
   const { data: weather, isLoading } = useQuery({
     queryKey: ["weather"],
     queryFn: getWeatherData,
-    refetchOnMount: false
-  })
+    refetchOnMount: false,
+  });
 
   if (isLoading) {
-    return (
-      <p>
-        Loading time...
-      </p>
-    )
+    return <p>Loading time...</p>;
   }
 
   return (

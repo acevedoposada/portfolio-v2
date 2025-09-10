@@ -1,9 +1,9 @@
 .avatar {
-  @apply rounded-full w-8 h-8 aspect-square grid place-content-center leading-none border
+  @apply grid aspect-square h-8 w-8 place-content-center rounded-full border leading-none
     lg:h-10 lg:w-10;
 
   & > svg {
-    @apply w-5 h-5;
+    @apply h-5 w-5;
   }
 
   &__img {
@@ -11,13 +11,13 @@
   }
 
   &--no-border {
-    @apply border-none border-transparent relative hover:before:scale-110;
+    @apply relative border-none border-transparent hover:before:scale-110;
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
 
     &::before {
       content: "";
-      @apply absolute top-0 left-0 w-full h-full z-[-1] rounded-full opacity-50 transition-transform duration-300
-        bg-gradient-to-r from-indigo-500 to-purple-500 blur-md;
+      @apply absolute left-0 top-0 z-[-1] h-full w-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500
+        opacity-50 blur-md transition-transform duration-300;
     }
   }
 

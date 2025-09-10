@@ -9,10 +9,10 @@
   }
 
   &__skillset {
-    @apply py-28 h-full 2xl:h-dvh relative;
+    @apply relative h-full py-28 2xl:h-dvh;
 
     &__content {
-      @apply px-10 pt-0 md:px-20 lg:px-28 flex flex-col h-full;
+      @apply flex h-full flex-col px-10 pt-0 md:px-20 lg:px-28;
     }
   }
 
@@ -20,7 +20,7 @@
     @apply relative h-auto min-h-dvh pt-4 md:pt-12 lg:pt-24;
 
     &__content {
-      @apply h-full flex flex-col;
+      @apply flex h-full flex-col;
     }
   }
 

@@ -1,17 +1,17 @@
 .bg {
-  @apply h-full w-screen overflow-hidden pointer-events-none select-none;
-  
+  @apply pointer-events-none h-full w-screen select-none overflow-hidden;
+
   &__dots {
-    @apply absolute pointer-events-none select-none blur-[10rem] top-[20%];
+    @apply pointer-events-none absolute top-[20%] select-none blur-[10rem];
   }
 
   &__dots1 {
-    @apply h-[40%] left-[-20%] w-[30%];
-    background: conic-gradient(from 2.35rad, #C76000, rgba(7, 29, 228,.5));
+    @apply left-[-20%] h-[40%] w-[30%];
+    background: conic-gradient(from 2.35rad, #c76000, rgba(7, 29, 228, 0.5));
   }
 
   &__dots2 {
-    @apply h-[20%] w-[60%] -right-1/2;
-    background: conic-gradient(#000, #0528A2);
+    @apply -right-1/2 h-[20%] w-[60%];
+    background: conic-gradient(#000, #0528a2);
   }
 }

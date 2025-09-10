@@ -1,13 +1,13 @@
 import { cn } from "@/utils/cn";
 
 import { ChipProps } from "./chip.entity";
-import styles from './chip.module.scss';
+import styles from "./chip.module.scss";
 
 export default function Chip({
   children,
-  variant = 'outlined',
-  color = 'white',
-  size = 'default',
+  variant = "outlined",
+  color = "white",
+  size = "default",
   className,
   ...props
 }: ChipProps): JSX.Element {
@@ -24,5 +24,5 @@ export default function Chip({
     >
       {children}
     </span>
-  )
+  );
 }

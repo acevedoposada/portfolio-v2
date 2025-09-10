@@ -35,17 +35,13 @@ export default function Title({ firstLine, secondLine }: TitleProps) {
     <h1 ref={ref} className="text-4xl font-light md:text-6xl">
       {firstLine && (
         <motion.span
-          className="font-lora flex overflow-y-hidden"
+          className="flex overflow-y-hidden font-lora"
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
           variants={containerVariants}
         >
           {firstLine.split("").map((letter, idx) => (
-            <motion.span
-              key={idx}
-              className="mb-2 block opacity-50"
-              variants={itemVariants}
-            >
+            <motion.span key={idx} className="mb-2 block opacity-50" variants={itemVariants}>
               {letter}
             </motion.span>
           ))}

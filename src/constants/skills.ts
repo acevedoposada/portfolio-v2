@@ -1,7 +1,6 @@
 export const skills = [
   {
-    image:
-      "/static/images/react.webp",
+    image: "/static/images/react.webp",
     title: "ReactJS",
     link: "https://react.dev/",
     colors: [
@@ -10,8 +9,7 @@ export const skills = [
     ],
   },
   {
-    image:
-      "/static/images/next.png",
+    image: "/static/images/next.png",
     title: "NextJS",
     link: "https://nextjs.org/",
     colors: [
@@ -23,8 +21,7 @@ export const skills = [
     },
   },
   {
-    image:
-      "/static/images/angular.png",
+    image: "/static/images/angular.png",
     title: "Angular",
     link: "https://angular.dev/",
     colors: [
@@ -33,15 +30,13 @@ export const skills = [
     ],
   },
   {
-    image:
-      "/static/images/tailwindcss.png",
+    image: "/static/images/tailwindcss.png",
     title: "TailwindCSS",
     link: "https://tailwindcss.com/",
     colors: [[52, 188, 251]],
   },
   {
-    image:
-      "/static/images/firebase.webp",
+    image: "/static/images/firebase.webp",
     title: "Firebase",
     link: "https://firebase.google.com/",
     colors: [
@@ -53,9 +48,7 @@ export const skills = [
     image: "/static/images/astro.png",
     title: "Astro",
     link: "https://astro.build/",
-    colors: [
-      [253, 89, 3],
-    ],
+    colors: [[253, 89, 3]],
   },
   {
     image: "/static/images/lit-element.svg",
@@ -67,8 +60,7 @@ export const skills = [
     ],
   },
   {
-    image:
-      "/static/images/framer-motion.svg",
+    image: "/static/images/framer-motion.svg",
     title: "Framer Motion",
     link: "https://www.framer.com/motion/",
     colors: [
@@ -80,8 +72,7 @@ export const skills = [
     },
   },
   {
-    image:
-      "/static/images/typescript.png",
+    image: "/static/images/typescript.png",
     title: "Typescript",
     link: "https://www.typescriptlang.org/",
     colors: [[51, 123, 196]],

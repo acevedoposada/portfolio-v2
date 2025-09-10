@@ -2,11 +2,11 @@
   @apply pb-12;
 
   &__content {
-    @apply container px-6 pb-14 pt-10 md:pt-14 flex flex-col gap-12;
+    @apply container flex flex-col gap-12 px-6 pb-14 pt-10 md:pt-14;
   }
 
   &__filters {
-    @apply grid grid-cols-1 lg:grid-cols-12 gap-4 whitespace-nowrap;
+    @apply grid grid-cols-1 gap-4 whitespace-nowrap lg:grid-cols-12;
   }
 
   &__posts {
@@ -14,6 +14,6 @@
   }
 
   &__background {
-    @apply absolute w-screen h-full overflow-x-hidden pointer-events-none select-none top-0 z-[-1];
+    @apply pointer-events-none absolute top-0 z-[-1] h-full w-screen select-none overflow-x-hidden;
   }
 }

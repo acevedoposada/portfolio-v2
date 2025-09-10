@@ -6,18 +6,12 @@ import {
   IconHandClick,
   IconMapPin,
   IconScript,
-  IconBlockquote
+  IconBlockquote,
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
-import {
-  DotsBackground,
-  Footer,
-  InfiniteSlider,
-  Title,
-  WeatherText,
-} from "@/components";
+import { DotsBackground, Footer, InfiniteSlider, Title, WeatherText } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import {
@@ -48,49 +42,45 @@ export default function Home() {
   });
 
   const { scrollY } = useScroll();
-  const boxY = useTransform(
-    scrollY,
-    [0, innerHeight as number],
-    [0, innerHeight as number],
-  );
+  const boxY = useTransform(scrollY, [0, innerHeight as number], [0, innerHeight as number]);
 
   const navLinks = useMemo<NavItem[]>(() => {
     return [
       {
-        id: 'exp',
+        id: "exp",
         title: "Experience",
         isActive: experienceInView,
         element: experienceElement,
         icon: <IconBriefcase />,
       },
       {
-        id: 'skills',
+        id: "skills",
         title: "Skills",
         isActive: skillsInView,
         element: skillsElement,
         icon: <IconSparkles />,
       },
       {
-        id: 'resume',
+        id: "resume",
         title: "Resume",
         isActive: resumeInView,
         element: resumeElement,
         icon: <IconScript />,
       },
       {
-        id: 'contact',
+        id: "contact",
         title: "Contact",
         isActive: contactInView,
         element: contactElement,
         icon: <IconHandClick />,
       },
       {
-        id: 'blog',
-        title: 'Blog',
+        id: "blog",
+        title: "Blog",
         isActive: false,
-        link: '/my/blog',
-        icon: <IconBlockquote />
-      }
+        link: "/my/blog",
+        icon: <IconBlockquote />,
+      },
     ];
   }, [
     skillsElement,
@@ -119,10 +109,7 @@ export default function Home() {
             <IconMapPin className="block h-4 w-4 md:hidden" />
           </div>
         </nav>
-        <motion.section
-          className="left-0 w-full lg:absolute"
-          style={{ top: boxY }}
-        >
+        <motion.section className="left-0 w-full lg:absolute" style={{ top: boxY }}>
           <Hero />
         </motion.section>
       </header>
@@ -133,14 +120,7 @@ export default function Home() {
         </div>
       </section>
       <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:pb-16 md:pt-0">
-        <InfiniteSlider
-          items={[
-            "accessibility",
-            "responsiveness",
-            "interactive",
-            "performance",
-          ]}
-        />
+        <InfiniteSlider items={["accessibility", "responsiveness", "interactive", "performance"]} />
       </section>
       <section ref={skillsRef} className={styles.home__skillset}>
         <DotsBackground className="absolute top-0" />

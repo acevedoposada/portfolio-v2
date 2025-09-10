@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 
 import { PixelCardProps, VariantConfig } from "./pixel-card.model";
 import { PIXEL_CARD_VARIANTS } from "./pixel-card.constants";
-import styles from './pixel-card.module.scss'
+import styles from "./pixel-card.module.scss";
 import { Pixel } from "./pixel";
 
 function getEffectiveSpeed(value: number, reduceMotion: boolean): number {
@@ -23,20 +23,18 @@ function getEffectiveSpeed(value: number, reduceMotion: boolean): number {
 }
 
 export default function PixelCard({
-  variant = 'default',
+  variant = "default",
   gap,
   speed,
   colors,
   noFocus,
-  className = '',
-  children
+  className = "",
+  children,
 }: PixelCardProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pixelsRef = useRef<Pixel[]>([]);
-  const animationRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(
-    null
-  );
+  const animationRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null);
   const timePreviousRef = useRef(performance.now());
 
   const variantCfg: VariantConfig = PIXEL_CARD_VARIANTS[variant] || PIXEL_CARD_VARIANTS.default;
@@ -58,7 +56,7 @@ export default function PixelCard({
     canvasRef.current.style.width = `${width}px`;
     canvasRef.current.style.height = `${height}px`;
 
-    const colorsArray = finalColors.split(',');
+    const colorsArray = finalColors.split(",");
     const pxs: Pixel[] = [];
 
     for (let x = 0; x < width; x += parseInt(finalGap.toString(), 10)) {
@@ -79,11 +77,11 @@ export default function PixelCard({
             getEffectiveSpeed(finalSpeed, false),
             delay
           )
-        )
+        );
       }
     }
     pixelsRef.current = pxs;
-  }, [finalColors, finalGap, finalSpeed])
+  }, [finalColors, finalGap, finalSpeed]);
 
   const doAnimate = (fnName: keyof Pixel) => {
     animationRef.current = requestAnimationFrame(() => doAnimate(fnName));
@@ -94,7 +92,7 @@ export default function PixelCard({
     if (timePassed < timeInterval) return;
     timePreviousRef.current = timeNow - (timePassed % timeInterval);
 
-    const ctx = canvasRef.current?.getContext('2d');
+    const ctx = canvasRef.current?.getContext("2d");
     if (!ctx || !canvasRef.current) return;
 
     ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
@@ -111,31 +109,31 @@ export default function PixelCard({
     if (allIdle) {
       cancelAnimationFrame(animationRef.current);
     }
-  }
+  };
 
   const handleAnimation = (name: keyof Pixel) => {
     if (animationRef.current !== null) {
       cancelAnimationFrame(animationRef.current);
     }
-    animationRef.current = requestAnimationFrame(() => doAnimate(name))
-  }
+    animationRef.current = requestAnimationFrame(() => doAnimate(name));
+  };
 
-  const onMouseEnter = () => handleAnimation('appear');
-  const onMouseLeave = () => handleAnimation('disappear');
+  const onMouseEnter = () => handleAnimation("appear");
+  const onMouseLeave = () => handleAnimation("disappear");
   const onFocus: FocusEventHandler<HTMLDivElement> = (e) => {
     if (e.currentTarget.contains(e.relatedTarget)) return;
-    handleAnimation('appear');
-  }
+    handleAnimation("appear");
+  };
   const onBlur: FocusEventHandler<HTMLDivElement> = (e) => {
     if (e.currentTarget.contains(e.relatedTarget)) return;
-    handleAnimation('disappear');
-  }
+    handleAnimation("disappear");
+  };
 
   useEffect(() => {
     initPixels();
     const observer = new ResizeObserver(() => {
       initPixels();
-    })
+    });
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
@@ -144,7 +142,7 @@ export default function PixelCard({
       if (animationRef.current !== null) {
         cancelAnimationFrame(animationRef.current);
       }
-    }
+    };
   }, [finalGap, finalSpeed, finalColors, finalNoFocus, initPixels]);
 
   return (
@@ -158,9 +156,7 @@ export default function PixelCard({
       tabIndex={finalNoFocus ? -1 : 0}
     >
       <canvas ref={canvasRef} className={styles["pixel-card__canvas"]} />
-      <div className={styles['pixel-card__content']}>
-        {children}
-      </div>
+      <div className={styles["pixel-card__content"]}>{children}</div>
     </div>
-  )
+  );
 }

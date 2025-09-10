@@ -1,8 +1,8 @@
 .experience {
-  @apply flex-1 flex flex-col pt-8 md:pt-20 lg:pt-24 pb-12 md:pb-32 lg:pb-48;
+  @apply flex flex-1 flex-col pb-12 pt-8 md:pb-32 md:pt-20 lg:pb-48 lg:pt-24;
 
   &__title {
-    @apply px-10 md:px-20 lg:px-28 pb-10 md:pb-28 pt-10 lg:pt-4;
+    @apply px-10 pb-10 pt-10 md:px-20 md:pb-28 lg:px-28 lg:pt-4;
   }
 
   &__content {
@@ -12,8 +12,15 @@
 
 .item {
   $root: &;
-  @apply w-full py-6 md:py-10 border-b flex flex-col md:flex-row md:items-center px-10 md:px-16 lg:px-[6.5rem];
-  border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4) 25%, rgba(255, 255, 255, 0.4) 75%, transparent) 20;
+  @apply flex w-full flex-col border-b px-10 py-6 md:flex-row md:items-center md:px-16 md:py-10 lg:px-[6.5rem];
+  border-image: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.4) 25%,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent
+    )
+    20;
 
   &:first-child {
     @apply border-t;
@@ -22,32 +29,32 @@
   &__section {
     $section-root: &;
 
-    @apply flex-auto flex flex-col text-gray-400;
+    @apply flex flex-auto flex-col text-gray-400;
 
     &--left {
       @apply gap-2 md:gap-6;
     }
 
     &--right {
-      @apply md:text-right text-lg md:text-xl font-light;
+      @apply text-lg font-light md:text-right md:text-xl;
     }
 
     &__title {
-      @apply relative block overflow-hidden z-[2] text-white text-opacity-55 text-2xl md:text-4xl lg:text-5xl font-light font-lora;
+      @apply relative z-[2] block overflow-hidden font-lora text-2xl font-light text-white text-opacity-55 md:text-4xl lg:text-5xl;
 
       & span {
         @apply block;
         transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
         &:after {
-          @apply block absolute top-[110%] w-full left-0 text-white;
+          @apply absolute left-0 top-[110%] block w-full text-white;
           content: attr(data-text);
         }
       }
     }
 
     &__company {
-      @apply text-lg md:text-xl font-light;
+      @apply text-lg font-light md:text-xl;
     }
   }
 

@@ -18,6 +18,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
+    "crypto-js": "^4.2.0",
     "dayjs": "^1.11.11",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -37,6 +38,7 @@
     "three": "^0.164.1"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "@types/lodash": "^4.17.17",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -6,5 +6,5 @@ export function encryptResponse<JsonBody>(response: JsonBody, status = 200) {
   return NextResponse.json(
     CryptoJS.AES.encrypt(JSON.stringify(response), ENCRYPTION_SECRET!).toString(),
     { status }
-  )
+  );
 }

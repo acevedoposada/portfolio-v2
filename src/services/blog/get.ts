@@ -1,5 +1,5 @@
 import { apiInstance } from "@/helpers/instances";
-import { BlogPost } from "@/models/blog";
+import { BlogPost } from "@/models/entities/blog";
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const res = await apiInstance.get(`/api/blog`);

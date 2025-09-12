@@ -1,0 +1,76 @@
+@mixin base-styles {
+  @apply flex h-10 min-h-10 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full border border-transparent px-4 py-2 text-center leading-none transition-all duration-300;
+  @apply hover:bg-indigo-300/5;
+}
+
+.pagination {
+  @apply flex gap-2;
+
+  &__control {
+    @include base-styles;
+
+    &:disabled {
+      @apply cursor-not-allowed;
+    }
+
+    &__bullet {
+      @apply block aspect-square w-10 min-w-10 px-0;
+    }
+
+    &__prev {
+      @apply mr-8 pl-2 hover:text-indigo-500;
+    }
+
+    &__next {
+      @apply ml-8 pr-2 hover:text-indigo-500;
+    }
+
+    &__next:disabled,
+    &__prev:disabled {
+      @apply text-white/50;
+    }
+
+    &--active {
+      @apply font-bold text-indigo-700  hover:text-indigo-700;
+    }
+
+    &--bullets-hidden {
+      @apply mx-0;
+    }
+
+    &--label-hidden {
+      @apply grid aspect-square w-10 place-content-center px-0;
+    }
+
+    &--tonal {
+      @apply hover:scale-105 hover:bg-indigo-700/60 hover:text-indigo-300;
+      &.pagination__control--active {
+        @apply bg-indigo-700/40 text-indigo-300 hover:bg-indigo-700/50  hover:text-indigo-300;
+      }
+      &.pagination__control--label-hidden:not(:disabled) {
+        @apply bg-indigo-700/50 text-indigo-400;
+      }
+      &:disabled {
+        @apply hover:bg-indigo-700/20 hover:text-indigo-300/50;
+      }
+    }
+
+    &--outlined {
+      @apply hover:border-indigo-300/30;
+      &.pagination__control--active {
+        @apply border-indigo-700 bg-transparent text-indigo-500;
+      }
+      &.pagination__control--label-hidden:not(:disabled) {
+        @apply border-indigo-700/70 bg-transparent text-indigo-400;
+      }
+      &:disabled {
+        @apply hover:border-indigo-300/10;
+      }
+    }
+  }
+
+  &__info {
+    @include base-styles();
+    @apply hover:bg-inherit;
+  }
+}

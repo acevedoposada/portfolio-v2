@@ -11,9 +11,11 @@ import {
   where,
 } from "firebase/firestore";
 import { NextResponse } from "next/server";
+import CryptoJS from "crypto-js";
 
 import { PAGE_SIZE, PostStatus } from "@/constants/blog";
 import { db } from "@/lib/firebase";
+import { ENCRYPTION_SECRET } from "@/constants/secrets";
 
 type BlogPost = {
   id: string;
@@ -26,6 +28,7 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const lastId = searchParams.get("lastId") || undefined;
+    const page = searchParams.get("page") || undefined;
 
     const blogRef = collection(db, "blog");
     const whereClause = where("state", "==", PostStatus.PUBLISHED);
@@ -60,12 +63,18 @@ export async function GET(req: Request) {
     const newLastDocId =
       querySnapshot.size > 0 ? querySnapshot.docs[querySnapshot.size - 1].id : null;
 
-    return NextResponse.json({
+    const response = {
       posts: data,
       lastDocId: newLastDocId,
       count,
       hasMore: querySnapshot.size === PAGE_SIZE,
-    });
+      page,
+    };
+
+    return NextResponse.json(
+      CryptoJS.AES.encrypt(JSON.stringify(response), ENCRYPTION_SECRET!).toString(),
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(

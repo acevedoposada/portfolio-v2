@@ -31,7 +31,9 @@ const PostCard = forwardRef<HTMLDivElement, CardProps>(
               </Chip>
             ))}
           </div>
-          <h3 className={styles.post__title}>{title}</h3>
+          <h3 className={styles.post__title} title={title}>
+            {title}
+          </h3>
           <p className={styles.post__description}>{description}</p>
           <div className={cn(styles.post__info, "group-hover:translate-y-2")}>
             <div className="flex items-center gap-3 text-sm font-semibold opacity-80">

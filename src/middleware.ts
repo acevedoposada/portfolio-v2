@@ -2,7 +2,8 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import CryptoJS from "crypto-js";
 
-const ENCRYPTION_SECRET = process.env.SECRET_KEY;
+import { ENCRYPTION_SECRET } from "./constants/secrets";
+
 const API_KEY = process.env.API_KEY;
 
 export function middleware(req: NextRequest) {

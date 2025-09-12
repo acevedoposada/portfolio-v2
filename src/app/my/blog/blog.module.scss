@@ -13,6 +13,10 @@
     @apply grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3;
   }
 
+  &__pagination {
+    @apply flex items-center justify-center;
+  }
+
   &__background {
     @apply pointer-events-none absolute top-0 z-[-1] h-full w-screen select-none overflow-x-hidden;
   }

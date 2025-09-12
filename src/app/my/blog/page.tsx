@@ -12,18 +12,18 @@ import { BlogCard } from "./components/card";
 import BlogHeader from "./components/header";
 
 import styles from "./blog.module.scss";
+import Pagination from "@/components/ui/pagination";
 
 export default function Blog() {
-  const { data: blogs } = useQuery({
+  const { data: blogsData, ...query } = useQuery({
     queryKey: ["posts"],
     queryFn: getBlogPosts,
     refetchOnMount: false,
   });
 
-  console.log(blogs);
-
   const [value, setValue] = useState<number | string>(0);
   const [search, setSearch] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const handleChangeTab = (_event: SyntheticEvent, value: number | string) => {
     setValue(value);
@@ -31,6 +31,10 @@ export default function Blog() {
 
   const handleChangeSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
     setSearch(event.target.value);
+  };
+
+  const handlePaginationChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -109,6 +113,14 @@ export default function Blog() {
             date={new Date()}
             tags={["UI/UX", "Design System", "Sleep & Care"]}
             readTime={6}
+          />
+        </div>
+        <div className={styles.blog__pagination}>
+          <Pagination
+            variant="tonal"
+            currentPage={currentPage}
+            totalPages={150}
+            onPageChange={handlePaginationChange}
           />
         </div>
       </div>

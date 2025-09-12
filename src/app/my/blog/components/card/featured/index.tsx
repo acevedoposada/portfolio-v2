@@ -36,7 +36,9 @@ const FeaturedCard = forwardRef<HTMLDivElement, CardProps>(
         <section className={styles.featured__content}>
           <aside className={styles.featured__content__header}>
             <div>
-              <h3 className={styles.featured__content__title}>{title}</h3>
+              <h3 className={styles.featured__content__title} title={title}>
+                {title}
+              </h3>
               <p className={styles.featured__content__description}>{description}</p>
             </div>
             <span className={styles.featured__content__header__icon}>

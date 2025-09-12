@@ -1,3 +1,5 @@
+@use "breakpoints" as b;
+
 @mixin base-styles {
   @apply flex h-10 min-h-10 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full border border-transparent px-4 py-2 text-center leading-none transition-all duration-300;
   @apply hover:bg-indigo-300/5;
@@ -18,11 +20,21 @@
     }
 
     &__prev {
-      @apply mr-8 pl-2 hover:text-indigo-500;
+      @apply pl-0 mr-4 md:mr-8 md:pl-2;
     }
 
     &__next {
-      @apply ml-8 pr-2 hover:text-indigo-500;
+      @apply pr-0 ml-4 md:ml-8 md:pr-2;
+    }
+
+    &__prev, &__next {
+      @apply w-10 aspect-square md:w-auto md:aspect-auto hover:text-indigo-500;
+      & span {
+        @apply hidden md:block;
+      }
+      @media screen and (max-width: map-get(b.$breakpoints, md)) {
+        @apply p-0 grid place-content-center;
+      }
     }
 
     &__next:disabled,

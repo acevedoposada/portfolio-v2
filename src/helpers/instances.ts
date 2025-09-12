@@ -3,7 +3,7 @@ import axios from "axios";
 import { ENCRYPTION_SECRET } from "@/constants/secrets";
 const API_SECRET = process.env.API_KEY;
 
-console.log("NODE_ENV", process.env.NODE_ENV)
+console.log("NODE_ENV", process.env.NODE_ENV);
 
 export const weatherApiInstance = axios.create({
   baseURL: process.env.WEATHER_API_URL,
@@ -17,8 +17,7 @@ apiInstance.interceptors.request.use(function (config) {
 apiInstance.interceptors.response.use(function (response) {
   try {
     response.data = JSON.parse(
-      CryptoJS.AES.decrypt(response.data, ENCRYPTION_SECRET ?? "")
-        .toString(CryptoJS.enc.Utf8)
+      CryptoJS.AES.decrypt(response.data, ENCRYPTION_SECRET ?? "").toString(CryptoJS.enc.Utf8)
     );
     return response;
   } catch {

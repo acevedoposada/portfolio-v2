@@ -16,6 +16,7 @@ import CryptoJS from "crypto-js";
 import { PAGE_SIZE, PostStatus } from "@/constants/blog";
 import { db } from "@/lib/firebase";
 import { ENCRYPTION_SECRET } from "@/constants/secrets";
+import { encryptResponse } from "@/utils/encrypt-response";
 
 type BlogPost = {
   id: string;
@@ -63,18 +64,13 @@ export async function GET(req: Request) {
     const newLastDocId =
       querySnapshot.size > 0 ? querySnapshot.docs[querySnapshot.size - 1].id : null;
 
-    const response = {
+    return encryptResponse({
       posts: data,
       lastDocId: newLastDocId,
       count,
       hasMore: querySnapshot.size === PAGE_SIZE,
       page,
-    };
-
-    return NextResponse.json(
-      CryptoJS.AES.encrypt(JSON.stringify(response), ENCRYPTION_SECRET!).toString(),
-      { status: 200 }
-    );
+    });
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(

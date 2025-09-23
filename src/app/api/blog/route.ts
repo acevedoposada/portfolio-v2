@@ -11,19 +11,10 @@ import {
   where,
 } from "firebase/firestore";
 import { NextResponse } from "next/server";
-import CryptoJS from "crypto-js";
 
+import { encryptResponse } from "@/utils/encrypt-response";
 import { PAGE_SIZE, PostStatus } from "@/constants/blog";
 import { db } from "@/lib/firebase";
-import { ENCRYPTION_SECRET } from "@/constants/secrets";
-import { encryptResponse } from "@/utils/encrypt-response";
-
-type BlogPost = {
-  id: string;
-  published_date?: Date;
-  content: any;
-  [key: string]: any;
-};
 
 export async function GET(req: Request) {
   try {

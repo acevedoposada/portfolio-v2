@@ -125,8 +125,8 @@ export default function Home() {
           <ExperienceSection />
         </div>
       </section>
-      <section className="mx-auto w-full overflow-hidden px-6 py-10 md:w-11/12 md:pb-16 md:pt-0">
-        <h4 className="mb-6 py-3 text-2xl font-thin text-zinc-400 opacity-65">
+      <section className="mx-auto w-full overflow-hidden px-10 lg:px-6 py-10 md:w-11/12 md:pb-16 md:pt-0">
+        <h4 className="mb-6 py-3 text-lg lg:text-2xl font-thin text-zinc-400 opacity-65">
           <span className="font-lora text-white">Companies</span> and{" "}
           <span className="font-lora text-white">brands</span> I have collaborated with
         </h4>
@@ -172,7 +172,7 @@ export default function Home() {
             { src: "/static/images/menu-digital.png", alt: "Menú Digital", href: "#" },
           ]}
           logoHeight={120}
-          gap={80}
+          gap={60}
           hoverSpeed={50}
           speed={40}
           scaleOnHover

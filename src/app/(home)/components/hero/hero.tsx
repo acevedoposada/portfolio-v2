@@ -7,6 +7,7 @@ import { AuroraBackground, HeroHighlight, Highlight } from "@/components";
 import { cn } from "@/utils/cn";
 
 import styles from "./hero.module.scss";
+import CurvedLoop from "@/components/ui/curved-loop";
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
@@ -81,6 +82,13 @@ export default function Hero() {
           </motion.p>
         </motion.div>
       </HeroHighlight>
+      <div className="absolute bottom-20 lg:bottom-44 left-0 w-full h-1/2 opacity-40">
+        <CurvedLoop
+          marqueeText="Accessibility ✦ Responsiveness ✦ Interactive ✦ Performance ✦"
+          curveAmount={190}
+          interactive={false}
+        />
+      </div>
     </div>
   );
 }

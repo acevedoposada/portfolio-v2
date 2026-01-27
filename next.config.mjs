@@ -33,6 +33,7 @@ const nextConfig = {
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
     SECRET_KEY: process.env.SECRET_KEY,
     API_KEY: process.env.API_KEY,
+    ENABLE_BLOG_PAGE: process.env.ENABLE_BLOG_PAGE,
   },
 };
 

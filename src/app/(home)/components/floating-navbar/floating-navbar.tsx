@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -54,14 +54,18 @@ function NavButton({ isActive, children, element, icon, link }: NavButtonProps) 
 }
 
 export default function FloatingNavbar({ className, navItems, ...props }: FloatingNavbarProps) {
+  const { scrollY } = useScroll();
+  const appear = useTransform(scrollY, [0, 300], ["300%", "0%"]);
+
   return (
     <AnimatePresence mode="wait">
       <motion.nav
         {...props}
-        initial={{ opacity: 1, y: 100 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
         className={cn(styles.fn, className)}
+        style={{ y: appear }}
       >
         {navItems.map((item, idx) => (
           <NavButton key={idx} {...item}>

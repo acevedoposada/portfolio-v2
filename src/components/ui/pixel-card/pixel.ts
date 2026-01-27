@@ -55,12 +55,7 @@ export class Pixel {
   private _draw(): void {
     const centerOffset = this._maxSizeInteger * 0.5 - this._size * 0.5;
     this._ctx.fillStyle = this._color;
-    this._ctx.fillRect(
-      this._x + centerOffset,
-      this._y + centerOffset,
-      this._size,
-      this._size
-    )
+    this._ctx.fillRect(this._x + centerOffset, this._y + centerOffset, this._size, this._size);
   }
 
   public appear(): void {

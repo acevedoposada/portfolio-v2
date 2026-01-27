@@ -1,9 +1,4 @@
-import {
-  Text,
-  useGLTF,
-  Float,
-  MeshTransmissionMaterial,
-} from "@react-three/drei";
+import { Text, useGLTF, Float, MeshTransmissionMaterial } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
 
 export default function Model() {
@@ -32,11 +27,7 @@ function Font() {
       <Text position={[0, 0, -0.1]} fontSize={0.3} {...(textOption as any)}>
         404
       </Text>
-      <Text
-        position={[0, -0.15, -0.1]}
-        fontSize={0.02}
-        {...(textOption as any)}
-      >
+      <Text position={[0, -0.15, -0.1]} fontSize={0.02} {...(textOption as any)}>
         Page not found
       </Text>
     </group>

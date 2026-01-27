@@ -30,7 +30,6 @@ interface Currentunits {
   snowfall: string;
 }
 
-export interface WeatherTextProps
-  extends React.HTMLProps<HTMLParagraphElement> {
+export interface WeatherTextProps extends React.HTMLProps<HTMLParagraphElement> {
   showTemperature?: boolean;
 }

@@ -10,14 +10,14 @@ import {
   SyntheticEvent,
   useEffect,
   useRef,
-  useState
+  useState,
 } from "react";
 
 import useEventCallback from "@/hooks/event-callback";
 import ownerWindow from "@/utils/owner-window";
 import debounce from "@/utils/debounce";
 
-import styles from './tabs.module.scss';
+import styles from "./tabs.module.scss";
 import { TabProps } from "../tab";
 
 interface TabsProps {
@@ -30,10 +30,13 @@ const defaultIndicatorStyle = {};
 
 let warnedOnceTabPresent = false;
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: childrenProp, value, onChange }: TabsProps, ref) {
+const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
+  { children: childrenProp, value, onChange }: TabsProps,
+  ref
+) {
   const [mounted, setMounted] = useState(false);
-  const [indicatorStyles, setIndicatorStyles] = useState<CSSProperties>(defaultIndicatorStyle)
-  
+  const [indicatorStyles, setIndicatorStyles] = useState<CSSProperties>(defaultIndicatorStyle);
+
   const tabsRef = useRef<HTMLDivElement>(null);
   const tabListRef = useRef<HTMLDivElement>(null);
   const valueToIndex = new Map();
@@ -44,9 +47,9 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
     const properties = target.getBoundingClientRect();
     setIndicatorStyles({
       width: properties.width,
-      left: properties.left
-    })
-  }
+      left: properties.left,
+    });
+  };
 
   const getTabsMeta = () => {
     const tabsNode = tabsRef.current;
@@ -73,35 +76,36 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
         tabMeta = tab ? tab.getBoundingClientRect() : null;
 
         if (
-          process.env.NODE_ENV !== 'test' &&
+          process.env.NODE_ENV !== "test" &&
           !warnedOnceTabPresent &&
           tabMeta &&
           tabMeta.width === 0 &&
           tabMeta.height === 0 &&
-          tabsMeta?.clientWidth !== 0 
+          tabsMeta?.clientWidth !== 0
         ) {
           tabsMeta = null;
           warnedOnceTabPresent = true;
         }
       }
     }
-    return { tabsMeta, tabMeta }
-  }
+    return { tabsMeta, tabMeta };
+  };
 
   const updateIndicatorStyle = useEventCallback(() => {
     const { tabMeta, tabsMeta } = getTabsMeta();
-    const startIndicator = 'left';
-    const startValue = 1 * (tabMeta?.[startIndicator] - tabsMeta?.[startIndicator] + tabsMeta?.scrollLeft);
-    const size = 'width';
+    const startIndicator = "left";
+    const startValue =
+      1 * (tabMeta?.[startIndicator] - tabsMeta?.[startIndicator] + tabsMeta?.scrollLeft);
+    const size = "width";
 
     const newIndicatorStyle = {
       [startIndicator]: startValue,
       [size]: tabMeta ? tabMeta[size] : 0,
-    }
+    };
 
     if (
-      typeof indicatorStyles[startIndicator] !== 'number' ||
-      typeof indicatorStyles[size] !== 'number'
+      typeof indicatorStyles[startIndicator] !== "number" ||
+      typeof indicatorStyles[size] !== "number"
     ) {
       setIndicatorStyles(newIndicatorStyle);
     } else {
@@ -111,7 +115,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
         setIndicatorStyles(newIndicatorStyle);
       }
     }
-  })
+  });
 
   useEffect(() => {
     setMounted(true);
@@ -137,18 +141,18 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
     };
 
     const win = ownerWindow(tabsRef.current as Node);
-    win.addEventListener('resize', handleResize);
+    win.addEventListener("resize", handleResize);
 
     let mutationObserver;
 
-    if (typeof ResizeObserver !== 'undefined') {
+    if (typeof ResizeObserver !== "undefined") {
       resizeObserver = new ResizeObserver(handleResize);
       Array.from(tabListRef.current!.children).forEach((child) => {
         resizeObserver.observe(child);
       });
     }
 
-    if (typeof MutationObserver !== 'undefined') {
+    if (typeof MutationObserver !== "undefined") {
       mutationObserver = new MutationObserver(handleMutation);
       mutationObserver.observe(tabListRef.current!, {
         childList: true,
@@ -157,7 +161,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
 
     return () => {
       handleResize.clear();
-      win.removeEventListener('resize', handleResize);
+      win.removeEventListener("resize", handleResize);
       resizeObserver?.disconnect();
     };
   }, [updateIndicatorStyle]);
@@ -165,7 +169,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
   useEffect(() => {
     updateIndicatorStyle();
   });
-  
+
   let childIndex = 0;
   const children = Children.map(childrenProp, (child) => {
     if (!isValidElement(child)) {
@@ -177,14 +181,11 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
     const selected = childValue === value;
 
     childIndex += 1;
-    return cloneElement(
-      child as ReactElement<TabProps>,
-      {
-        selected,
-        value: childValue,
-        onChange: handleChange
-      }
-    )
+    return cloneElement(child as ReactElement<TabProps>, {
+      selected,
+      value: childValue,
+      onChange: handleChange,
+    });
   });
 
   return (
@@ -193,17 +194,12 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ children: chi
         <div ref={tabListRef} className={styles.tabs__list}>
           {children}
         </div>
-        {mounted && (
-          <span
-            className={styles.tabs__indicator}
-            style={{ ...indicatorStyles }}
-          />
-        )}
+        {mounted && <span className={styles.tabs__indicator} style={{ ...indicatorStyles }} />}
       </div>
     </div>
-  )
-})
+  );
+});
 
-Tabs.displayName = 'Tabs';
+Tabs.displayName = "Tabs";
 
 export default Tabs;

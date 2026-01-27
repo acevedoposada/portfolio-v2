@@ -6,5 +6,5 @@ export default function Services() {
       <Link href="/">Go to home</Link>
       <h1>This is the services</h1>
     </div>
-  )
+  );
 }

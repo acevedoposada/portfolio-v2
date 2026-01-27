@@ -1,28 +1,28 @@
-@import 'mixins/reverse.scss';
+@import "mixins/reverse.scss";
 
 .footer {
-  @apply relative pt-40 md:pt-60 p-10 md:p-20 border-t overflow-hidden border-[hsla(0,0%,100%,.1)] w-screen;
+  @apply relative w-screen overflow-hidden border-t border-[hsla(0,0%,100%,.1)] p-10 pt-40 md:p-20 md:pt-60;
 
   &__content {
-    @apply grid z-10;
-    grid-template-areas: 'connect nav' 'bottom bottom';
+    @apply z-10 grid;
+    grid-template-areas: "connect nav" "bottom bottom";
     grid-template-columns: 1fr 2fr;
 
     &__connect {
       @apply grid gap-4;
       grid-area: connect;
 
-      &>div {
-        @apply py-2 mb-7 overflow-x-hidden;
+      & > div {
+        @apply mb-7 overflow-x-hidden py-2;
 
-        &>a {
-          @apply relative origin-right font-light font-lora text-gray-400 md:text-2xl;
-          transition: color .3s ease-in-out;
+        & > a {
+          @apply relative origin-right font-lora font-light text-gray-400 md:text-2xl;
+          transition: color 0.3s ease-in-out;
 
           &:after {
             content: " ";
-            @apply absolute -bottom-1 left-0 origin-right scale-x-0 h-px md:h-[2px] w-full bg-gradient-to-r from-indigo-500 to-purple-500;
-            transition: transform .3s ease-in-out;
+            @apply absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-gradient-to-r from-indigo-500 to-purple-500 md:h-[2px];
+            transition: transform 0.3s ease-in-out;
           }
 
           &:hover {
@@ -44,20 +44,20 @@
       grid-area: nav;
 
       &__elements {
-        @apply grid gap-10 grid-cols-3 mt-8 xl:mt-0;
+        @apply mt-8 grid grid-cols-3 gap-10 xl:mt-0;
 
         & li {
-          @apply text-gray-400 font-light text-sm md:text-sm xl:text-lg cursor-pointer;
+          @apply cursor-pointer text-sm font-light text-gray-400 md:text-sm xl:text-lg;
 
           h5 {
             @include reverse;
             @apply mb-2;
 
             span {
-              @apply font-normal font-lora;
+              @apply font-lora font-normal;
 
               &:after {
-                @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent font-normal;
+                @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text font-normal text-transparent;
               }
             }
           }
@@ -70,7 +70,6 @@
         }
 
         @media screen and (min-width: 1200px) {
-
           & li:first-child,
           & li:nth-child(2) {
             grid-column: 2 / 3;
@@ -78,7 +77,7 @@
         }
 
         @media screen and (max-width: 1199px) {
-          grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr))
+          grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr));
         }
 
         @media (max-width: 767px) {
@@ -93,13 +92,13 @@
     }
 
     &__bottom {
-      @apply text-center pb-20 pt-0 md:pt-40 text-gray-400 font-light text-xs md:text-base;
+      @apply pb-20 pt-0 text-center text-xs font-light text-gray-400 md:pt-40 md:text-base;
       grid-area: bottom;
     }
 
     @media screen and (max-width: 1199px) {
       @apply grid-cols-1 gap-8;
-      grid-template-areas: 'connect' 'nav' 'bottom';
+      grid-template-areas: "connect" "nav" "bottom";
     }
   }
 }

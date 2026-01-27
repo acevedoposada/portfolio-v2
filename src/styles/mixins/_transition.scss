@@ -4,7 +4,7 @@ $transition-props: (
   colors: colors,
   opacity: opacity,
   transform: transform,
-  shadow: shadow
+  shadow: shadow,
 );
 
 @mixin transition($prop: all, $time: 300ms, $ease: ease-in-out) {

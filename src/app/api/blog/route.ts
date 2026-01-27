@@ -1,32 +1,67 @@
-import { PostStatus } from "@/constants/blog";
-import { db } from "@/lib/firebase";
-import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  QueryConstraint,
+  startAfter,
+  where,
+} from "firebase/firestore";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+import { encryptResponse } from "@/utils/encrypt-response";
+import { PAGE_SIZE, PostStatus } from "@/constants/blog";
+import { db } from "@/lib/firebase";
+
+export async function GET(req: Request) {
   try {
+    const { searchParams } = new URL(req.url);
+    const lastId = searchParams.get("lastId") || undefined;
+    const page = searchParams.get("page") || undefined;
+
     const blogRef = collection(db, "blog");
-    const q = query(blogRef, where("state", "==", PostStatus.PUBLISHED));
+    const whereClause = where("state", "==", PostStatus.PUBLISHED);
+    const orderByClause = orderBy("published_date", "desc");
+
+    const queryConstraints: QueryConstraint[] = [orderByClause, whereClause, limit(PAGE_SIZE)];
+
+    if (lastId) {
+      const lastDocument = await getDoc(doc(db, "blog", lastId));
+      if (!lastDocument.exists()) {
+        return NextResponse.json(
+          { message: "Error searching the last document id sent" },
+          { status: 404 }
+        );
+      }
+      queryConstraints.push(startAfter(lastDocument));
+    }
+
+    const q = query(blogRef, ...queryConstraints);
     const querySnapshot = await getDocs(q);
+    const countSnapshot = await getDoc(doc(db, "blog_metadata", "counts"));
+    const data = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    let count: number = 0;
 
-    const postPromises = querySnapshot.docs.map(async (doc) => {
-      const postData = doc.data();
-      const contentSnap = await getDoc(postData.content);
-      return {
-        id: doc.id,
-        ...postData,
-        published_date: postData.published_date?.toDate() ?? undefined,
-        content: contentSnap.data(),
-      };
+    if (countSnapshot.exists()) {
+      count = countSnapshot.data().value;
+    }
+
+    const newLastDocId =
+      querySnapshot.size > 0 ? querySnapshot.docs[querySnapshot.size - 1].id : null;
+
+    return encryptResponse({
+      posts: data,
+      lastDocId: newLastDocId,
+      count,
+      hasMore: querySnapshot.size === PAGE_SIZE,
+      page,
     });
-
-    const settledResults = await Promise.allSettled(postPromises);
-
-    const posts = settledResults
-      .filter(result => result.status === "fulfilled")
-      .map(result => (result as PromiseFulfilledResult<any>).value);
-
-    return NextResponse.json(posts);
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(

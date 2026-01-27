@@ -1,24 +1,25 @@
 .scroll-title {
-  @apply p-12 2xl:mt-36 lg:p-24 relative flex flex-col gap-24 overflow-x-hidden;
+  @apply relative flex flex-col gap-24 overflow-x-hidden p-12 lg:p-24 2xl:mt-36;
 
   &__title {
-    @apply break-words text-center text-4xl md:text-[7rem] 2xl:text-[10rem] font-bold leading-none md:leading-[0.8];
+    @apply break-words text-center text-4xl font-bold leading-none md:text-[7rem] md:leading-[0.8] 2xl:text-[10rem];
 
     & > span {
       @apply block;
 
-      &:first-child, &:last-child {
+      &:first-child,
+      &:last-child {
         @apply font-lora;
       }
     }
   }
 
   & > p {
-    @apply max-w-96 text-lg lg:text-xl text-slate-400 font-light font-lora;
+    @apply max-w-96 font-lora text-lg font-light text-slate-400 lg:text-xl;
   }
 
   &__blobs {
-    @apply absolute w-[30%] h-[30%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl select-none pointer-events-none;
-    background: conic-gradient(#000, hsla(0, 0%, 100%, .1));
+    @apply pointer-events-none absolute left-1/2 top-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 select-none blur-3xl;
+    background: conic-gradient(#000, hsla(0, 0%, 100%, 0.1));
   }
 }

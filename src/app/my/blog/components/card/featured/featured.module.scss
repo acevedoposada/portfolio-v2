@@ -1,31 +1,31 @@
 .featured {
   $imageUrl: var(--bg-image);
-  @apply w-full aspect-[10_/_16] bg-white/50 rounded-4xl bg-cover bg-no-repeat bg-center relative shadow-md grid grid-rows-2 max-h-[32rem] cursor-pointer
-    lg:grid-rows-3 md:aspect-video
-    hover:before:scale-[1.02] before:transition-transform before:duration-500;
+  @apply relative grid aspect-[10_/_16] max-h-[32rem] w-full cursor-pointer grid-rows-2 rounded-4xl bg-white/50 bg-cover bg-center bg-no-repeat shadow-md
+    before:transition-transform before:duration-500
+    hover:before:scale-[1.02] md:aspect-video lg:grid-rows-3;
   background-image: $imageUrl;
 
   &::before {
     content: "";
     background-image: $imageUrl;
-    @apply absolute w-full h-full bg-cover bg-center z-[-1] rounded-4xl opacity-40;
+    @apply absolute z-[-1] h-full w-full rounded-4xl bg-cover bg-center opacity-40;
     filter: hue-rotate(240deg) blur(2rem);
   }
 
   &__content {
-    @apply w-full bg-zinc-800/40 grid grid-rows-2 rounded-b-4xl backdrop-blur-xl relative border-t border-white/10 overflow-hidden p-4 row-start-2 gap-4
-      lg:row-start-3 sm:p-6 sm:pt-4 lg:gap-6;
+    @apply relative row-start-2 grid w-full grid-rows-2 gap-4 overflow-hidden rounded-b-4xl border-t border-white/10 bg-zinc-800/40 p-4 backdrop-blur-xl
+      sm:p-6 sm:pt-4 lg:row-start-3 lg:gap-6;
     grid-template-rows: 1fr auto;
     background: radial-gradient(
       circle,
-      rgba(2, 0, 36, 0.3) 0%, 
-      rgba(9, 9, 121, 0.3) 35%, 
+      rgba(2, 0, 36, 0.3) 0%,
+      rgba(9, 9, 121, 0.3) 35%,
       rgba(2, 0, 36, 0.3) 100%
     );
 
     &::before {
       content: "";
-      @apply absolute h-full w-full opacity-50 blur-2xl z-[-1] scale-125;
+      @apply absolute z-[-1] h-full w-full scale-125 opacity-50 blur-2xl;
       background: conic-gradient(
         var(--alt) 80deg,
         var(--indigo-500),
@@ -33,9 +33,9 @@
         var(--indigo-500),
         var(--alt) 280deg
       );
-      box-shadow: 1px 60px 109px -70px rgba(0,0,0,0.32) inset;
-      -webkit-box-shadow: 1px 60px 109px -70px rgba(0,0,0,0.32) inset;
-      -moz-box-shadow: 1px 60px 109px -70px rgba(0,0,0,0.32) inset;
+      box-shadow: 1px 60px 109px -70px rgba(0, 0, 0, 0.32) inset;
+      -webkit-box-shadow: 1px 60px 109px -70px rgba(0, 0, 0, 0.32) inset;
+      -moz-box-shadow: 1px 60px 109px -70px rgba(0, 0, 0, 0.32) inset;
     }
 
     &__header {
@@ -48,30 +48,30 @@
     }
 
     &__title {
-      @apply text-xl font-extrabold font-lora mb-2 line-clamp-2
-        lg:mb-3 md:text-2xl md:leading-8;
+      @apply mb-2 line-clamp-2 font-lora text-xl font-extrabold
+        md:text-2xl md:leading-8 lg:mb-3;
       letter-spacing: -1.2%;
     }
 
     &__description {
-      @apply text-sm tracking-normal leading-none line-clamp-2
+      @apply line-clamp-2 text-sm leading-none tracking-normal
         md:text-base;
       line-height: 160%;
     }
 
     &__info {
-      @apply flex flex-col justify-start items-start gap-4
-        md:flex-row md:justify-between md:items-center md:gap-5;
+      @apply flex flex-col items-start justify-start gap-4
+        md:flex-row md:items-center md:justify-between md:gap-5;
 
-        &__element {
-          @apply flex flex-col gap-1 items-start
+      &__element {
+        @apply flex flex-col items-start gap-1
             sm:flex-row sm:items-center sm:gap-2;
 
-          & h5 {
-            @apply font-medium text-sm
-              md:font-extrabold md:text-base;
-          }
+        & h5 {
+          @apply text-sm font-medium
+              md:text-base md:font-extrabold;
         }
+      }
     }
   }
 }

@@ -1,16 +1,16 @@
 .button {
-  @apply relative origin-right font-light font-lora text-gray-400 md:text-2xl;
-  transition: color .3s ease-in-out;
+  @apply relative origin-right font-lora font-light text-gray-400 md:text-2xl;
+  transition: color 0.3s ease-in-out;
 
   &:after {
     content: " ";
-    @apply absolute -bottom-1 left-0 origin-right scale-x-0 h-px md:h-[2px] w-full bg-gradient-to-r from-indigo-500 to-purple-500;
-    transition: transform .3s ease-in-out;
+    @apply absolute -bottom-1 left-0 h-px w-full origin-right scale-x-0 bg-gradient-to-r from-indigo-500 to-purple-500 md:h-[2px];
+    transition: transform 0.3s ease-in-out;
   }
 
   &:hover {
     @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent;
-    
+
     &:after {
       @apply origin-left scale-x-100;
     }

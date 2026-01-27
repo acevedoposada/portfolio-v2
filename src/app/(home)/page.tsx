@@ -6,18 +6,12 @@ import {
   IconHandClick,
   IconMapPin,
   IconScript,
-  IconBlockquote
+  IconBlockquote,
 } from "@tabler/icons-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo } from "react";
 
-import {
-  DotsBackground,
-  Footer,
-  InfiniteSlider,
-  Title,
-  WeatherText,
-} from "@/components";
+import { DotsBackground, Footer, Title, WeatherText } from "@/components";
 import { useInView } from "@/utils/inView";
 
 import {
@@ -30,6 +24,7 @@ import {
 } from "./components";
 import { NavItem } from "./components/floating-navbar/floating-navbar.entity";
 import styles from "./styles.module.scss";
+import LogoLoop from "@/components/ui/logo-loop";
 
 export default function Home() {
   const innerHeight = typeof window !== "undefined" && window.innerHeight;
@@ -48,49 +43,50 @@ export default function Home() {
   });
 
   const { scrollY } = useScroll();
-  const boxY = useTransform(
-    scrollY,
-    [0, innerHeight as number],
-    [0, innerHeight as number],
-  );
+  const boxY = useTransform(scrollY, [0, innerHeight as number], [0, innerHeight as number]);
 
   const navLinks = useMemo<NavItem[]>(() => {
+    const isBlogEnabled = process.env.ENABLE_BLOG_PAGE === "true";
     return [
       {
-        id: 'exp',
+        id: "exp",
         title: "Experience",
         isActive: experienceInView,
         element: experienceElement,
         icon: <IconBriefcase />,
       },
       {
-        id: 'skills',
+        id: "skills",
         title: "Skills",
         isActive: skillsInView,
         element: skillsElement,
         icon: <IconSparkles />,
       },
       {
-        id: 'resume',
+        id: "resume",
         title: "Resume",
         isActive: resumeInView,
         element: resumeElement,
         icon: <IconScript />,
       },
       {
-        id: 'contact',
+        id: "contact",
         title: "Contact",
         isActive: contactInView,
         element: contactElement,
         icon: <IconHandClick />,
       },
-      // {
-      //   id: 'blog',
-      //   title: 'Blog',
-      //   isActive: false,
-      //   link: '/my/blog',
-      //   icon: <IconBlockquote /> 
-      // }
+      ...(isBlogEnabled
+        ? [
+            {
+              id: "blog",
+              title: "Blog",
+              isActive: false,
+              link: "/my/blog",
+              icon: <IconBlockquote />,
+            },
+          ]
+        : []),
     ];
   }, [
     skillsElement,
@@ -119,10 +115,7 @@ export default function Home() {
             <IconMapPin className="block h-4 w-4 md:hidden" />
           </div>
         </nav>
-        <motion.section
-          className="left-0 w-full lg:absolute"
-          style={{ top: boxY }}
-        >
+        <motion.section className="left-0 w-full lg:absolute" style={{ top: boxY }}>
           <Hero />
         </motion.section>
       </header>
@@ -132,14 +125,59 @@ export default function Home() {
           <ExperienceSection />
         </div>
       </section>
-      <section className="mx-auto w-full overflow-hidden py-10 md:w-10/12 md:pb-16 md:pt-0">
-        <InfiniteSlider
-          items={[
-            "accessibility",
-            "responsiveness",
-            "interactive",
-            "performance",
+      <section className="mx-auto w-full overflow-hidden px-10 py-10 md:w-11/12 md:pb-16 md:pt-0 lg:px-6">
+        <h4 className="mb-6 py-3 text-lg font-thin text-zinc-400 opacity-65 lg:text-2xl">
+          <span className="font-lora text-white">Companies</span> and{" "}
+          <span className="font-lora text-white">brands</span> I have collaborated with
+        </h4>
+        <LogoLoop
+          logos={[
+            { src: "/static/images/adl.png", alt: "ADL", href: "https://www.adldigitallab.com/" },
+            {
+              src: "/static/images/banco-de-bogota.png",
+              alt: "Banco de Bogotá",
+              href: "https://www.bancodebogota.com",
+            },
+            {
+              src: "/static/images/grupo-aval.png",
+              alt: "Grupo Aval",
+              href: "https://www.grupoaval.com/home",
+            },
+            {
+              src: "/static/images/abinbev.png",
+              alt: "ABInBev",
+              href: "https://www.ab-inbev.com/",
+            },
+            { src: "/static/images/bavaria.png", alt: "Bavaria", href: "https://www.bavaria.co/" },
+            {
+              src: "/static/images/becks.png",
+              alt: "Becks Beer",
+              href: "https://becks.de/?lang=en",
+            },
+            {
+              src: "/static/images/noffra.png",
+              alt: "Noffra",
+              href: "https://empresasnoffra.com/",
+            },
+            {
+              src: "/static/images/serempre.png",
+              alt: "Serempre",
+              href: "https://www.linkedin.com/company/serempre/",
+            },
+            {
+              src: "/static/images/tienda-cerca.png",
+              alt: "Tienda Cerca",
+              href: "https://tiendacerca.com/",
+            },
+            { src: "/static/images/menu-digital.png", alt: "Menú Digital", href: "#" },
           ]}
+          logoHeight={120}
+          gap={60}
+          hoverSpeed={50}
+          speed={40}
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#0B0B0F"
         />
       </section>
       <section ref={skillsRef} className={styles.home__skillset}>

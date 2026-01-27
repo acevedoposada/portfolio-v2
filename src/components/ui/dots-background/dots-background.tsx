@@ -30,16 +30,10 @@ export default function DotsBackground({
   return (
     <div ref={ref} className={cn(styles.bg, className)} {...props}>
       {(hiddenDots !== "left" || hiddenDots === undefined) && (
-        <motion.div
-          className={cn(styles["bg__dots"], styles["bg__dots1"])}
-          style={{ y: y1 }}
-        />
+        <motion.div className={cn(styles["bg__dots"], styles["bg__dots1"])} style={{ y: y1 }} />
       )}
       {(hiddenDots !== "right" || hiddenDots === undefined) && (
-        <motion.div
-          className={cn(styles["bg__dots"], styles["bg__dots2"])}
-          style={{ y: y2 }}
-        />
+        <motion.div className={cn(styles["bg__dots"], styles["bg__dots2"])} style={{ y: y2 }} />
       )}
     </div>
   );

@@ -1,14 +1,14 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ubuntu, Lora } from "next/font/google";
 import type { Metadata } from "next";
 import { cn } from "@/utils/cn";
 import "./globals.css";
-import { Providers } from './providers';
+import { Providers } from "./providers";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
-  variable: '--ubuntu-font'
+  variable: "--ubuntu-font",
 });
 
 const lora = Lora({
@@ -19,31 +19,32 @@ const lora = Lora({
 
 export const metadata: Metadata = {
   title: "David Acevedo - Frontend Developer",
-  description: "I develop accessible, responsive, interactive, and animated websites and applications with a strong focus on performance.",
-  metadataBase: new URL('https://www.david-acevedo.tech'),
-  keywords: ['Frontend', 'Senior', 'Creative developer', 'Developer Portfolio', 'David', 'Acevedo'],
+  description:
+    "I develop accessible, responsive, interactive, and animated websites and applications with a strong focus on performance.",
+  metadataBase: new URL("https://www.david-acevedo.tech"),
+  keywords: ["Frontend", "Senior", "Creative developer", "Developer Portfolio", "David", "Acevedo"],
   openGraph: {
-    title: 'David Acevedo - Frontend Developer',
-    description: 'I develop accessible, responsive, interactive, and animated websites and applications with a strong focus on performance.',
-    url: 'https://www.david-acevedo.tech',
+    title: "David Acevedo - Frontend Developer",
+    description:
+      "I develop accessible, responsive, interactive, and animated websites and applications with a strong focus on performance.",
+    url: "https://www.david-acevedo.tech",
     images: [
       {
-        url: 'https://www.david-acevedo.tech/_next/image?url=%2Fstatic%2Fimages%2Fdavid-acevedo.webp&w=384&q=75',
+        url: "https://www.david-acevedo.tech/_next/image?url=%2Fstatic%2Fimages%2Fdavid-acevedo.webp&w=384&q=75",
         width: 630,
         height: 630,
-        alt: 'My personal picture'
-      }
+        alt: "My personal picture",
+      },
     ],
-    type: 'website',
-  }
+    type: "website",
+  },
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>
@@ -54,8 +55,9 @@ export default function RootLayout({
           ubuntu.className,
           lora.variable,
           ubuntu.variable,
-          "bg-alt w-screen overflow-x-hidden"
-        )}>
+          "w-screen overflow-x-hidden bg-alt"
+        )}
+      >
         <Providers>
           {children}
           <SpeedInsights />

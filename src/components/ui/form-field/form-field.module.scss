@@ -2,14 +2,14 @@
 @use "mixins/transition" as t;
 
 .form-field {
-  @apply flex h-12 rounded-full ring-2 ring-transparent outline-none;
+  @apply flex h-12 rounded-full outline-none ring-2 ring-transparent;
   @include b.border(all);
   @include t.transition(all);
 
   &:focus-within:not(&--error, &--disabled) {
-    @apply outline-none ring-indigo-500/50 border-indigo-500/70;
+    @apply border-indigo-500/70 outline-none ring-indigo-500/50;
 
-    &>* {
+    & > * {
       @apply border-indigo-500/70;
     }
   }
@@ -19,11 +19,11 @@
   }
 
   &__label {
-    @apply font-bold text-sm text-indigo-200 leading-none;
+    @apply text-sm font-bold leading-none text-indigo-200;
   }
 
   &__help-text {
-    @apply font-medium text-sm text-white/80 leading-none font-lora;
+    @apply font-lora text-sm font-medium leading-none text-white/80;
 
     &--error {
       @apply text-red-500;
@@ -33,7 +33,7 @@
   &__prefix,
   &__suffix,
   &__btn {
-    @apply px-4 leading-none grid place-items-center bg-indigo-900/40 backdrop-blur-xl shadow-lg shadow-indigo-800/15;
+    @apply grid place-items-center bg-indigo-900/40 px-4 leading-none shadow-lg shadow-indigo-800/15 backdrop-blur-xl;
   }
 
   &__suffix,
@@ -57,11 +57,11 @@
   }
 
   &__btn {
-    @apply relative pr-6 hover:bg-transparent overflow-hidden [&:not([disabled])]:hover:after:opacity-100 [&:not([disabled])]:active:[&>span]:scale-95;
+    @apply relative overflow-hidden pr-6 hover:bg-transparent [&:not([disabled])]:hover:after:opacity-100 [&:not([disabled])]:active:[&>span]:scale-95;
     @include t.transition(all);
 
-    &>span {
-      @apply flex gap-2 whitespace-nowrap items-center leading-none;
+    & > span {
+      @apply flex items-center gap-2 whitespace-nowrap leading-none;
       @include t.transition(transform, 150ms);
     }
 
@@ -71,12 +71,12 @@
 
     &:not([disabled])::after {
       content: "";
-      @apply opacity-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 absolute w-full h-full top-0 left-0 z-[-1];
+      @apply absolute left-0 top-0 z-[-1] h-full w-full bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 opacity-0;
       @include t.transition(all);
     }
 
     &__icon {
-      @apply opacity-80 w-5 h-5;
+      @apply h-5 w-5 opacity-80;
 
       &:is(i) {
         @apply text-xl leading-none;
@@ -85,18 +85,17 @@
   }
 
   &:has(input[disabled]) {
-
     @apply bg-zinc-400/5;
 
     .form-field__prefix,
     .form-field__suffix,
     .form-field__btn {
-      @apply bg-zinc-800/30 select-none shadow-none text-white/50;
+      @apply select-none bg-zinc-800/30 text-white/50 shadow-none;
     }
   }
 
   &__input {
-    @apply flex flex-1 bg-transparent rounded-[inherit] relative;
+    @apply relative flex flex-1 rounded-[inherit] bg-transparent;
 
     &:has(&__icon) &__field {
       @apply pl-12;
@@ -107,7 +106,7 @@
     }
 
     &__icon {
-      @apply absolute aspect-square h-full grid place-content-center select-none pointer-events-none;
+      @apply pointer-events-none absolute grid aspect-square h-full select-none place-content-center;
 
       &:is(i) {
         @apply text-xl leading-none;
@@ -119,19 +118,19 @@
     }
 
     &__field {
-      @apply flex-1 bg-transparent rounded-[inherit] px-4 focus:outline-none;
+      @apply flex-1 rounded-[inherit] bg-transparent px-4 focus:outline-none;
     }
   }
 
   &--error {
-    @apply ring-red-500/50 border-red-500/70;
+    @apply border-red-500/70 ring-red-500/50;
 
-    &>* {
+    & > * {
       @apply border-red-500/70;
     }
   }
 
   &--disabled {
-    @apply ring-0 border-zinc-400 select-none;
+    @apply select-none border-zinc-400 ring-0;
   }
 }

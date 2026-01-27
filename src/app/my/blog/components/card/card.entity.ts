@@ -1,8 +1,8 @@
 import { DetailedHTMLProps, HTMLAttributes, Ref } from "react";
 
 export enum CardVariant {
-  post = 'post',
-  featured = 'featured'
+  post = "post",
+  featured = "featured",
 }
 
 interface Avatar {
@@ -10,10 +10,8 @@ interface Avatar {
   name: string;
 }
 
-export interface CardProps extends 
-  DetailedHTMLProps<
-    HTMLAttributes<HTMLDivElement>, HTMLDivElement
-  > {
+export interface CardProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   ref?: Ref<HTMLDivElement>;
   image: string;
   title: string;

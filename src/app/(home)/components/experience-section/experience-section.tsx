@@ -13,13 +13,7 @@ interface ExperienceItemProps {
   workType: string;
 }
 
-function ExperienceItem({
-  company,
-  dueDate,
-  startDate,
-  title,
-  workType,
-}: ExperienceItemProps) {
+function ExperienceItem({ company, dueDate, startDate, title, workType }: ExperienceItemProps) {
   return (
     <div className={cn(styles.item, "group")}>
       <div className={cn(styles.item__section, styles["item__section--left"])}>

@@ -1,5 +1,5 @@
 .skills {
-  @apply grid flex-1 grid-cols-2 md:grid-cols-3 xl:grid-cols-5 2xl:grid-cols-6 gap-9 xl:max-w-[80vw];
+  @apply grid flex-1 grid-cols-2 gap-9 md:grid-cols-3 xl:max-w-[80vw] xl:grid-cols-5 2xl:grid-cols-6;
 
   & > a {
     @media screen and (max-width: 768px) {
@@ -20,15 +20,15 @@
       &:nth-child(5) {
         grid-column: 2 / 3;
       }
-  
+
       &:nth-child(7) {
         grid-column: 5 / 5;
       }
-  
+
       &:nth-child(8) {
         grid-column: 2 / 3;
       }
-  
+
       &:last-child {
         grid-column: 4 / 5;
       }
@@ -38,19 +38,19 @@
       &:nth-child(2) {
         grid-column: 3 / 4;
       }
-  
+
       &:nth-child(5) {
         grid-column: 2 / 3;
       }
-  
+
       &:nth-child(7) {
         grid-column: 6 / 6;
       }
-  
+
       &:nth-child(8) {
         grid-column: 2 / 3;
       }
-  
+
       &:last-child {
         grid-column: 5 / 6;
       }

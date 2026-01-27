@@ -78,14 +78,14 @@ export default function Home() {
       },
       ...(isBlogEnabled
         ? [
-            {
-              id: "blog",
-              title: "Blog",
-              isActive: false,
-              link: "/my/blog",
-              icon: <IconBlockquote />,
-            },
-          ]
+          {
+            id: "blog",
+            title: "Blog",
+            isActive: false,
+            link: "/my/blog",
+            icon: <IconBlockquote />,
+          },
+        ]
         : []),
     ];
   }, [
@@ -126,8 +126,9 @@ export default function Home() {
         </div>
       </section>
       <section className="mx-auto w-full overflow-hidden px-6 py-10 md:w-11/12 md:pb-16 md:pt-0">
-        <h4 className="mb-6 py-3 text-2xl font-thin opacity-50">
-          Companies and brands I have collaborated with
+        <h4 className="mb-6 py-3 text-2xl font-thin text-zinc-400 opacity-65">
+          <span className="font-lora text-white">Companies</span> and{" "}
+          <span className="font-lora text-white">brands</span> I have collaborated with
         </h4>
         <LogoLoop
           logos={[

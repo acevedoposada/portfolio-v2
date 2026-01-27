@@ -78,14 +78,14 @@ export default function Home() {
       },
       ...(isBlogEnabled
         ? [
-          {
-            id: "blog",
-            title: "Blog",
-            isActive: false,
-            link: "/my/blog",
-            icon: <IconBlockquote />,
-          },
-        ]
+            {
+              id: "blog",
+              title: "Blog",
+              isActive: false,
+              link: "/my/blog",
+              icon: <IconBlockquote />,
+            },
+          ]
         : []),
     ];
   }, [
@@ -126,20 +126,48 @@ export default function Home() {
         </div>
       </section>
       <section className="mx-auto w-full overflow-hidden px-6 py-10 md:w-11/12 md:pb-16 md:pt-0">
-        <h4 className="py-3 text-2xl font-thin opacity-50 mb-6">
+        <h4 className="mb-6 py-3 text-2xl font-thin opacity-50">
           Companies and brands I have collaborated with
         </h4>
         <LogoLoop
           logos={[
             { src: "/static/images/adl.png", alt: "ADL", href: "https://www.adldigitallab.com/" },
-            { src: "/static/images/banco-de-bogota.png", alt: "Banco de Bogotá", href: "https://www.bancodebogota.com" },
-            { src: "/static/images/grupo-aval.png", alt: "Grupo Aval", href: "https://www.grupoaval.com/home" },
-            { src: "/static/images/abinbev.png", alt: "ABInBev", href: "https://www.ab-inbev.com/" },
+            {
+              src: "/static/images/banco-de-bogota.png",
+              alt: "Banco de Bogotá",
+              href: "https://www.bancodebogota.com",
+            },
+            {
+              src: "/static/images/grupo-aval.png",
+              alt: "Grupo Aval",
+              href: "https://www.grupoaval.com/home",
+            },
+            {
+              src: "/static/images/abinbev.png",
+              alt: "ABInBev",
+              href: "https://www.ab-inbev.com/",
+            },
             { src: "/static/images/bavaria.png", alt: "Bavaria", href: "https://www.bavaria.co/" },
-            { src: "/static/images/becks.png", alt: "Becks Beer", href: "https://becks.de/?lang=en" },
-            { src: "/static/images/noffra.png", alt: "Noffra", href: "https://empresasnoffra.com/" },
-            { src: "/static/images/serempre.png", alt: "Serempre", href: "https://www.linkedin.com/company/serempre/" },
-            { src: "/static/images/tienda-cerca.png", alt: "Tienda Cerca", href: "https://tiendacerca.com/" },
+            {
+              src: "/static/images/becks.png",
+              alt: "Becks Beer",
+              href: "https://becks.de/?lang=en",
+            },
+            {
+              src: "/static/images/noffra.png",
+              alt: "Noffra",
+              href: "https://empresasnoffra.com/",
+            },
+            {
+              src: "/static/images/serempre.png",
+              alt: "Serempre",
+              href: "https://www.linkedin.com/company/serempre/",
+            },
+            {
+              src: "/static/images/tienda-cerca.png",
+              alt: "Tienda Cerca",
+              href: "https://tiendacerca.com/",
+            },
             { src: "/static/images/menu-digital.png", alt: "Menú Digital", href: "#" },
           ]}
           logoHeight={120}

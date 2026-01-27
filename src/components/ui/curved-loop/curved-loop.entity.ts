@@ -3,6 +3,6 @@ export interface CurvedLoopProps {
   speed?: number;
   className?: string;
   curveAmount?: number;
-  direction?: 'left' | 'right';
+  direction?: "left" | "right";
   interactive?: boolean;
 }

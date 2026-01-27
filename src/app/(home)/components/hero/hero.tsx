@@ -82,7 +82,7 @@ export default function Hero() {
           </motion.p>
         </motion.div>
       </HeroHighlight>
-      <div className="absolute bottom-20 lg:bottom-44 left-0 w-full h-1/2 opacity-40">
+      <div className="absolute bottom-20 left-0 h-1/2 w-full opacity-40 lg:bottom-44">
         <CurvedLoop
           marqueeText="Accessibility ✦ Responsiveness ✦ Interactive ✦ Performance ✦"
           curveAmount={190}
